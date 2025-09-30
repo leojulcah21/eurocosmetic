@@ -8,6 +8,8 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link rel="icon" type="image/png" href="{{ asset('img/icono.png') }}">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,8 +23,10 @@
     @livewireStyles
 </head>
 
-<body class="h-full font-sans" style="background: #edf2f7;">
-    @include('layouts.app.sidebar')
+<body
+    class="m-0 font-sans text-base antialiased font-normal leading-default bg-gray-50 text-slate-500">
+    <div class="absolute w-full bg-[#fff2f2] dark:hidden min-h-72"></div>
+    @include('components.app.sidebar')
     <div class="mb-6 ml-auto lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
         <div class="sticky z-10 top-0 h-16 border-b bg-white lg:py-2.5">
             <div class="flex items-center justify-between px-6 space-x-4">
@@ -86,7 +90,7 @@
         </div>
     </div>
     @stack('modals')
-    @livewireScriptsf
+    @livewireScripts
 </body>
 
 </html>

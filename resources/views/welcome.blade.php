@@ -1,30 +1,4 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&family=Miriam+Libre:wght@400..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
-        rel="stylesheet">
-
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-    <!-- Styles -->
-    @livewireStyles
-</head>
-
-<body class="font-sans bg-white text-stone-950">
+<x-blog-layout>
     <header id="header" class="sticky top-0 z-50 bg-white shadow">
         <!-- Top Bar -->
         <div class="bg-stone-100 ">
@@ -83,7 +57,7 @@
                                 <span class='mr-2 text-green-500 '><i class="bi bi-check2"></i></span>PEN
                             </x-dropdown-link>
                             <x-dropdown-link href="#">
-                                {{ __('Comming Soon') }}
+                                {{ __('Coming Soon') }}
                             </x-dropdown-link>
                         </x-dropdown>
                     </div>
@@ -446,8 +420,4 @@
             </div>
         </div>
     </footer>
-
-    <span class='hidden'> @livewireScriptsf </span>
-</body>
-
-</html>
+</x-blog-layout>

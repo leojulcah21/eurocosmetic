@@ -1,19 +1,18 @@
 @props([
     'variant' => 'primary',
-    'active' => false, // <- nuevo
+    'active' => false,
 ])
 
 @php
     $variants = [
         'primary' => [
             'default' => [
-                // Estos ahora son p2 y p3 de tu primer ejemplo
-                'p1' => 'text-gray-300 group-hover:text-cyan-300', // antes p2
-                'p2' => 'text-gray-500 group-hover:text-sky-300',                // antes p3
+                'p1' => 'text-gray-300 group-hover:text-cyan-300',
+                'p2' => 'text-gray-500 group-hover:text-sky-300',
             ],
             'active' => [
                 'p1' => 'text-cyan-200 group-hover:text-cyan-300',
-                'p2' => 'text-sky-400', // se mantiene fijo cuando está activo
+                'p2' => 'text-sky-400',
             ],
         ],
         'secondary' => [
@@ -44,26 +43,6 @@
             'active' => [
                 'p1' => 'text-yellow-400 group-hover:text-yellow-500',
                 'p2' => 'text-yellow-600',
-            ],
-        ],
-        'black' => [
-            'default' => [
-                'p1' => 'text-black',
-                'p2' => 'group-hover:text-black',
-            ],
-            'active' => [
-                'p1' => 'text-black',
-                'p2' => 'text-black',
-            ],
-        ],
-        'white' => [
-            'default' => [
-                'p1' => 'text-white',
-                'p2' => 'group-hover:text-white',
-            ],
-            'active' => [
-                'p1' => 'text-white',
-                'p2' => 'text-white',
             ],
         ],
     ];
