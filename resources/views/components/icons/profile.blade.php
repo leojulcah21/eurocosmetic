@@ -7,12 +7,12 @@
     $variants = [
         'primary' => [
             'default' => [
-                'p1' => 'text-gray-300 group-hover:text-cyan-300',
-                'p2' => 'text-gray-500 group-hover:text-sky-300',
+                'p1' => 'text-stone-300 group-hover:text-indigo-300',
+                'p2' => 'text-stone-400 group-hover:text-indigo-400 group-hover:fill-indigo-500',
             ],
             'active' => [
-                'p1' => 'text-cyan-200 group-hover:text-cyan-300',
-                'p2' => 'text-sky-400',
+                'p1' => 'text-indigo-300 group-hover:text-indigo-400',
+                'p2' => 'text-indigo-500 fill-indigo-600 group-hover:text-indigo-600',
             ],
         ],
         'secondary' => [
@@ -52,7 +52,7 @@
         : $variants[$variant]['default'];
 @endphp
 
-<div {{ $attributes->merge(['class' => 'flex items-center group']) }}>
+<div {{ $attributes->merge(['class' => 'flex items-center']) }}>
     <svg class="w-4 h-4 -ml-1 fill-current" viewBox="0 0 24 24" fill="currentColor">
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
         <path d="M12 2a5 5 0 1 1 -5 5l.005 -.217a5 5 0 0 1 4.995 -4.783z"

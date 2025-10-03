@@ -8,7 +8,7 @@
     </div>
     <div class="h-px mt-0 bg-transparent bg-gradient-to-r from-transparent via-white to-transparent">
     </div>
-    <div class="items-center block w-auto max-h-screen overflow-auto h-[calc(100vh-360px)] grow basis-full mt-5">
+    <div class="items-center block w-auto max-h-screen overflow-auto h-[calc(100vh-360px)] grow basis-full mt-2">
         {{-- <div class="mt-8 text-center">
             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
             <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}"
@@ -38,7 +38,7 @@
         </div> --}}
         <ul class="flex flex-col pl-0 mb-0">
             <li class="mt-0.5 w-full">
-                <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" class="group">
+                <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                     <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
                         <x-icons.dashboard :active="request()->routeIs('dashboard')" />
                     </div>
@@ -47,7 +47,7 @@
                     </span>
                 </x-nav-link>
             </li>
-            <li class="w-full mt-4">
+            <li class="w-full mt-4 mb-2">
                 <h6 class="pl-6 ml-2 text-xs font-bold leading-tight uppercase dark:text-white opacity-60">Account pages
                 </h6>
             </li>

@@ -1,8 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
-        <h5 class="hidden text-xl font-medium text-gray-600 lg:block">
+        <h6 class="mb-0 font-bold capitalize text-stone-950">
             {{ __('Dashboard') }}
-        </h5>
+        </h6>
     </x-slot>
 
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
