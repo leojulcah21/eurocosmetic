@@ -9,12 +9,14 @@
             'default' => [
                 'p1' => 'text-stone-400 group-hover:text-indigo-400 group-hover:fill-indigo-500',
                 'p2' => 'text-stone-300 group-hover:text-indigo-300',
-                'p3' => 'text-stone-200 group-hover:text-indigo-100',
+                'p3' => 'text-stone-200 group-hover:text-indigo-200',
+                'p4' => 'text-stone-100 group-hover:text-indigo-100',
             ],
             'active' => [
                 'p1' => 'text-indigo-500 fill-indigo-600 group-hover:text-indigo-600',
-                'p2' => 'text-indigo-300 group-hover:text-indigo-400',
-                'p3' => 'group-hover:text-indigo-200',
+                'p2' => 'text-indigo-400 group-hover:text-indigo-500',
+                'p3' => 'text-indigo-300 group-hover:text-indigo-400',
+                'p4' => 'group-hover:text-indigo-200',
             ]
         ],
         'secondary' => [
@@ -61,12 +63,21 @@
 @endphp
 
 <div {{ $attributes->merge(['class' => 'flex items-center']) }}>
-    <svg class="w-6 h-6 -ml-1 fill-current" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg class="w-[18px] h-[18px] -ml-1 fill-current" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
         <path
-            d="M6 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8ZM6 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-1Z"
-            class="{{ $colors['p1'] }}" />
-        <path d="M13 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2V8Z" class="{{ $colors['p2'] }}" />
-        <path d="M13 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-1Z"
-            class="{{ $colors['p3'] }}" />
+            d="M8 3a3 3 0 0 1 3 3v1a3 3 0 0 1 -3 3h-2a3 3 0 0 1 -3 -3v-1a3 3 0 0 1 3 -3z" class="{{ $colors['p1'] }}" />
+        <path d="M8 12a3 3 0 0 1 3 3v3a3 3 0 0 1 -3 3h-2a3 3 0 0 1 -3 -3v-3a3 3 0 0 1 3 -3z" class="{{ $colors['p2'] }}" />
+        <path d="M18 3a3 3 0 0 1 3 3v3a3 3 0 0 1 -3 3h-2a3 3 0 0 1 -3 -3v-3a3 3 0 0 1 3 -3z" class="{{ $colors['p3'] }}" />
+        <path d="M18 14a3 3 0 0 1 3 3v1a3 3 0 0 1 -3 3h-2a3 3 0 0 1 -3 -3v-1a3 3 0 0 1 3 -3z" class="{{ $colors['p4'] }}" />
     </svg>
 </div>
+
+
+{{-- <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-layout-2">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    <path d="M8 3a3 3 0 0 1 3 3v1a3 3 0 0 1 -3 3h-2a3 3 0 0 1 -3 -3v-1a3 3 0 0 1 3 -3z" />
+    <path d="M8 12a3 3 0 0 1 3 3v3a3 3 0 0 1 -3 3h-2a3 3 0 0 1 -3 -3v-3a3 3 0 0 1 3 -3z" />
+    <path d="M18 3a3 3 0 0 1 3 3v3a3 3 0 0 1 -3 3h-2a3 3 0 0 1 -3 -3v-3a3 3 0 0 1 3 -3z" />
+    <path d="M18 14a3 3 0 0 1 3 3v1a3 3 0 0 1 -3 3h-2a3 3 0 0 1 -3 -3v-1a3 3 0 0 1 3 -3z" />
+</svg> --}}
