@@ -15,7 +15,7 @@
                         <div class="relative w-full h-10 max-w-xs overflow-hidden font-medium" id="anuncio-slider">
                             <div id="anuncio-wrapper" class="transition-transform duration-700">
                                 <div class="flex items-center justify-center h-10 leading-10 text-center">
-                                    🚚 Free shipping on orders over $50
+                                    🚚 Free shipping on orders over $120
                                 </div>
                                 <div class="flex items-center justify-center h-10 leading-10 text-center">
                                     💰 30 days money back guarantee.
