@@ -21,7 +21,7 @@
                                     💰 30 days money back guarantee.
                                 </div>
                                 <div class="flex items-center justify-center h-10 leading-10 text-center">
-                                    🎁 20% off on your first order
+                                    🎁 30% off on your first order
                                 </div>
                             </div>
                         </div>
