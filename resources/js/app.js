@@ -41,65 +41,74 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 5000);
 });
 
-// 3. Inicializar GLightbox (galería de imágenes)
-document.addEventListener('DOMContentLoaded', () => {
-  GLightbox({ selector: '.glightbox' });
-});
+document.addEventListener("DOMContentLoaded", () => {
+    const tabLinks = document.querySelectorAll("#profile-tabs .tab-link");
+    const movingTab = document.querySelector("#profile-tabs .moving-tab");
 
-// 4. Inicializar PureCounter (contadores animados)
-document.addEventListener('DOMContentLoaded', () => {
-  new PureCounter();
-});
-
-// 5. Inicializar Drift Zoom (zoom en imágenes de producto)
-document.addEventListener('DOMContentLoaded', () => {
-  const mainImage = document.getElementById('main-product-image');
-  if (mainImage) {
-    new Drift(mainImage, {
-      paneContainer: document.querySelector('.image-zoom-container'),
-      inlinePane: window.innerWidth < 768,
-      inlineOffsetY: -85,
-      containInline: true,
-      hoverBoundingBox: false,
-      zoomFactor: 3,
-      handleTouch: false
-    });
-  }
-});
-
-// 6. Contador regresivo (para ofertas, etc.)
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.countdown').forEach(countDownItem => {
-    function updateCountDown() {
-      const timeleft = new Date(countDownItem.getAttribute('data-count')).getTime() - new Date().getTime();
-      const days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
-
-      const daysElement = countDownItem.querySelector('.count-days');
-      const hoursElement = countDownItem.querySelector('.count-hours');
-      const minutesElement = countDownItem.querySelector('.count-minutes');
-      const secondsElement = countDownItem.querySelector('.count-seconds');
-
-      if (daysElement) daysElement.innerHTML = days;
-      if (hoursElement) hoursElement.innerHTML = hours;
-      if (minutesElement) minutesElement.innerHTML = minutes;
-      if (secondsElement) secondsElement.innerHTML = seconds;
+    function moveTab(el) {
+        movingTab.style.width = `${el.offsetWidth}px`;
+        movingTab.style.height = `${el.offsetHeight}px`;
+        movingTab.style.transform = `translateX(${el.offsetLeft}px)`;
     }
-    updateCountDown();
-    setInterval(updateCountDown, 1000);
-  });
+
+    tabLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+            moveTab(link);
+        });
+    });
+
+    // Inicializa en el primero
+    if (tabLinks.length > 0) moveTab(tabLinks[0]);
 });
 
-// const container = document.querySelector('.container');
-// const registerBtn = document.querySelector('.register-btn');
-// const loginBtn = document.querySelector('.login-btn');
+// // 3. Inicializar GLightbox (galería de imágenes)
+// document.addEventListener('DOMContentLoaded', () => {
+//   GLightbox({ selector: '.glightbox' });
+// });
 
-// registerBtn.addEventListener('click', () => {
-//     container.classList.add('active');
-// })
+// // 4. Inicializar PureCounter (contadores animados)
+// document.addEventListener('DOMContentLoaded', () => {
+//   new PureCounter();
+// });
 
-// loginBtn.addEventListener('click', () => {
-//     container.classList.remove('active');
-// })
+// // 5. Inicializar Drift Zoom (zoom en imágenes de producto)
+// document.addEventListener('DOMContentLoaded', () => {
+//   const mainImage = document.getElementById('main-product-image');
+//   if (mainImage) {
+//     new Drift(mainImage, {
+//       paneContainer: document.querySelector('.image-zoom-container'),
+//       inlinePane: window.innerWidth < 768,
+//       inlineOffsetY: -85,
+//       containInline: true,
+//       hoverBoundingBox: false,
+//       zoomFactor: 3,
+//       handleTouch: false
+//     });
+//   }
+// });
+
+// // 6. Contador regresivo (para ofertas, etc.)
+// document.addEventListener('DOMContentLoaded', () => {
+//   document.querySelectorAll('.countdown').forEach(countDownItem => {
+//     function updateCountDown() {
+//       const timeleft = new Date(countDownItem.getAttribute('data-count')).getTime() - new Date().getTime();
+//       const days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+//       const hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//       const minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+//       const seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+
+//       const daysElement = countDownItem.querySelector('.count-days');
+//       const hoursElement = countDownItem.querySelector('.count-hours');
+//       const minutesElement = countDownItem.querySelector('.count-minutes');
+//       const secondsElement = countDownItem.querySelector('.count-seconds');
+
+//       if (daysElement) daysElement.innerHTML = days;
+//       if (hoursElement) hoursElement.innerHTML = hours;
+//       if (minutesElement) minutesElement.innerHTML = minutes;
+//       if (secondsElement) secondsElement.innerHTML = seconds;
+//     }
+//     updateCountDown();
+//     setInterval(updateCountDown, 1000);
+//   });
+// });

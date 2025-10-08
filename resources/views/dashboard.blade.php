@@ -5,7 +5,10 @@
         </h6>
     </x-slot>
 
-    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <div class="relative grid w-full gap-6 px-6 py-6 mx-auto md:grid-cols-2 lg:grid-cols-3">
         <x-welcome />
     </div>
 </x-app-layout>
+
+
+

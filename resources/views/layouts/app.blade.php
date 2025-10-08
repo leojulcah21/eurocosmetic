@@ -161,9 +161,7 @@
                 </div>
             </div>
         </nav>
-        <div class="w-full px-6 py-6 mx-auto">
-            {{ $slot }}
-        </div>
+        {{ $slot }}
     </main>
     @stack('modals')
     @livewireScripts
