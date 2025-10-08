@@ -41,7 +41,7 @@
                             <x-dropdown-link href="#" class="font-semibold">
                                 <span class='mr-2 font-bold text-green-500 '><i class="bi bi-check2"></i></span>English
                             </x-dropdown-link>
-                            <x-dropdown-link href="#">Español</x-dropdown-link>
+                            <x-dropdown-link href="#">{{ __('Spanish') }}</x-dropdown-link>
                         </x-dropdown>
                         <!-- Dropdown Moneda -->
                         <x-dropdown align="right" width="40">
