@@ -14,7 +14,7 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Work Sans', ...defaultTheme.fontFamily.sans],
+                sans: ['"Playwrite US Modern"', ...defaultTheme.fontFamily.sans],
                 miriam: ['"Miriam Libre"', 'serif'],
                 lavish: ['"Lavishly Yours"', 'cursive'],
                 code: ['"Source Code Pro"', 'monospace'],

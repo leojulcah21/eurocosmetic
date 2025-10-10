@@ -29,7 +29,7 @@
                     </x-nav-link>
                 </li>
                 <li class="w-full mt-4 mb-2">
-                    <h6 class="pl-6 ml-2 text-xs font-bold leading-tight uppercase dark:text-white opacity-60">Account
+                    <h6 class="pl-6 ml-2 text-[9px] font-bold leading-tight uppercase dark:text-white opacity-60">Account
                         pages
                     </h6>
                 </li>

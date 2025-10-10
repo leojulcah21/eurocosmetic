@@ -1,6 +1,6 @@
 import './bootstrap';
-import Alpine from 'alpinejs';
-import focus from '@alpinejs/focus';
+// import Alpine from 'alpinejs';
+// import focus from '@alpinejs/focus';
 import 'aos/dist/aos.css';
 import 'glightbox/dist/css/glightbox.min.css';
 import 'drift-zoom/dist/drift-basic.min.css';
@@ -9,15 +9,15 @@ import Drift from 'drift-zoom';
 import GLightbox from 'glightbox';
 import PureCounter from '@srexi/purecounterjs';
 
-Alpine.plugin(focus)
-window.Alpine = Alpine
+// Alpine.plugin(focus)
+// window.Alpine = Alpine
 
-// Esto le dice a Livewire: "usa este Alpine, no metas otro"
-document.addEventListener('alpine:init', () => {
-    window.Livewire?.start()
-})
+// // Esto le dice a Livewire: "usa este Alpine, no metas otro"
+// document.addEventListener('alpine:init', () => {
+//     window.Livewire?.start()
+// })
 
-Alpine.start()
+// Alpine.start()
 // 1. Inicializar AOS (animaciones al hacer scroll)
 document.addEventListener('DOMContentLoaded', () => {
   AOS.init({
