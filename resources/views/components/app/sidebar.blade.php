@@ -29,7 +29,8 @@
                     </x-nav-link>
                 </li>
                 <li class="w-full mt-4 mb-2">
-                    <h6 class="pl-6 ml-2 text-[9px] font-bold leading-tight uppercase dark:text-white opacity-60">Account
+                    <h6 class="pl-6 ml-2 text-[9px] font-bold leading-tight uppercase dark:text-white opacity-60">
+                        Account
                         pages
                     </h6>
                 </li>
@@ -43,6 +44,21 @@
                             {{ __('Profile') }}
                         </span>
                     </x-nav-link>
+                </li>
+                <li class="w-full mt-1">
+                    <form method="POST" action="{{ route('logout') }}" x-data>
+                        @csrf
+
+                        <x-nav-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
+                            <div
+                                class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                                <x-icons.logout  :active="request()->routeIs('logout')" variant='danger' />
+                            </div>
+                            <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">
+                                {{ __('Log Out') }}
+                            </span>
+                        </x-nav-link>
+                    </form>
                 </li>
             </ul>
         </div>
