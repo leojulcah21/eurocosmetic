@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('payment_transactions', function (Blueprint $table) {
             $table->id();
+            $table->string("code")->unique();
+            $table->string("document_number");
+            $table->date("issue_date");
+            $table->date("transaction_date");
+            $table->decimal("total_amount");
             $table->timestamps();
         });
     }

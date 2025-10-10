@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('document_types', function (Blueprint $table) {
             $table->id();
+            $table->string("code")->unique();
+            $table->string("document_name");
             $table->timestamps();
         });
     }
