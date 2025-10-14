@@ -18,6 +18,8 @@ export default {
                 miriam: ['"Miriam Libre"', 'serif'],
                 lavish: ['"Lavishly Yours"', 'cursive'],
                 code: ['"Source Code Pro"', 'monospace'],
+                work: ['"Work Sans"', 'sans-serif'],
+                raleway: ['"Raleway"', 'sans-serif'],
             },
         },
     },

@@ -9,7 +9,7 @@
             autocomplete="name" placeholder="{{ __('Name') }}" />
 
         <button type="button" class="absolute -translate-y-1/2 right-5 top-1/2 focus:outline-none">
-            <x-icon name="user" class="w-5 h-5" />
+            <x-icon name="user-s" class="w-5 h-5" />
         </button>
     </div>
 
@@ -18,7 +18,7 @@
             autocomplete="username" placeholder="{{ __('Email') }}" />
 
         <button type="button" class="absolute -translate-y-1/2 right-5 top-1/2 focus:outline-none">
-            <x-icon name="mailbox" class="w-5 h-5" />
+            <x-icon name="envelope" class="w-5 h-5" />
         </button>
     </div>
 

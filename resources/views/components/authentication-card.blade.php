@@ -1,4 +1,4 @@
-<div x-data="{ isRegister: {{ json_encode(request()->routeIs('register')) }} }"
+<div x-data="{ isRegister: {{ json_encode(request()->routeIs('register.client')) }} }"
     class="relative w-[950px] h-[650px] bg-white m-5 rounded-[30px] shadow-[0_0px_30px_rgba(0,0,0,.2)] overflow-hidden">
 
     <!-- Formulario -->
@@ -25,8 +25,8 @@
                     <h2 class="text-xl font-bold">¿Eres nuevo aquí?</h2>
                     <p class="text-sm">Crea una cuenta y empieza tu viaje con nosotros</p>
                     <div class='mt-6'>
-                        <x-auth-link href="{{ route('register') }}"
-                            @click.prevent="isRegister = true; history.pushState(null, '', '{{ route('register') }}');">
+                        <x-auth-link href="{{ route('register.client') }}"
+                            @click.prevent="isRegister = true; history.pushState(null, '', '{{ route('register.client') }}');">
                             {{ __('Register') }}
                         </x-auth-link>
                     </div>
@@ -38,8 +38,8 @@
                     <h2 class="text-xl font-bold">¿Ya tienes cuenta?</h2>
                     <p class="text-sm">Inicia sesión y sigue donde lo dejaste</p>
                     <div class='mt-6'>
-                        <x-auth-link href="{{ route('login') }}"
-                            @click.prevent="isRegister = false; history.pushState(null, '', '{{ route('login') }}');">
+                        <x-auth-link href="{{ route('login.client') }}"
+                            @click.prevent="isRegister = false; history.pushState(null, '', '{{ route('login.client') }}');">
                             {{ __('Log in') }}
                         </x-auth-link>
                     </div>

@@ -110,7 +110,7 @@
                                     {{ __('Welcome to') }} <span class="text-stone-700">Eurocosmetic</span>
                                     @endguest
                                 </h6>
-                                <p class="mb-0 text-xs text-stone-500">Access account and manage orders</p>
+                                <p class="mb-0 text-xs text-stone-500">{{ __('Access account and manage orders') }}</p>
                             </div>
                             <div class="py-2">
                                 @auth
@@ -128,11 +128,11 @@
                             <div class="px-4 py-3 border-t bg-stone-50">
                                 @guest
                                 {{-- Cuando el usuario NO ha iniciado sesión --}}
-                                <x-dropdown-link href="{{ route('login') }}"
+                                <x-dropdown-link href="{{ route('login.client') }}"
                                     class="block w-full px-4 py-2 mb-2 text-center text-white rounded-full bg-stone-950 hover:bg-stone-900">
                                     {{ __('Login') }}
                                 </x-dropdown-link>
-                                <x-dropdown-link href="{{ route('register') }}"
+                                <x-dropdown-link href="{{ route('register.client') }}"
                                     class="block w-full px-4 py-2 text-center border rounded-full text-stone-950 border-stone-950 hover:bg-stone-100">
                                     {{ __('Register') }}
                                 </x-dropdown-link>
@@ -175,27 +175,34 @@
 
         <!-- Navigation -->
         <div class="bg-stone-950">
-            <div class="container relative max-w-screen-xl px-4 mx-auto">
+            <div class="container relative max-w-screen-xl px-4 py-1 mx-auto">
                 <nav id="navmenu" class="flex flex-wrap gap-4">
                     <!-- Ejemplo de menú, puedes expandirlo con megamenús y submenús usando Alpine.js -->
                     <x-nav-x-link href="{{ route('home') }}" :active="request()->routeIs('home')">Home</x-nav-x-link>
                     <x-nav-x-link>About</x-nav-x-link>
                     <x-nav-x-link>Category</x-nav-x-link>
-                    <x-nav-x-link>Product
-                        Details</x-nav-x-link>
+                    <x-nav-x-link>Product Details</x-nav-x-link>
                     <x-nav-x-link>Cart</x-nav-x-link>
                     <x-nav-x-link>Checkout</x-nav-x-link>
                     <!-- Dropdown ejemplo -->
                     <div x-data="{ open: false }" class="relative">
                         <button @click="open = !open"
-                            class="flex items-center gap-1 px-4 py-2 text-stone-300 hover:text-white hover:font-medium">
+                            class="flex items-center gap-1 px-4 py-2 text-stone-300 hover:text-white hover:font-medium text-[13px]">
                             Dropdown <i class="bi bi-chevron-down"></i>
                         </button>
                         <ul x-show="open" @click.away="open = false"
-                            class="absolute left-0 z-10 w-40 mt-2 border rounded shadow bg-stone-950 border-stone-800">
-                            <li><a href="#" class="block px-4 py-2 text-white hover:bg-stone-700">Dropdown 1</a></li>
-                            <li><a href="#" class="block px-4 py-2 text-white hover:bg-stone-700">Dropdown 2</a></li>
-                            <li><a href="#" class="block px-4 py-2 text-white hover:bg-stone-700">Dropdown 3</a></li>
+                            class="absolute left-0 z-10 w-40 mt-2.5 border rounded shadow bg-stone-950 border-stone-800">
+                            <div class="w-0 h-0 absolute -top-2.5 left-2
+                                border-l-[10px] border-l-transparent
+                                border-r-[10px] border-r-transparent
+                                border-b-[10px] border-b-stone-950">
+                            </div>
+                            <li><a href="#" class="block px-4 py-2 text-white hover:bg-stone-800 text-[12px]">Dropdown
+                                    1</a></li>
+                            <li><a href="#" class="block px-4 py-2 text-white hover:bg-stone-800 text-[12px]">Dropdown
+                                    2</a></li>
+                            <li><a href="#" class="block px-4 py-2 text-white hover:bg-stone-800 text-[12px]">Dropdown
+                                    3</a></li>
                         </ul>
                     </div>
                     <x-nav-x-link>Contact</x-nav-x-link>
@@ -386,7 +393,11 @@
                 <div class="flex flex-col items-center justify-between gap-4 lg:flex-row">
 
                     <div class="text-sm text-center lg:text-left">
-                        <p>© <span>Copyright</span> <strong class="text-white">Eurocosmetic</strong>.
+                        <p>©
+                            <script>
+                                document.write(new Date().getFullYear() + ",");
+                            </script>
+                            <span>Copyright</span> <strong class="text-white">Eurocosmetic</strong>.
                             {{ __('All rights reserved.') }}
                         </p>
                         <p class="mt-1 text-white"> {{ __('Designed by') }}

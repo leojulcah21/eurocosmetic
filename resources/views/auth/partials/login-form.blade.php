@@ -8,7 +8,7 @@
         <x-input id="email" type="email" name="email" :value="old('email')" required autofocus autocomplete="username"
             placeholder="{{ __('Email') }}" />
         <button type="button" class="absolute -translate-y-1/2 right-5 top-1/2 focus:outline-none">
-            <x-icon name="mailbox" class="w-5 h-5" />
+            <x-icon name="envelope" class="w-5 h-5" />
         </button>
     </div>
 
@@ -40,7 +40,7 @@
             @endif
         </div>
         <x-button>
-            {{ __('Log in') }}
+            {{ __('Login') }}
         </x-button>
     </div>
 </form>
