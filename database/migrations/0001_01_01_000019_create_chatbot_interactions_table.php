@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('chatbot_interactions', function (Blueprint $table) {
             $table->id();
-            $table->string('code', 20)->unique()->nullable();
+            $table->string('code', 20)->unique();
             $table->foreignId('client_id')->nullable()->constrained('clients')->nullOnDelete();
-            $table->dateTime('interaction_dt')->useCurrent();
+            $table->dateTime('interaction_date')->useCurrent();
             $table->enum('interaction_type', ['product_query', 'payment_query', 'order_help', 'other'])->default('other');
             $table->text('user_message');
             $table->text('bot_response');

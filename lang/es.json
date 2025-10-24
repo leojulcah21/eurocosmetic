@@ -5,6 +5,7 @@
     "A new verification link has been sent to the email address you provided in your profile settings.": "Se ha enviado un nuevo enlace de verificación a la dirección de correo electrónico que proporcionó en la configuración de su perfil.",
     "A new verification link has been sent to your email address.": "Se ha enviado un nuevo enlace de verificación a su dirección de correo electrónico.",
     "Accept Invitation": "Aceptar invitación",
+    "Access your account and manage your orders": "Accede a tu cuenta y gestiona tus pedidos",
     "Add": "Añadir",
     "Add a new team member to your team, allowing them to collaborate with you.": "Agregue un nuevo miembro a su equipo, permitiéndole colaborar con usted.",
     "Add additional security to your account using two factor authentication.": "Agregue seguridad adicional a su cuenta mediante la autenticación de dos factores.",
@@ -56,6 +57,8 @@
     "Editor users have the ability to read, create, and update.": "Los editores están habilitados para leer, crear y actualizar.",
     "Email": "Correo electrónico",
     "Email Password Reset Link": "Enviar enlace para restablecer contraseña",
+    "Employee": "Empleado",
+    "Employees": "Empleados",
     "Enable": "Habilitar",
     "Encrypted environment file already exists.": "El archivo de entorno cifrado ya existe.",
     "Encrypted environment file not found.": "No se encontró el archivo de entorno cifrado.",
@@ -210,5 +213,6 @@
     "You may not leave a team that you created.": "No se puede abandonar un equipo que usted creó.",
     "Your email address is unverified.": "Su dirección de correo electrónico no está verificada.",
     "Get the best hair products only from us. At a low price! Go for it!": "Consigue los mejores productos capilares solo con nosotros. ¡A un precio bajo! ¡Anímate!",
-    "Username": "Usuario"
+    "Username": "Usuario",
+    "seller": "vendedor"
 }

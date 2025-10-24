@@ -6,12 +6,16 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Seller;
 
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        $this->call(RoleSeeder::class); // primero se crean los roles
+        $this->call([
+            RoleSeeder::class,
+            SellerSeeder::class,
+        ]); // primero se crean los roles
 
         $adminRole = Role::where('name', 'admin')->first();
 

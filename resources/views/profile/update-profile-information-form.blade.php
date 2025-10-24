@@ -3,69 +3,74 @@
         <div class='w-full max-w-full px-3 shrink-0 md:w-8/12 md:flex-[0_0_auto]'>
             <div
                 class="relative flex flex-col min-w-0 px-2 pt-1 break-words bg-white border-0 shadow-xl rounded-2xl bg-clip-border">
-                <div class="pt-6 px-6 pb-0 border-b-0 border-solid border-[rgb(0_0_0/0.125)] rounded-t-2xl">
-                    <div class="flex items-center justify-between">
-                        <p class="mb-0 -mt-5 text-lg font-bold text-stone-800">{{ __('Edit Profile') }}</p>
-                        <div class='flex items-center font-bold ms-auto'>
-                            <x-primary-button wire:loading.attr="disabled" wire:target="photoCard">
-                                {{ __('Save') }}
-                            </x-primary-button>
+                <div class='p-3'>
+                    <div class="pt-6 px-6 pb-0 border-b-0 border-solid border-[rgb(0_0_0/0.125)] rounded-t-2xl">
+                        <div class="flex items-center justify-between">
+                            <p class="mb-0 -mt-5 text-lg font-bold text-stone-800">{{ __('Edit Profile') }}</p>
+                            <div class='flex items-center font-bold ms-auto'>
+                                <x-action-message class="me-3" on="saved">
+                                    {{ __('Saved.') }}
+                                </x-action-message>
+                                <x-primary-button wire:loading.attr="disabled" wire:target="photoCard" class='inline-block'>
+                                    {{ __('Save') }}
+                                </x-primary-button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class='flex-auto px-6 pt-3 pb-6'>
-                    <p class="font-bold leading-normal uppercase text-[13px] text-stone-700 underline">
-                        {{ __('Profile Information')}}
-                    </p>
-                    <div class="flex flex-wrap mt-3 -mx-3">
-                        <!-- Name -->
-                        <div class="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
-                            <div class="mb-4">
-                                <x-label for="name" value="{{ __('Name') }}" />
-                                <x-input id="name" type="text" class="block w-full mt-[1px]" wire:model="state.name"
-                                    required autocomplete="name" />
-                                <x-input-error for="name" class="mt-2" />
+                    <div class='flex-auto px-6 pt-3 pb-6'>
+                        <p class="font-bold leading-normal uppercase text-[13px] text-stone-700 underline">
+                            {{ __('Profile Information')}}
+                        </p>
+                        <div class="flex flex-wrap mt-3 -mx-3">
+                            <!-- Name -->
+                            <div class="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
+                                <div class="mb-4">
+                                    <x-label for="name" value="{{ __('Name') }}" />
+                                    <x-input id="name" type="text" class="block w-full mt-[1px]" wire:model="state.name"
+                                        required autocomplete="name" />
+                                    <x-input-error for="name" class="mt-2" />
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Username -->
-                        <div class="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
-                            <div class="mb-4">
-                                <x-label for="username" value="{{ __('Username') }}" />
-                                <x-input id="username" type="text" class="block w-full mt-[1px]" wire:model="state.username"
-                                    required autocomplete="name" />
-                                <x-input-error for="username" class="mt-2" />
+                            <!-- Username -->
+                            <div class="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
+                                <div class="mb-4">
+                                    <x-label for="username" value="{{ __('Username') }}" />
+                                    <x-input id="username" type="text" class="block w-full mt-[1px]" wire:model="state.username"
+                                        required autocomplete="name" />
+                                    <x-input-error for="username" class="mt-2" />
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Email -->
-                        <div class="w-full max-w-full px-3 shrink-0 md:w-full md:flex-0">
-                            <div class="mb-4">
-                                <x-label for="email" value="{{ __('Email') }}" />
-                                <x-input id="email" type="email" class="block w-full mt-[1px]" wire:model="state.email"
-                                    required autocomplete="username" />
-                                <x-input-error for="email" class="mt-2" />
+                            <!-- Email -->
+                            <div class="w-full max-w-full px-3 shrink-0 md:w-full md:flex-0">
+                                <div class="mb-4">
+                                    <x-label for="email" value="{{ __('Email') }}" />
+                                    <x-input id="email" type="email" class="block w-full mt-[1px]" wire:model="state.email"
+                                        required autocomplete="username" />
+                                    <x-input-error for="email" class="mt-2" />
 
-                                @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) &&
-                                !
-                                $this->user->hasVerifiedEmail())
-                                <p class="mt-2 text-sm">
-                                    {{ __('Your email address is unverified.') }}
+                                    @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) &&
+                                    !
+                                    $this->user->hasVerifiedEmail())
+                                    <p class="mt-2 text-sm">
+                                        {{ __('Your email address is unverified.') }}
 
-                                    <button type="button"
-                                        class="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                                        wire:click.prevent="sendEmailVerification">
-                                        {{ __('Click here to re-send the verification email.') }}
-                                    </button>
-                                </p>
+                                        <button type="button"
+                                            class="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                            wire:click.prevent="sendEmailVerification">
+                                            {{ __('Click here to re-send the verification email.') }}
+                                        </button>
+                                    </p>
 
-                                @if ($this->verificationLinkSent)
-                                <p class="mt-2 text-sm font-medium text-green-600">
-                                    {{ __('A new verification link has been sent to your email address.') }}
-                                </p>
-                                @endif
-                                @endif
+                                    @if ($this->verificationLinkSent)
+                                    <p class="mt-2 text-sm font-medium text-green-600">
+                                        {{ __('A new verification link has been sent to your email address.') }}
+                                    </p>
+                                    @endif
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -138,8 +143,8 @@
                 <div class="flex-auto p-6 pt-0 mb-3">
                     <div class="text-center t-6 ">
                         <h5 class="text-[18px] font-semibold text-stone-700">
-                            {{ Auth::user()->name }}
-                            <span class="font-light">, 22</span>
+                            {{ Auth::user()->name }},
+                            <span class="font-light"> 22</span>
                         </h5>
                         <div class="relative mb-2 text-sm font-semibold leading-relaxed text-stone-700">
                             <x-icon name='mailbox' class="absolute w-[18px] h-[18px] mr-2 left-[110px] top-[2.2px]" />

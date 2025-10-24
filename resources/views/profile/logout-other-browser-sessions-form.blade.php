@@ -1,98 +1,138 @@
-<x-action-section>
-    <x-slot name="title">
-        {{ __('Browser Sessions') }}
-    </x-slot>
-
-    <x-slot name="description">
-        {{ __('Manage and log out your active sessions on other browsers and devices.') }}
-    </x-slot>
-
-    <x-slot name="content">
-        <div class="max-w-xl text-sm text-gray-600">
-            {{ __('If necessary, you may log out of all of your other browser sessions across all of your devices. Some of your recent sessions are listed below; however, this list may not be exhaustive. If you feel your account has been compromised, you should also update your password.') }}
+<div class='p-2'>
+    <div class="pt-6 px-6 pb-0.5 border-b-0 border-solid border-[rgb(0_0_0/0.125)] rounded-t-2xl">
+        <div class="flex items-center justify-between">
+            <p class="mb-0 text-lg font-bold text-stone-800">{{ __('Browser Sessions') }}</p>
+            <div class='flex items-center font-bold ms-auto'>
+                <x-primary-button class='inline-block' wire:click="confirmLogout" wire:loading.attr="disabled">
+                    {{ __('Log Out Other Browser Sessions') }}
+                </x-primary-button>
+                <x-secondary-button class="ms-3" on="loggedOut">
+                    {{ __('Done.') }}
+                </x-secondary-button>
+            </div>
         </div>
-
-        @if (count($this->sessions) > 0)
-            <div class="mt-5 space-y-6">
-                <!-- Other Browser Sessions -->
-                @foreach ($this->sessions as $session)
-                    <div class="flex items-center">
-                        <div>
-                            @if ($session->agent->isDesktop())
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-gray-500 size-8">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
-                                </svg>
-                            @else
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-gray-500 size-8">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
-                                </svg>
-                            @endif
-                        </div>
-
-                        <div class="ms-3">
-                            <div class="text-sm text-gray-600">
-                                {{ $session->agent->platform() ? $session->agent->platform() : __('Unknown') }} - {{ $session->agent->browser() ? $session->agent->browser() : __('Unknown') }}
+    </div>
+    <div class='flex-auto px-6 pt-3 pb-6'>
+        <p class="text-sm font-medium leading-normal text-stone-700">
+            {{ __('Manage and log out your active sessions on other browsers and devices.') }}
+        </p>
+        <p class="pt-2 text-sm leading-normal text-stone-700">
+            {{ __('If necessary, you may log out of all of your other browser sessions across all of your devices. Some of your recent sessions are listed below; however, this list may not be exhaustive. If you feel your account has been compromised, you should also update your password.') }}
+        </p>
+        <div class="flex flex-wrap mt-3">
+            @if (count($this->sessions) > 0)
+                <div class="mt-5 space-y-6">
+                    @foreach ($this->sessions as $session)
+                        <div class="flex items-center">
+                            <div>
+                                {{-- Si es escritorio --}}
+                                @if ($session->agent->isDesktop())
+                                    {{-- Si ES el dispositivo actual --}}
+                                    @if ($session->is_current_device)
+                                        {{-- Ícono de escritorio activo --}}
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="text-stone-700 size-8">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M3 4a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-12z" />
+                                            <path d="M3 13h18" />
+                                            <path d="M8 21h8" />
+                                            <path d="M10 17l-.5 4" />
+                                            <path d="M14 17l.5 4" />
+                                        </svg>
+                                    @else
+                                        {{-- Ícono de escritorio desconectado --}}
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor"
+                                            class="text-stone-400 size-8">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M7 3h13a1 1 0 0 1 1 1v12c0 .28 -.115 .532 -.3 .713m-3.7 .287h-13a1 1 0 0 1 -1 -1v-12c0 -.276 .112 -.526 .293 -.707" />
+                                            <path d="M3 13h10m4 0h4" />
+                                            <path d="M8 21h8" />
+                                            <path d="M10 17l-.5 4" />
+                                            <path d="M14 17l.5 4" />
+                                            <path d="M3 3l18 18" />
+                                        </svg>
+                                    @endif
+                                @else
+                                    {{-- Si es un móvil --}}
+                                    @if ($session->is_current_device)
+                                        {{-- Ícono de móvil activo --}}
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="text-stone-700 size-8">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M6 5a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-14z" />
+                                            <path d="M11 4h2" />
+                                            <path d="M12 17v.01" />
+                                        </svg>
+                                    @else
+                                        {{-- Ícono de móvil desconectado --}}
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor"
+                                            class="text-stone-400 size-8">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M7.159 3.185c.256 -.119 .54 -.185 .841 -.185h8a2 2 0 0 1 2 2v9m0 4v1a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-13" />
+                                            <path d="M11 4h2" />
+                                            <path d="M3 3l18 18" />
+                                            <path d="M12 17v.01" />
+                                        </svg>
+                                    @endif
+                                @endif
                             </div>
 
-                            <div>
-                                <div class="text-xs text-gray-500">
-                                    {{ $session->ip_address }},
+                            <div class="ms-3">
+                                <div class="text-sm font-bold {{ $session->is_current_device ? 'text-stone-600' : 'text-stone-500' }}">
+                                    {{ $session->agent->platform() ? $session->agent->platform() : __('Unknown') }} -
+                                    {{ $session->agent->browser() ? $session->agent->browser() : __('Unknown') }}
+                                </div>
 
-                                    @if ($session->is_current_device)
-                                        <span class="font-semibold text-green-500">{{ __('This device') }}</span>
-                                    @else
-                                        {{ __('Last active') }} {{ $session->last_active }}
-                                    @endif
+                                <div>
+                                    <div class="text-xs {{ $session->is_current_device ? 'text-stone-500' : 'text-stone-400' }}">
+                                        {{ $session->ip_address }},
+
+                                        @if ($session->is_current_device)
+                                            <span class="font-semibold text-green-500">{{ __('This device') }}</span>
+                                        @else
+                                            <span class="font-semibold text-[#b6b6b6]">
+                                                {{ __('Last active') }} {{ $session->last_active }}
+                                            </span>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
-            </div>
-        @endif
+                    @endforeach
+                </div>
+            @endif
+        </div>
+    </div>
+    <!-- Log Out Other Devices Confirmation Modal -->
+    <x-dialog-modal wire:model.live="confirmingLogout">
+        <x-slot name="title">
+            {{ __('Log Out Other Browser Sessions') }}
+        </x-slot>
 
-        <div class="flex items-center mt-5">
-            <x-primary-button wire:click="confirmLogout" wire:loading.attr="disabled">
+        <x-slot name="content">
+            {{ __('Please enter your password to confirm you would like to log out of your other browser sessions
+            across all of your devices.') }}
+
+            <div class="mt-4" x-data="{}"
+                x-on:confirming-logout-other-browser-sessions.window="setTimeout(() => $refs.password.focus(), 250)">
+                <x-input type="password" class="block w-3/4 mt-1" autocomplete="current-password"
+                    placeholder="{{ __('Password') }}" x-ref="password" wire:model="password"
+                    wire:keydown.enter="logoutOtherBrowserSessions" />
+
+                <x-input-error for="password" class="mt-2" />
+            </div>
+        </x-slot>
+
+        <x-slot name="footer">
+            <x-secondary-button wire:click="$toggle('confirmingLogout')" wire:loading.attr="disabled">
+                {{ __('Cancel') }}
+            </x-secondary-button>
+
+            <x-primary-button class="ms-3" wire:click="logoutOtherBrowserSessions" wire:loading.attr="disabled">
                 {{ __('Log Out Other Browser Sessions') }}
             </x-primary-button>
-
-            <x-action-message class="ms-3" on="loggedOut">
-                {{ __('Done.') }}
-            </x-action-message>
-        </div>
-
-        <!-- Log Out Other Devices Confirmation Modal -->
-        <x-dialog-modal wire:model.live="confirmingLogout">
-            <x-slot name="title">
-                {{ __('Log Out Other Browser Sessions') }}
-            </x-slot>
-
-            <x-slot name="content">
-                {{ __('Please enter your password to confirm you would like to log out of your other browser sessions across all of your devices.') }}
-
-                <div class="mt-4" x-data="{}" x-on:confirming-logout-other-browser-sessions.window="setTimeout(() => $refs.password.focus(), 250)">
-                    <x-input type="password" class="block w-3/4 mt-1"
-                                autocomplete="current-password"
-                                placeholder="{{ __('Password') }}"
-                                x-ref="password"
-                                wire:model="password"
-                                wire:keydown.enter="logoutOtherBrowserSessions" />
-
-                    <x-input-error for="password" class="mt-2" />
-                </div>
-            </x-slot>
-
-            <x-slot name="footer">
-                <x-secondary-button wire:click="$toggle('confirmingLogout')" wire:loading.attr="disabled">
-                    {{ __('Cancel') }}
-                </x-secondary-button>
-
-                <x-primary-button class="ms-3"
-                            wire:click="logoutOtherBrowserSessions"
-                            wire:loading.attr="disabled">
-                    {{ __('Log Out Other Browser Sessions') }}
-                </x-primary-button>
-            </x-slot>
-        </x-dialog-modal>
-    </x-slot>
-</x-action-section>
+        </x-slot>
+    </x-dialog-modal>
+</div>

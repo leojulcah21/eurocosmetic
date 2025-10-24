@@ -17,7 +17,7 @@ class RouteServiceProvider extends ServiceProvider
         }
 
         if ($user->hasRole('admin') || $user->hasRole('employee')) {
-            return '/dashboard';
+            return '/company/dashboard';
         }
 
         if ($user->hasRole('client')) {
@@ -25,7 +25,7 @@ class RouteServiceProvider extends ServiceProvider
         }
 
         // Si no tiene ningún rol reconocido
-        return '/dashboard';
+        return '/company/dashboard';
     }
 
     /**

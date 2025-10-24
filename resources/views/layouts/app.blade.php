@@ -13,8 +13,7 @@
     @include('layouts.partials.fonts')
     @include('layouts.partials.icons')
 
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/js/app.js', 'resources/css/app.css'])
 
     <!-- Styles -->
     @livewireStyles
@@ -30,11 +29,11 @@
                 <nav>
                     <!-- breadcrumb -->
                     <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
-                        <li class="text-xs leading-normal">
+                        <li class="text-sm leading-normal">
                             <a class="font-medium opacity-50 text-stone-700" href="#">{{ __('Pages') }}</a>
                         </li>
                         <li
-                            class="text-xs pl-2 capitalize leading-normal text-stone-950 before:float-left before:pr-2 before:text-stone-950 before:content-['/']">
+                            class="text-sm pl-2 capitalize leading-normal text-stone-950 before:float-left before:pr-2 before:text-stone-950 before:content-['/']">
                             {{ __('Dashboard') }}</li>
                     </ol>
                     {{ $header }}
@@ -165,12 +164,7 @@
     </main>
     @stack('modals')
     @livewireScripts
-    <script>
-        Livewire.on('saved', () => {
-            window.location.reload();
-        });
-    </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

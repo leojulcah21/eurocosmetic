@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
-            $table->string('code', 10)->unique()->nullable();
+            $table->string('code', 10)->unique();
             $table->foreignId('client_id')->constrained('clients')->cascadeOnDelete();
-            $table->foreignId('ubigeo_id')->constrained('ubigeo')->restrictOnDelete();
-            $table->string('address_line', 255);
+            $table->foreignId('ubigeo_id')->constrained('ubigeos')->restrictOnDelete();
+            $table->string('address_detail', 255);
             $table->string('reference', 255)->nullable();
             $table->boolean('is_primary')->default(false);
             $table->timestamps();

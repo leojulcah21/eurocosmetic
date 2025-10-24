@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('mercado_pago_payments', function (Blueprint $table) {
+        Schema::create('payments_mp', function (Blueprint $table) {
             $table->id();
-            $table->string('code', 20)->unique()->nullable();
+            $table->string('code', 20)->unique();
             $table->foreignId('order_id')->unique()->constrained('orders')->cascadeOnDelete();
             $table->string('mp_transaction_id', 100)->unique();
             $table->decimal('amount', 12, 2);
-            $table->dateTime('payment_date')->useCurrent();
+            $table->timestamp('payment_date')->useCurrent();
             $table->enum('payment_status', ['approved', 'pending', 'rejected', 'cancelled']);
             $table->string('payment_method', 50);
             $table->timestamps();
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('mercado_pago_payments');
+        Schema::dropIfExists('payments_mp');
     }
 };

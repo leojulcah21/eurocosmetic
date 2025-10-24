@@ -14,11 +14,12 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['"Playwrite US Modern"', ...defaultTheme.fontFamily.sans],
+                sans: ['"Playwrite DE Grund"', ...defaultTheme.fontFamily.sans],
                 miriam: ['"Miriam Libre"', 'serif'],
                 lavish: ['"Lavishly Yours"', 'cursive'],
                 code: ['"Source Code Pro"', 'monospace'],
                 work: ['"Work Sans"', 'sans-serif'],
+                jost: ['"Jost"', 'sans-serif'],
                 raleway: ['"Raleway"', 'sans-serif'],
             },
         },

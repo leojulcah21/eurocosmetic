@@ -17,6 +17,11 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->string('dni', 15)->nullable();
             $table->string('phone', 20)->nullable();
+            $table->boolean('has_salon')->default(true);
+            $table->string('salon_address', 255)->nullable();
+            $table->enum('property_type', ['owned', 'rented'])->default('rented');
+            $table->text('last_purchase_receipts')->nullable();
+            $table->string('business_name', 255)->nullable();
             $table->date('birth_date')->nullable();
             $table->timestamps();
         });

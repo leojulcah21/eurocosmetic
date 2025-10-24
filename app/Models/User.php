@@ -20,6 +20,9 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+    const STATUS_ACTIVE = 'active';
+    const STATUS_INACTIVE = 'inactive';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -30,7 +33,8 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
-        'role_id'
+        'role_id',
+        'status'
     ];
 
     /**
@@ -72,8 +76,25 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
-    public function hasRole($roleName)
+    public function hasRole($roles)
     {
-        return $this->role && $this->role->name === $roleName;
+        $roles = is_array($roles) ? $roles : [$roles];
+
+        return $this->role && in_array($this->role->name, $roles);
+    }
+
+    public function employee()
+    {
+        return $this->hasOne(Employee::class);
+    }
+
+    public function client()
+    {
+        return $this->hasOne(Client::class);
+    }
+
+    public static function getValidStatuses()
+    {
+        return [self::STATUS_ACTIVE, self::STATUS_INACTIVE];
     }
 }

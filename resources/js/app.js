@@ -9,23 +9,27 @@ import Drift from 'drift-zoom';
 import GLightbox from 'glightbox';
 import PureCounter from '@srexi/purecounterjs';
 
-// Alpine.plugin(focus)
-// window.Alpine = Alpine
+// if (!window.Alpine) {
+//     window.Alpine = Alpine;
+//     Alpine.plugin(focus);
+//     Alpine.start();
+// } else {
+//     // Si Alpine ya existe (p. ej. Livewire lo inicializó), registrar plugin si es posible
+//     try {
+//         window.Alpine.plugin && window.Alpine.plugin(focus);
+//     } catch (e) {
+//         // ignorar
+//     }
+// }
 
-// // Esto le dice a Livewire: "usa este Alpine, no metas otro"
-// document.addEventListener('alpine:init', () => {
-//     window.Livewire?.start()
-// })
 
-// Alpine.start()
-// 1. Inicializar AOS (animaciones al hacer scroll)
 document.addEventListener('DOMContentLoaded', () => {
-  AOS.init({
-    duration: 600,
-    easing: 'ease-in-out',
-    once: true,
-    mirror: false
-  });
+    AOS.init({
+        duration: 600,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+    });
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -112,3 +116,54 @@ document.addEventListener("DOMContentLoaded", () => {
 //     setInterval(updateCountDown, 1000);
 //   });
 // });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.tab-link');
+    const panes = document.querySelectorAll('.tab-panel');
+    const movingTab = document.querySelector('.moving-tab');
+
+    if (!tabs.length || !movingTab) return;
+
+    function setActiveTab(tab) {
+        const target = tab.dataset.tab;
+        const parentLi = tab.closest('li');
+
+        // Ocultar todos los paneles
+        panes.forEach(p => p.classList.add('hidden'));
+
+        // Mostrar el panel activo
+        const currentPane = document.getElementById(`tab-${target}`);
+        if (currentPane) currentPane.classList.remove('hidden');
+
+        // Mover el indicador flotante
+        movingTab.style.width = `${parentLi.offsetWidth}px`;
+        movingTab.style.transform = `translateX(${parentLi.offsetLeft}px)`;
+
+        // Guardar el tab activo
+        localStorage.setItem('activeProfileTab', target);
+    }
+
+    // --- Leer el tab activo previo ---
+    const savedTab = localStorage.getItem('activeProfileTab');
+    const defaultTab = savedTab
+        ? [...tabs].find(t => t.dataset.tab === savedTab)
+        : tabs[0];
+
+    // Activar el guardado o el primero
+    if (defaultTab) setActiveTab(defaultTab);
+
+    // Asignar eventos de click
+    tabs.forEach(tab => {
+        tab.addEventListener('click', e => {
+            e.preventDefault();
+            setActiveTab(tab);
+        });
+    });
+
+    // Ajustar al redimensionar
+    window.addEventListener('resize', () => {
+        const activeTabName = localStorage.getItem('activeProfileTab');
+        const activeTab = [...tabs].find(t => t.dataset.tab === activeTabName);
+        if (activeTab) setActiveTab(activeTab);
+    });
+});
