@@ -19,12 +19,12 @@
     @livewireStyles
 </head>
 
-<body class="m-0 font-sans text-base antialiased font-normal bg-[#f8f9fa] leading-[1.6] text-slate-500">
+<body class="m-0 font-sans text-base antialiased font-normal bg-[#f8f9fa] leading-[1.6] text-slate-500 z-10">
     <div class="absolute w-full bg-red-50 dark:hidden min-h-72"></div>
-    <x-app.sidebar class='z-20 max-w-64 xl:ml-6 rounded-2xl xl:left-0 xl:translate-x-0' />
-    <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-[17rem] rounded-xl z-10">
+    <x-app.sidebar class='max-w-64 xl:ml-6 rounded-2xl xl:left-0 xl:translate-x-0' />
+    <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-[17rem] rounded-xl">
         <nav
-            class="relative flex flex-wrap items-center justify-between px-0 py-2 ml-6 transition-all ease-in shadow-none xl:mr-2 lg:mr-10 duration-250 rounded-2xl lg:flex-nowrap lg:justify-start md:mr-10">
+            class="relative z-30 flex flex-wrap items-center justify-between px-0 py-2 ml-6 transition-all ease-in shadow-none xl:mr-2 lg:mr-10 duration-250 rounded-2xl lg:flex-nowrap lg:justify-start md:mr-10">
             <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
                 <nav>
                     <!-- breadcrumb -->

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('code', 20)->unique();
             $table->foreignId('employee_id')->constrained('employees')->cascadeOnDelete()->unique();
+            $table->foreignId('warehouse_id')->constrained('warehouses')->cascadeOnDelete();
             $table->string('area', 100)->nullable(); // e.g., "Main storage", "Distribution"
             $table->integer('years_experience')->default(0);
             $table->text('notes')->nullable();

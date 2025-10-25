@@ -16,6 +16,7 @@ class Product extends Model
         'description',
         'price',
         'stock',
+        'warehouse_id',
         'image_url'
     ];
 
@@ -28,5 +29,9 @@ class Product extends Model
     public function orderItems()
     {
         return $this->hasMany(OrderItem::class);
+    }
+
+    public function warehouse() {
+        return $this->belongsTo(Warehouse::class);
     }
 }
