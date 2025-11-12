@@ -7,15 +7,19 @@ use App\Providers\RouteServiceProvider;
 
 class RegisterResponse implements RegisterResponseContract
 {
-    /**
-     * Redirige al usuario después del registro según su rol.
-     */
     public function toResponse($request)
     {
-        $user = $request->user();
+        $user = $request->user()?->fresh('role');
 
-        $redirect = RouteServiceProvider::redirectToByRole($user);
+        // Redirección solo para el registro
+        if ($user && $user->role_id && $user->role?->name === 'Customer') {
+            return redirect()->route('customer.setup');
+        }
 
-        return redirect()->intended($redirect);
+        if ($user && ($user->hasRole('Administrator') || $user->hasRole('Employee'))) {
+            return redirect()->route('company.welcome');
+        }
+
+        return redirect(RouteServiceProvider::redirectToByRole($user));
     }
 }

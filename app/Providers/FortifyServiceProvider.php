@@ -18,9 +18,13 @@ use Laravel\Fortify\Fortify;
 use Laravel\Fortify\Contracts\LoginResponse as LoginResponseContract;
 use Laravel\Fortify\Contracts\RegisterResponse as RegisterResponseContract;
 use Laravel\Fortify\Contracts\LogoutResponse as LogoutResponseContract;
+use Laravel\Fortify\Contracts\TwoFactorLoginResponse as TwoFactorLoginResponseContract;
+use Laravel\Fortify\Contracts\VerifyEmailResponse as VerifyEmailResponseContract;
+use App\Http\Responses\CustomEmailVerificationResponse;
 use App\Http\Responses\CustomLogoutResponse;
 use App\Http\Responses\LoginResponse;
 use App\Http\Responses\RegisterResponse;
+use App\Http\Responses\CustomTwoFactorResponse;
 use App\Http\Controllers\Auth\CustomAuthenticatedSessionController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
@@ -55,39 +59,61 @@ class FortifyServiceProvider extends ServiceProvider
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
 
-        Fortify::loginView(function (Request $request) {
-            $path = $request->path();
+        Fortify::loginView(function () {
+            // Si la ruta pertenece a la compañía, usa el formulario empresarial
+            if (request()->is('company/*')) {
+                return view('auth.company.login');
+            }
 
-            return str_contains($path, 'company')
-                ? view('auth.company.login')
-                : view('auth.authentication');
+            // Si no, mostrar solo el formulario de clientes
+            return view('auth.authentication');
         });
 
-        Fortify::registerView(function (Request $request) {
-            $path = $request->path();
+        Fortify::registerView(function () {
+            // Evitar acceso a registro empresarial
+            if (request()->is('company/*')) {
+                abort(404);
+            }
 
-            return str_contains($path, 'company')
-                ? view('auth.company.register')
-                : view('auth.authentication');
+            // Mostrar solo formulario de clientes
+            return view('auth.authentication');
         });
 
         Fortify::authenticateUsing(function ($request) {
-            $credentials = $request->only(['email', 'password']);
+            $user = User::where('email', $request->email)->first();
 
-            if (empty($credentials['email']) || empty($credentials['password'])) {
+            if (! $user) {
+                logger('Usuario no encontrado: ' . $request->email);
                 return null;
             }
 
-            $user = User::where('email', $credentials['email'])->first();
+            if (! Hash::check($request->password, $user->password)) {
+                logger('Contraseña incorrecta para: ' . $user->email);
+                return null;
+            }
 
-            return ($user && Hash::check($credentials['password'], $user->password))
-                ? $user
-                : null;
+            logger('Usuario detectado: ' . $user->email . ' con rol ' . $user->role->name);
+            logger('Ruta del login: ' . $request->path());
+
+            if ($request->context === 'company' && !in_array($user->role->name, ['Administrator', 'Employee'])) {
+                logger('Bloqueado por rol empresarial');
+                return null;
+            }
+
+            if ($request->context === 'customer' && !in_array($user->role->name, ['Customer'])) {
+                logger('Bloqueado por rol cliente');
+                return null;
+            }
+
+            return $user;
         });
 
         $this->app->singleton(LoginResponseContract::class, LoginResponse::class);
         $this->app->singleton(RegisterResponseContract::class, RegisterResponse::class);
         $this->app->bind(AuthenticatedSessionController::class, CustomAuthenticatedSessionController::class);
         $this->app->singleton(LogoutResponseContract::class, CustomLogoutResponse::class);
+        $this->app->singleton(TwoFactorLoginResponseContract::class, CustomTwoFactorResponse::class);
+        $this->app->singleton(VerifyEmailResponseContract::class, CustomEmailVerificationResponse::class);
+
     }
 }

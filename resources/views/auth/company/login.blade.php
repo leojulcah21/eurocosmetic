@@ -6,6 +6,7 @@
         <x-validation-errors class="mb-4" />
         <form method="POST" action="{{ route('login') }}">
             @csrf
+            <input type="hidden" name="context" value="company">
             <div class="relative mt-2 border-0">
                 <div class="absolute left-0 flex items-center pt-2.5 pl-3 pointer-events-none">
                     <i class="text-stone-600 fi fi-sr-envelope"></i>

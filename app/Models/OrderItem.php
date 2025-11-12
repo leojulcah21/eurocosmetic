@@ -16,6 +16,11 @@ class OrderItem extends Model
         'unit_price'
     ];
 
+    protected $casts = [
+        'quantity' => 'integer',
+        'unit_price' => 'decimal:2',
+    ];
+
     // Relationships
     public function order()
     {
@@ -25,5 +30,10 @@ class OrderItem extends Model
     public function product()
     {
         return $this->belongsTo(Product::class, 'product_id');
+    }
+
+    public function getTotalAttribute()
+    {
+        return $this->quantity * $this->unit_price;
     }
 }

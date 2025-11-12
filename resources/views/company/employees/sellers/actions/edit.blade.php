@@ -128,10 +128,14 @@
 
                                 <!-- BIRTHDATE -->
                                 <div class="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
-                                    <div class="mb-4">
+                                    <div class="relative mb-4">
+                                        <div class="absolute flex items-center pointer-events-none inset-y-[52px] end-4 ps-3">
+                                            <svg class="w-4 h-4 text-[#888]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                                            </svg>
+                                        </div>
                                         <x-label for="birth_date" value="{{ __('Birthdate') }}" />
-                                        <x-input id="birth_date" name="birth_date" type="date"
-                                            class="block w-full mt-[1px]" value="{{ $seller->employee->birth_date }}" />
+                                        <x-datepicker name="birth_date" class="block w-full mt-[1px]" value="{{ $seller->employee->birth_date }}" />
                                         <x-input-error for="birth_date" class="mt-2" />
                                     </div>
                                 </div>

@@ -7,9 +7,13 @@ class RoleHelper
     /**
      * Retorna true si el usuario tiene el rol indicado
      */
-    public static function hasRole($user, string $role): bool
+    public static function hasRole($user, string|array $roles): bool
     {
-        return $user && $user->role === $role;
+        if (!$user || !$user->role) {
+            return false;
+        }
+
+        return in_array($user->role->name, (array) $roles);
     }
 
     /**
@@ -18,9 +22,9 @@ class RoleHelper
     public static function getRoleLabel(string $role): string
     {
         return match ($role) {
-            'admin' => 'Administrador',
-            'employee' => 'Empleado',
-            'client' => 'Cliente',
+            'Administrator' => 'Administrador',
+            'Employee' => 'Empleado',
+            'Customer' => 'Cliente',
             default => 'Desconocido',
         };
     }

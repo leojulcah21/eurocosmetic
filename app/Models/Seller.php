@@ -14,8 +14,7 @@ class Seller extends Model
         'code',
         'employee_id',
         'line',
-        'notes',
-        'years_experience'
+        'sales_target',
     ];
 
     // Relationships

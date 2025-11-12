@@ -39,7 +39,7 @@
                                         d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
                                 </svg>
                             </x-slot:icon>
-                            
+
                             Nuevo Jefe de Almacén
                         </x-primary-link>
                     </div>
@@ -50,6 +50,7 @@
                             <tr>
                                 <th scope="col" class="px-4 py-4">Código</th>
                                 <th scope="col" class="px-4 py-4">Nombre</th>
+                                <th scope="col" class="px-4 py-4">Fecha Nacimiento</th>
                                 <th scope="col" class="px-4 py-4">Correo</th>
                                 <th scope="col" class="px-4 py-4">Teléfono</th>
                                 <th scope="col" class="px-4 py-4">Línea</th>
@@ -63,23 +64,14 @@
                         <tbody>
                             @forelse ($whsManagers as $whsManager)
                             <tr class="border-b">
-                                <th scope="row" class="px-4 py-3 font-medium text-stone-900 whitespace-nowrap">
-                                    {{ $whsManager->code }}
-                                </th>
-                                <td class="px-4 py-3 text-stone-900 whitespace-nowrap">{{
-                                    $whsManager->employee->user->name
-                                    }}</td>
-                                <td class="px-4 py-3 max-w-[12rem] truncate text-stone-900 whitespace-nowrap">{{
-                                    $whsManager->employee->user->email }}</td>
-                                <td class="px-4 py-3 text-stone-900 whitespace-nowrap">{{ $whsManager->employee->phone
-                                    }}
-                                </td>
-                                <td class="px-4 py-3 text-stone-900 whitespace-nowrap">{{ $whsManager->line }}</td>
-                                <td class="px-4 py-3 text-stone-900 whitespace-nowrap">{{
-                                    __($whsManager->employee->employee_type) }}</td>
-                                <td class="px-4 py-3 text-stone-900 whitespace-nowrap">{{ $whsManager->years_experience
-                                    }}
-                                    años </td>
+                                <th scope="row" class="px-4 py-3 font-medium text-stone-900 whitespace-nowrap"> {{ $whsManager->code }} </th>
+                                <td class="px-4 py-3 text-stone-900 whitespace-nowrap">{{ $whsManager->employee->user->name }}</td>
+                                <td class="px-4 py-3 text-stone-900 whitespace-nowrap">{{ $whsManager->employee->birth_date }}</td>
+                                <td class="px-4 py-3 max-w-[12rem] truncate text-stone-900 whitespace-nowrap">{{ $whsManager->employee->user->email }}</td>
+                                <td class="px-4 py-3 text-stone-900 whitespace-nowrap">{{ $whsManager->employee->phone }}</td>
+                                <td class="px-4 py-3 text-stone-900 whitespace-nowrap">{{ $whsManager->area }}</td>
+                                <td class="px-4 py-3 text-stone-900 whitespace-nowrap">{{  __($whsManager->employee->employee_type) }}</td>
+                                <td class="px-4 py-3 text-stone-900 whitespace-nowrap">{{ $whsManager->employee->years_experience }} años </td>
                                 <td class="flex items-center justify-end px-4 py-3" x-data="{ open: false }">
                                     <button @click="open = !open"
                                         class="inline-flex items-center text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 p-1.5 text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100"

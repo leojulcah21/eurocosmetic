@@ -8,6 +8,11 @@ class CompanyController extends Controller
 {
     public function index()
     {
+        return view('dashboard');
+    }
+
+    public function inventory()
+    {
         return view('company.inventory.index');
     }
 }

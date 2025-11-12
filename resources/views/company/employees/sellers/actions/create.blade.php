@@ -9,7 +9,7 @@
             @csrf
             <div class='flex flex-wrap -mx-3'>
                 <div class="w-full max-w-full px-5 shrink-0 flex-[0_0_auto]">
-                    <div class="relative flex flex-col min-w-0 px-2 pt-1 break-words bg-clip-border">
+                    <div class="relative flex flex-col min-w-0 px-2 pt-3 break-words bg-clip-border">
                         <div class="pt-6 px-6 pb-0 border-b-0 border-solid border-[rgb(0_0_0/0.125)] rounded-t-2xl">
                             <div class="flex items-center justify-between">
                                 <p class="mb-0 -mt-5 text-lg font-bold text-stone-800">{{ __('Create Seller') }}</p>
@@ -124,9 +124,14 @@
                                 </div>
 
                                 <div class="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
-                                    <div class="mb-4">
-                                        <x-label for="birth_date" value="{{ __('Birthdate') }}" />
-                                        <x-input name="birth_date" placeholder="Type a birthdate" type="date" />
+                                    <div class="relative mb-4">
+                                        <div class="absolute flex items-center pointer-events-none inset-y-[52px] end-4 ps-3">
+                                            <svg class="w-4 h-4 text-[#888]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                                            </svg>
+                                        </div>
+                                        <x-label for="date" value="{{ __('Birthdate') }}" />
+                                        <x-datepicker name="birth_date" placeholder="Select a birthdate" type="text" class='me-10' />
                                         <x-input-error for="birth_date" class="mt-2" />
                                     </div>
                                 </div>
@@ -156,7 +161,7 @@
                                 <div class="w-full max-w-full px-3 shrink-0 md:w-9/12 md:flex-0">
                                     <div class="mb-4">
                                         <x-label for="notes" value="{{ __('Notes') }}" />
-                                        <x-textarea name="notes" />
+                                        <x-textarea name="notes" placeholder="Type a selling line" />
                                         <x-input-error for="notes" class="mt-2" />
                                     </div>
                                 </div>

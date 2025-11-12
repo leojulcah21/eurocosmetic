@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -10,7 +10,13 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+/**
+ *
+ * @property \App\Models\Role $role
+ * @property \App\Models\Employee $employee
+ * @method bool hasRole(array|string $roles)
+ */
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
 
@@ -88,9 +94,9 @@ class User extends Authenticatable
         return $this->hasOne(Employee::class);
     }
 
-    public function client()
+    public function customer()
     {
-        return $this->hasOne(Client::class);
+        return $this->hasOne(Customer::class);
     }
 
     public static function getValidStatuses()

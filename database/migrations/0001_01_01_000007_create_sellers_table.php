@@ -16,8 +16,7 @@ return new class extends Migration
             $table->string('code', 20)->unique();
             $table->foreignId('employee_id')->constrained('employees')->cascadeOnDelete()->unique();
             $table->string('line', 50);
-            $table->text('notes')->nullable();
-            $table->integer('years_experience')->default(0);
+            $table->bigInteger('sales_target')->nullable();
             $table->timestamps();
         });
     }

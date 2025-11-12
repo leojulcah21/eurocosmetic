@@ -10,22 +10,20 @@ class Address extends Model
     use HasFactory;
 
     protected $fillable = [
-        'code',
-        'client_id',
-        'ubigeo_id',
+        'customer_id',
+        'district_id',
         'address_detail',
         'reference',
         'is_primary'
     ];
 
     // Relationships
-    public function client()
+    public function customer()
     {
-        return $this->belongsTo(Client::class);
+        return $this->belongsTo(Customer::class);
     }
 
-    public function location()
-    {
-        return $this->belongsTo(Ubigeo::class);
+    public function district() {
+        return $this->belongsTo(District::class);
     }
 }

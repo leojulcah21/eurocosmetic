@@ -12,8 +12,7 @@
 
         <x-app.data-section class='bg-clip-border'>
             <div class="relative w-full p-12 overflow-hidden bg-white shadow-md sm:rounded-lg">
-                <div
-                    class="flex flex-col items-center justify-between py-4 mb-3 space-y-3 md:flex-row md:space-y-0 md:space-x-4">
+                <div class="flex flex-col items-center justify-between py-4 mb-3 space-y-3 md:flex-row md:space-y-0 md:space-x-4">
                     <div class="w-full md:w-1/2">
                         <form class="flex items-center">
                             <label for="simple-search" class="sr-only">Search</label>
@@ -55,6 +54,7 @@
                             <tr>
                                 <th scope="col" class="px-4 py-4">Código</th>
                                 <th scope="col" class="px-4 py-4">Nombre</th>
+                                <th scope="col" class="px-4 py-4">Fecha Nacimiento</th>
                                 <th scope="col" class="px-4 py-4">Correo</th>
                                 <th scope="col" class="px-4 py-4">Teléfono</th>
                                 <th scope="col" class="px-4 py-4">Línea</th>
@@ -71,17 +71,14 @@
                                 <th scope="row" class="px-4 py-3 font-medium text-stone-900 whitespace-nowrap">
                                     {{ $seller->code }}
                                 </th>
-                                <td class="px-4 py-3 text-stone-900 whitespace-nowrap">{{ $seller->employee->user->name
-                                    }}</td>
-                                <td class="px-4 py-3 max-w-[12rem] truncate text-stone-900 whitespace-nowrap">{{
-                                    $seller->employee->user->email }}</td>
+                                <td class="px-4 py-3 text-stone-900 whitespace-nowrap">{{ $seller->employee->user->name }}</td>
+                                <td class="px-4 py-3 text-stone-900 whitespace-nowrap">{{ $seller->employee->birth_date }}</td>
+                                <td class="px-4 py-3 max-w-[12rem] truncate text-stone-900 whitespace-nowrap">{{ $seller->employee->user->email }}</td>
                                 <td class="px-4 py-3 text-stone-900 whitespace-nowrap">{{ $seller->employee->phone }}
                                 </td>
                                 <td class="px-4 py-3 text-stone-900 whitespace-nowrap">{{ $seller->line }}</td>
-                                <td class="px-4 py-3 text-stone-900 whitespace-nowrap">{{
-                                    __($seller->employee->employee_type) }}</td>
-                                <td class="px-4 py-3 text-stone-900 whitespace-nowrap">{{ $seller->years_experience }}
-                                    años </td>
+                                <td class="px-4 py-3 text-stone-900 whitespace-nowrap">{{ __($seller->employee->employee_type) }}</td>
+                                <td class="px-4 py-3 text-stone-900 whitespace-nowrap">{{ $seller->employee->years_experience }} años </td>
                                 <td class="flex items-center justify-end px-4 py-3" x-data="{ open: false }">
                                     <button @click="open = !open"
                                         class="inline-flex items-center text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 p-1.5 text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100"

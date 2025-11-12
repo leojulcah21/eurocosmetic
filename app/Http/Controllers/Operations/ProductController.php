@@ -11,6 +11,6 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::latest()->paginate(10);
-        return view('company.inventory.products.index', compact('productss'));
+        return view('company.inventory.products.index', compact('products'));
     }
 }

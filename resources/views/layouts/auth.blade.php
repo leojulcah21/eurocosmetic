@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <div class='class="font-sans antialiased text-stone-95'>
+    <div class='font-sans antialiased text-stone-95'>
         <div class="flex min-h-screen bg-stone-50">
             <!-- Imagen de fondo -->
             <div class="hidden bg-center bg-cover lg:block lg:w-3/4"
@@ -33,6 +33,8 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     @stack('modals')
     @livewireScripts
 </body>

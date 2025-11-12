@@ -20,9 +20,11 @@
     @livewireStyles
 </head>
 
-<body
-    class="flex items-center justify-center min-h-screen p-0 m-0 font-sans no-underline list-none bg-gradient-to-r from-stone-50 to-stone-200">
+<body class="flex items-center justify-center min-h-screen p-0 m-0 font-sans no-underline list-none bg-linear-to-r from-stone-50 to-stone-200">
     {{ $slot }}
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     @livewireScripts
 </body>
 

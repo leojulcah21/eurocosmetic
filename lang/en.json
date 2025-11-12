@@ -191,7 +191,7 @@
     "We were unable to find a registered user with this email address.": "We were unable to find a registered user with this email address.",
     "Welcome": "Welcome",
     "Welcome to": "Welcome to",
-    "When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your phone's Google Authenticator application.": "When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your phone's Google Authenticator application.",
+    "two_factor_info": "When two-factor authentication is enabled, you will be prompted for a secure, random token during sign-in. You can retrieve this token from any TOTP-compatible authentication app on your phone, such as <a href=\"https://support.google.com/accounts/answer/1066447\" target=\"_blank\" class=\"text-blue-600 underline hover:text-blue-800\">Google Authenticator</a>, <a href=\"https://www.microsoft.com/en-us/security/mobile-authenticator-app\" target=\"_blank\" class=\"text-blue-600 underline hover:text-blue-800\">Microsoft Authenticator</a>, <a href=\"https://authy.com\" target=\"_blank\" class=\"text-blue-600 underline hover:text-blue-800\">Authy</a>, <a href=\"https://getaegis.app\" target=\"_blank\" class=\"text-blue-600 underline hover:text-blue-800\">Aegis</a>, <a href=\"https://freeotp.github.io\" target=\"_blank\" class=\"text-blue-600 underline hover:text-blue-800\">FreeOTP</a>, <a href=\"https://1password.com\" target=\"_blank\" class=\"text-blue-600 underline hover:text-blue-800\">1Password</a>, or <a href=\"https://bitwarden.com/help/authenticator-keys\" target=\"_blank\" class=\"text-blue-600 underline hover:text-blue-800\">Bitwarden Authenticator</a>.",
     "Whoops!": "Whoops!",
     "Whoops! Something went wrong.": "Whoops! Something went wrong.",
     "You are receiving this email because we received a password reset request for your account.": "You are receiving this email because we received a password reset request for your account.",
@@ -203,5 +203,6 @@
     "You may not delete your personal team.": "You may not delete your personal team.",
     "You may not leave a team that you created.": "You may not leave a team that you created.",
     "Your email address is unverified.": "Your email address is unverified.",
-    "Get the best hair products only from us. At a low price! Go for it!": "Get the best hair products only from us. At a low price! Go for it!"
+    "Get the best hair products only from us. At a low price! Go for it!": "Get the best hair products only from us. At a low price! Go for it!",
+    "Or enter the code bellew into the autenticator app": "Or enter the code bellew into the autenticator app"
 }

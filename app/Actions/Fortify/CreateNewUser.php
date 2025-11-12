@@ -22,6 +22,11 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input): User
     {
+        // Ensure $input is defined when this method is invoked without parameters
+        if (empty($input) || !is_array($input)) {
+            $input = request()->all();
+        }
+
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -29,7 +34,11 @@ class CreateNewUser implements CreatesNewUsers
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
 
-        $clientRole = Role::where('name', 'client')->first();
+        $adminRoleId = Role::where('name', 'Administrator')->value('id') ?? 1;
+
+        if (!$adminRoleId) {
+            throw new \Exception("El rol 'Administrator' no existe en la tabla roles.");
+        }
 
         do {
             $username = 'user_' . Str::random(6);
@@ -40,7 +49,8 @@ class CreateNewUser implements CreatesNewUsers
             'username' => $username,
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
-            'role_id' => $clientRole?->id,
+            'role_id' => $adminRoleId,
+            'status' => User::STATUS_ACTIVE,
         ]);
     }
 }

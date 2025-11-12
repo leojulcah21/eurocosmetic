@@ -1,0 +1,146 @@
+.tail-datetime-calendar {
+    border: 1px solid #e5e4e4 !important;
+    border-radius: 30px 30px 30px 30px !important;
+    padding: 30px 15px 8px 15px !important;
+    font-family: "Playwrite DE Grund", sans-serif;
+}
+
+.tail-datetime-calendar button.calendar-close {
+    top: -1%;
+    left: -2%;
+    width: 25px;
+    background-image: url("../svg/x.svg") !important;
+    border: 1px solid #00000000 !important;
+    border-width: 0;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 9999px;
+}
+
+.tail-datetime-calendar .calendar-actions span.action-prev {
+    background-image: url("../svg/chevron-left.svg") !important;
+}
+
+.tail-datetime-calendar .calendar-actions span.action-next {
+    background-image: url("../svg/chevron-right.svg") !important;
+}
+
+.tail-datetime-calendar .calendar-actions span.action-prev:hover,
+.tail-datetime-calendar .calendar-actions span.action-next:hover {
+    background-color: #fee2e2 !important;
+}
+
+.tail-datetime-calendar .calendar-actions span.action-prev:hover {
+    border-top-left-radius: 9999px !important;
+    border-bottom-left-radius: 9999px !important;
+}
+
+.tail-datetime-calendar .calendar-actions span.action-next:hover {
+    border-top-right-radius: 9999px !important;
+    border-bottom-right-radius: 9999px !important;
+}
+
+.tail-datetime-calendar .calendar-actions {
+    color: #0c0a09 !important;
+    background-color: #fef2f2 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+    border-radius: 9999px !important;
+}
+
+.tail-datetime-calendar .calendar-actions span[data-action]:hover {
+    opacity: 0.95 !important;
+    font-weight: bolder !important;
+}
+
+.tail-datetime-calendar .calendar-datepicker:after {
+    border-color: #ffffff00 !important;
+}
+
+.tail-datetime-calendar .calendar-week {
+    margin-top: 2px;
+    font-size: 12px !important;
+    font-size: bolder !important;
+}
+
+.tail-datetime-calendar .calendar-days span {
+    font-size: 11px !important;
+}
+
+.tail-datetime-calendar .calendar-datepicker table tr th {
+    color: #0c0a09 !important;
+    font-size: 12px !important;
+    font-weight: bolder !important;
+}
+
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-day {
+    width: 40px;
+    height: 45px;
+}
+
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-day:hover,
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-month:hover,
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-year:hover,
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-decade:hover {
+    border-color: oklch(97% 0.001 106.424) !important;
+    background-color: oklch(97% 0.001 106.424) !important;
+    border-radius: 9999px !important;
+}
+
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-day.date-today,
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-month.date-today,
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-year.date-today,
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-decade.date-today {
+    color: #4338ca !important;
+    background-image: linear-gradient(#fff, #fff), linear-gradient(to right, rgb(147, 51, 234),rgb(79, 70, 229), rgb(99, 102, 241)) !important;
+    background-origin: border-box !important;
+    background-clip: padding-box, border-box !important;
+    border: 2px solid transparent !important;
+    font-weight: 600;
+    box-shadow: 0 5px 6px -3px rgba(99, 102, 241, 0.5), 0 4px 6px -4px rgba(99, 102, 241, 0.5) !important;
+    border-radius: 9999px !important;
+}
+
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-day.date-today:hover,
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-month.date-today:hover,
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-year.date-today:hover,
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-decade.date-today:hover {
+    background-image: linear-gradient(oklch(97% 0.001 106.424), oklch(97% 0.001 106.424)), linear-gradient(to left, #6366f1, #4f46e5, #4338ca) !important;
+}
+
+.tail-datetime-calendar .calendar-actions span.label:hover {
+    background-color: #fef2f2 !important;
+}
+
+.tail-datetime-calendar .calendar-datepicker table tr td.date-today:before {
+    top: 7px;
+    left: 8px !important;
+    background-color: #4338ca !important;
+}
+
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-day.date-select,
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-month.date-select,
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-year.date-select,
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-decade.date-select {
+    color: #ffffff !important;
+    border: 1px solid transparent !important;
+    background-image: linear-gradient(to bottom right, rgb(147, 51, 234),rgb(79, 70, 229), rgb(99, 102, 241)) !important;
+    box-shadow: 0 5px 6px -3px rgba(99, 102, 241, 0.5), 0 4px 6px -4px rgba(99, 102, 241, 0.5) !important;
+    transition: all 0.3s ease !important;
+    border-radius: 9999px !important;
+}
+
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-day.date-select:hover,
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-month.date-select:hover,
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-year.date-select:hover,
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-decade.date-select:hover {
+    /* background-image: linear-gradient(to bottom right, #6366f1, #4f46e5, #4338ca) !important; */
+    background-image: linear-gradient(to top right, #9333ea,#4f46e5, #6366f1) !important;
+}
+
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-day.date-select:focus,
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-month.date-select:focus,
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-year.date-select:focus,
+.tail-datetime-calendar .calendar-datepicker table tr td.calendar-decade.date-select:focus {
+    box-shadow: 0 0 0 4px rgba(165, 180, 252, 0.75), 0 10px 15px -3px rgba(99, 102, 241, 0.5), 0 4px 6px -4px rgba(99, 102, 241, 0.5) !important;
+}

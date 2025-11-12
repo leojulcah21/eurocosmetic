@@ -1,67 +1,68 @@
 @props([
     'variant' => 'primary',
     'active' => false,
+    'classIcon' => ''
 ])
 
 @php
-$variants = [
-    'primary' => [
-        'default' => [
-            'p1' => 'text-stone-400 group-hover:text-indigo-400',
-            'p2' => 'text-stone-300 group-hover:text-indigo-300',
-            'p3' => 'text-stone-200 group-hover:text-indigo-200'
+    $variants = [
+        'primary' => [
+            'default' => [
+                'p1' => 'text-stone-400 group-hover:text-indigo-400',
+                'p2' => 'text-stone-300 group-hover:text-indigo-300',
+                'p3' => 'text-stone-200 group-hover:text-indigo-200'
+            ],
+            'active' => [
+                'p1' => 'text-indigo-500 group-hover:text-indigo-600',
+                'p2' => 'text-indigo-400 group-hover:text-indigo-500',
+                'p2' => 'text-indigo-300 group-hover:text-indigo-400'
+            ]
         ],
-        'active' => [
-            'p1' => 'text-indigo-500 group-hover:text-indigo-600',
-            'p2' => 'text-indigo-400 group-hover:text-indigo-500',
-            'p2' => 'text-indigo-300 group-hover:text-indigo-400'
-        ]
-    ],
-    'secondary' => [
-        'default' => [
-            'p1' => 'text-stone-400 group-hover:text-gray-500',
-            'p2' => 'text-stone-300 group-hover:text-gray-400',
-            'p3' => 'text-stone-200 group-hover:text-gray-300'
+        'secondary' => [
+            'default' => [
+                'p1' => 'text-stone-400 group-hover:text-gray-500',
+                'p2' => 'text-stone-300 group-hover:text-gray-400',
+                'p3' => 'text-stone-200 group-hover:text-gray-300'
+            ],
+            'active' => [
+                'p1' => 'text-gray-500',
+                'p2' => 'text-gray-400',
+                'p3' => 'text-gray-200'
+            ]
         ],
-        'active' => [
-            'p1' => 'text-gray-500',
-            'p2' => 'text-gray-400',
-            'p3' => 'text-gray-200'
-        ]
-    ],
-    'danger' => [
-        'default' => [
-            'p1' => 'text-stone-400 group-hover:text-red-500',
-            'p2' => 'text-stone-300 group-hover:text-red-400',
-            'p3' => 'text-stone-200 group-hover:text-red-300'
+        'danger' => [
+            'default' => [
+                'p1' => 'text-stone-400 group-hover:text-red-500',
+                'p2' => 'text-stone-300 group-hover:text-red-400',
+                'p3' => 'text-stone-200 group-hover:text-red-300'
+            ],
+            'active' => [
+                'p1' => 'text-red-600',
+                'p2' => 'text-red-500',
+                'p3' => 'text-red-300'
+            ]
         ],
-        'active' => [
-            'p1' => 'text-red-600',
-            'p2' => 'text-red-500',
-            'p3' => 'text-red-300'
-        ]
-    ],
-    'warning' => [
-        'default' => [
-            'p1' => 'text-stone-400 group-hover:text-yellow-400',
-            'p2' => 'text-stone-300 group-hover:text-yellow-300',
-            'p3' => 'text-stone-200 group-hover:text-yellow-200'
+        'warning' => [
+            'default' => [
+                'p1' => 'text-stone-400 group-hover:text-yellow-400',
+                'p2' => 'text-stone-300 group-hover:text-yellow-300',
+                'p3' => 'text-stone-200 group-hover:text-yellow-200'
+            ],
+            'active' => [
+                'p1' => 'text-yellow-500',
+                'p2' => 'text-yellow-300',
+                'p3' => 'text-yellow-200'
+            ]
         ],
-        'active' => [
-            'p1' => 'text-yellow-500',
-            'p2' => 'text-yellow-300',
-            'p3' => 'text-yellow-200'
-        ]
-    ],
-];
+    ];
 
-$colors = $active
-? $variants[$variant]['active']
-: $variants[$variant]['default'];
+    $colors = $active
+    ? $variants[$variant]['active']
+    : $variants[$variant]['default'];
 @endphp
 
 <div {{ $attributes->merge(['class' => 'flex items-center']) }}>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-[14px] h-[14px] fill-current mt-[2px]" aria-hidden="true"
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-[14px] h-[14px] fill-current mt-[2px] {{ $classIcon }}" aria-hidden="true"
         preserveAspectRatio="xMidYMid meet">
         <g transform="translate(0,512) scale(0.1,-0.1)" stroke="none">
             <path d="M214 5090 c-60 -34 -126 -105 -160 -172 -57 -112 -54 -9 -54 -1955 0

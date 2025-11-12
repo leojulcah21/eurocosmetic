@@ -19,12 +19,11 @@ class CustomAuthenticatedSessionController extends AuthenticatedSessionControlle
         $user = Auth::user();
 
         if ($user) {
-            // Obtenemos el rol desde la relación
-            $roleName = $user->role ? $user->role->name : 'client';
+            $roleName = $user->role ? $user->role->name : 'Client';
             Log::info("🚪 Guardando rol antes de logout: {$roleName}");
 
-            // Pasamos el rol al request ANTES de cerrar sesión
-            $request->merge(['last_role' => $roleName]);
+            // Guardamos en la sesión, no en el request
+            $request->session()->flash('last_role', $roleName);
         }
 
         Auth::guard('web')->logout();

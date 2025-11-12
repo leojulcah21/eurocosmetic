@@ -13,18 +13,17 @@
     @include('layouts.partials.fonts')
     @include('layouts.partials.icons')
 
-    @vite(['resources/js/app.js', 'resources/css/app.css'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Styles -->
     @livewireStyles
 </head>
 
-<body class="m-0 font-sans text-base antialiased font-normal bg-[#f8f9fa] leading-[1.6] text-slate-500 z-10">
+<body class="relative m-0 font-sans text-base antialiased font-normal bg-[#f8f9fa] leading-[1.6] text-slate-500">
     <div class="absolute w-full bg-red-50 dark:hidden min-h-72"></div>
-    <x-app.sidebar class='max-w-64 xl:ml-6 rounded-2xl xl:left-0 xl:translate-x-0' />
+    <x-app.sidebar />
     <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-[17rem] rounded-xl">
-        <nav
-            class="relative z-30 flex flex-wrap items-center justify-between px-0 py-2 ml-6 transition-all ease-in shadow-none xl:mr-2 lg:mr-10 duration-250 rounded-2xl lg:flex-nowrap lg:justify-start md:mr-10">
+        <nav class="relative z-20 flex flex-wrap items-center justify-between px-0 py-2 ml-6 transition-all ease-in shadow-none xl:mr-2 lg:mr-10 duration-250 rounded-2xl lg:flex-nowrap lg:justify-start md:mr-10">
             <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
                 <nav>
                     <!-- breadcrumb -->
@@ -58,7 +57,7 @@
                             <a href="#"
                                 class="relative flex flex-wrap px-4 py-2 text-[13px] font-semibold transition-all group hover:px-8 text-stone-950 hover:rounded-full hover:bg-red-100 tracking-wider">
                                 <x-icon name='user' class="w-4 sm:hidden sm:mr-2 text-stone-950 group-hover:inline" />
-                                <span class="hidden pt-[1px] sm:inline">{{ __('Login') }}</span>
+                                <span class="hidden pt-px sm:inline">{{ __('Login') }}</span>
                             </a>
                         </li>
                     </ul>
@@ -70,7 +69,7 @@
                             <a href="{{ route('profile.show') }}"
                                 class="relative flex flex-wrap px-4 py-2 text-[13px] font-semibold transition-all group hover:px-8 text-stone-950 hover:rounded-full hover:bg-red-100 tracking-wider">
                                 <x-icon name='user' class="w-4 sm:hidden sm:mr-2 text-stone-950 group-hover:inline" />
-                                <span class="hidden pt-[1px] sm:inline">{{ __('Profile') }}</span>
+                                <span class="hidden pt-px sm:inline">{{ __('Profile') }}</span>
                             </a>
                         </li>
                         <li class="relative flex items-center pr-2 ml-2">
@@ -103,7 +102,7 @@
                                     <div class="flex py-1">
                                         <div class="my-auto">
                                             <img src="#"
-                                                class="inline-flex items-center justify-center mr-4 text-sm text-white bg-gradient-to-tl from-zinc-800 to-zinc-700 dark:bg-gradient-to-tl dark:from-slate-750 dark:to-gray-850 h-9 w-9 max-w-none rounded-xl" />
+                                                class="inline-flex items-center justify-center mr-4 text-sm text-white bg-linear-to-tl from-zinc-800 to-zinc-700 dark:bg-linear-to-tl dark:from-slate-750 dark:to-gray-850 h-9 w-9 max-w-none rounded-xl" />
                                         </div>
                                         <div class="flex flex-col justify-center">
                                             <h6 class="mb-1 text-sm font-normal leading-normal dark:text-white">
@@ -120,7 +119,7 @@
                                 <x-dropdown-link class="relative">
                                     <div class="flex py-1">
                                         <div
-                                            class="inline-flex items-center justify-center my-auto mr-4 text-sm text-white transition-all duration-200 ease-nav-brand bg-gradient-to-tl from-slate-600 to-slate-300 h-9 w-9 rounded-xl">
+                                            class="inline-flex items-center justify-center my-auto mr-4 text-sm text-white transition-all duration-200 ease-nav-brand bg-linear-to-tl from-slate-600 to-slate-300 h-9 w-9 rounded-xl">
                                             <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -162,9 +161,10 @@
         {{ $slot }}
         <x-app.footer class='' />
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     @stack('modals')
     @livewireScripts
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

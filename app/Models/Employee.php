@@ -11,7 +11,7 @@ class Employee extends Model
 
     const TYPE_SELLER = 'seller';
     const TYPE_WAREHOUSE_MANAGER = 'warehouse_manager';
-    const TYPE_COLLECTOR = 'collector';
+    const TYPE_COURIER = 'courier';
 
     protected $fillable = [
         'code',
@@ -20,7 +20,10 @@ class Employee extends Model
         'email',
         'phone',
         'birth_date',
-        'employee_type'
+        'employee_type',
+        'years_experience',
+        'status',
+        'hire_date'
     ];
 
     // Relationships
@@ -39,14 +42,18 @@ class Employee extends Model
         return $this->hasOne(WarehouseManager::class);
     }
 
-    public function collector()
+    public function courier()
     {
-        return $this->hasOne(Collector::class);
+        return $this->hasOne(Courier::class);
     }
 
     // Validation
     public static function getValidEmployeeTypes()
     {
-        return [self::TYPE_SELLER, self::TYPE_WAREHOUSE_MANAGER, self::TYPE_COLLECTOR];
+        return [
+            self::TYPE_SELLER,
+            self::TYPE_WAREHOUSE_MANAGER,
+            self::TYPE_COURIER
+        ];
     }
 }

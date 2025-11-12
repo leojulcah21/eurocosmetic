@@ -16,7 +16,7 @@ class ChatbotInteraction extends Model
 
     protected $fillable = [
         'code',
-        'client_id',
+        'customer_id',
         'interaction_date',
         'interaction_type',
         'user_message',
@@ -24,9 +24,9 @@ class ChatbotInteraction extends Model
     ];
 
     // Relationships
-    public function client()
+    public function customer()
     {
-        return $this->belongsTo(Client::class);
+        return $this->belongsTo(Customer::class);
     }
 
     // Validation

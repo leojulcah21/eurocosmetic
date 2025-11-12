@@ -6,6 +6,8 @@ use App\Actions\Jetstream\DeleteUser;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Jetstream\Jetstream;
+use Livewire\Livewire;
+use App\Http\Livewire\Profile\ExtendedUpdateProfileInformationForm;
 
 class JetstreamServiceProvider extends ServiceProvider
 {
@@ -27,6 +29,7 @@ class JetstreamServiceProvider extends ServiceProvider
         Jetstream::deleteUsersUsing(DeleteUser::class);
 
         Vite::prefetch(concurrency: 3);
+        Livewire::component('profile.update-profile-information-form', ExtendedUpdateProfileInformationForm::class);
     }
 
     /**

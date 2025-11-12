@@ -49,7 +49,7 @@ class SellerController extends Controller
                     'username' => $request->username,
                     'email' => $request->email,
                     'password' => Hash::make($request->password),
-                    'role_id' => Role::where('name', 'seller')->first()->id ?? 3,
+                    'role_id' => Role::where('name', 'Employee')->first()->id ?? 2,
                     'status' => 'active',
                 ]);
 
@@ -62,6 +62,7 @@ class SellerController extends Controller
                     'phone' => $request->phone,
                     'birth_date' => $request->birth_date,
                     'employee_type' => 'seller',
+                    'years_experience' => $request->years_experience ?? 0,
                 ]);
 
 
@@ -71,7 +72,6 @@ class SellerController extends Controller
                     'employee_id' => $employee->id,
                     'line' => $request->line,
                     'notes' => $request->notes,
-                    'years_experience' => $request->years_experience ?? 0,
                 ]);
             });
 

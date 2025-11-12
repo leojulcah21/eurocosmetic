@@ -16,16 +16,16 @@ class RouteServiceProvider extends ServiceProvider
             return '/';
         }
 
-        if ($user->hasRole('admin') || $user->hasRole('employee')) {
-            return '/company/dashboard';
+        if ($user->hasRole('Administrator') || $user->hasRole('Employee')) {
+            return route('company.welcome');
         }
 
-        if ($user->hasRole('client')) {
-            return '/';
+        if ($user->hasRole('Customer')) {
+            return route('home');
         }
 
         // Si no tiene ningún rol reconocido
-        return '/company/dashboard';
+        return '/';
     }
 
     /**

@@ -4,6 +4,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 
+use App\Http\Middleware as MiddlewareApp;
+
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
         web: __DIR__ . '/../routes/web.php',
@@ -13,7 +15,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
-            'role' => \App\Http\Middleware\RoleMiddleware::class,
+            'role' => MiddlewareApp\RoleMiddleware::class,
+            'employee_type' => MiddlewareApp\EmployeeTypeMiddleware::class,
+            'guest.is.client' => MiddlewareApp\EnsureGuestIsClient::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

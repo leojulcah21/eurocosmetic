@@ -19,7 +19,10 @@ return new class extends Migration
             $table->string('email', 150)->nullable();
             $table->string('phone', 20)->nullable();
             $table->date('birth_date')->nullable();
-            $table->enum('employee_type', ['seller', 'warehouse_manager', 'collector']);
+            $table->enum('employee_type', ['seller', 'warehouse_manager', 'courier']);
+            $table->integer('years_experience')->default(0);
+            $table->enum('status', ['active', 'inactive', 'resigned'])->default('active');
+            $table->date('hire_date')->nullable();
             $table->timestamps();
         });
     }

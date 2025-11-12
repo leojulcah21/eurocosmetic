@@ -2,6 +2,7 @@
 <form x-show="!isRegister" class="w-full transition-opacity duration-[1800ms] easy-in-out" method="POST"
     action="{{ route('login') }}">
     @csrf
+    <input type="hidden" name="context" value="customer">
     <h1 class='text-[30px] m-[-10px_0] font-bold text-center mb-2'>{{ __('Login') }}</h1>
 
     <div class='relative m-[20px_4px]'>
@@ -39,7 +40,7 @@
             </a>
             @endif
         </div>
-        <x-button>
+        <x-button variant="gradient" color="dark" shadow='glow' class='w-full'>
             {{ __('Login') }}
         </x-button>
     </div>

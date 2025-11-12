@@ -13,9 +13,8 @@ class WarehouseManager extends Model
         'code',
         'employee_id',
         'warehouse_id',
-        'area',
-        'years_experience',
-        'notes'
+        'sales_target',
+        'responsibility_area',
     ];
 
     // Relationships
