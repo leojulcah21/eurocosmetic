@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Customer;
-use App\Http\Controllers\BotController;
+use App\Http\Controllers\BotpressController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -34,4 +34,4 @@ Route::get('/clientes/{id}', function ($id) {
     ]);
 });
 
-Route::post('/bot/handle', [BotController::class, 'handle']);
+Route::post('/bot/handle', [BotpressController::class, 'handle']);

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\BotpressService;
 
-class BotController extends Controller
+class BotpressController extends Controller
 {
     public function handle(Request $request, BotpressService $botpressService)
     {
