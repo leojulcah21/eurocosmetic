@@ -7,10 +7,27 @@ use App\Services\BotpressService;
 
 class BotpressController extends Controller
 {
-    public function handle(Request $request, BotpressService $botpressService)
+    protected $botpress;
+
+    public function __construct(BotpressService $botpress)
     {
-        return response()->json([
-            'reply' => $botpressService->processMessage($request->input('message')),
+        $this->botpress = $botpress;
+    }
+
+    /**
+     * API para Botpress: buscar productos.
+     */
+    public function searchProducts(Request $request)
+    {
+        $request->validate([
+            'query' => ['required', 'string'],
         ]);
+
+        $query = $request->input('query');
+
+        $products = $this->botpress->searchProducts($query);
+        $result = $this->botpress->formatProductResponse($products);
+
+        return response()->json($result);
     }
 }

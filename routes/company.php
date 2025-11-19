@@ -17,6 +17,7 @@ Route::prefix('company')->group(function () {
 // RUTAS PRIVADAS COMPANY
 // =======================================
 Route::get('/company', [CompanyController::class, 'index'])
+    ->middleware(['role:Administrator,Employee'])
     ->name('company.welcome');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified', 'role:Administrator,Employee'])

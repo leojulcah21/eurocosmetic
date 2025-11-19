@@ -2,22 +2,55 @@
 
 namespace App\Services;
 
-use App\Models\Customer;
+use App\Models\Product;
 
-class BotpressService {
-    public function processMessage($message)
+class BotpressService
+{
+    /**
+     * Busca productos por texto (nombre o código).
+     */
+    public function searchProducts(string $query)
     {
-        $msg = strtolower(trim($message));
+        $query = trim($query);
 
-        if (str_contains($msg, 'negocio')) {
-            $cliente = Customer::find(1); // por ahora, fijo o según auth
-            return "Por supuesto, tu negocio es {$cliente->business_name}.";
+        if ($query === '') {
+            return collect();
         }
 
-        if (str_contains($msg, 'ayuda')) {
-            return "Claro, puedo ayudarte con lo relacionado a tu negocio, con su dirección. ¿Qué deseas consultar?";
+        return Product::query()
+            ->where('name', 'LIKE', "%{$query}%")
+            ->orWhere('code', 'LIKE', "%{$query}%")
+            ->limit(5)
+            ->get();
+    }
+
+    /**
+     * Prepara respuesta para Botpress.
+     */
+    public function formatProductResponse($products)
+    {
+        if ($products->isEmpty()) {
+            return [
+                'found' => false,
+                'products' => [],
+                'message' => 'No encontré productos con ese nombre o código.'
+            ];
         }
 
-        return "Lo siento, no entendí tu mensaje. ¿Podrías reformularlo?";
+        return [
+            'found' => true,
+            'products' => $products->map(function ($p) {
+                return [
+                    'id' => $p->id,
+                    'code' => $p->code,
+                    'name' => $p->name,
+                    'description' => $p->description,
+                    'price' => $p->price,
+                    'stock' => $p->stock,
+                    'image' => $p->image_url,
+                ];
+            }),
+            'message' => 'Productos encontrados.'
+        ];
     }
 }

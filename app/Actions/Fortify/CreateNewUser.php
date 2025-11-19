@@ -34,10 +34,16 @@ class CreateNewUser implements CreatesNewUsers
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
 
-        $adminRoleId = Role::where('name', 'Administrator')->value('id') ?? 1;
+        $context = request()->input('context', 'company');
 
-        if (!$adminRoleId) {
-            throw new \Exception("El rol 'Administrator' no existe en la tabla roles.");
+        if ($context === 'customer') {
+            $roleId = Role::where('name', 'Customer')->value('id')?? 3;
+        } else {
+            $roleId = Role::where('name', 'Administrator')->value('id')?? 1;
+        }
+
+        if (!$roleId) {
+            throw new \Exception("El rol del contexto '{$context}' no existe.");
         }
 
         do {
@@ -49,7 +55,7 @@ class CreateNewUser implements CreatesNewUsers
             'username' => $username,
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
-            'role_id' => $adminRoleId,
+            'role_id' => $roleId,
             'status' => User::STATUS_ACTIVE,
         ]);
     }

@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\URL;
 use App\Models\User;
 use BladeUI\Icons\Factory as IconFactory;
 
@@ -23,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(IconFactory $factory): void
     {
+        if (str_contains(Request::getHost(), 'temperature-climbing-procedures-rap.trycloudflare.com')) {
+            URL::forceScheme('https');
+        }
+
         // Directiva genérica para roles
         Blade::if('role', function (...$roles) {
             $user = Auth::guard()->user();

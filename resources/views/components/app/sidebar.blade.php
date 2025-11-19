@@ -70,7 +70,7 @@
     <aside class="fixed inset-y-0 flex-wrap items-center justify-between block w-full p-0 my-4 overflow-y-auto antialiased text-white transition-transform -translate-x-full border-0 shadow-xl duration-800 bg-stone-950 max-w-64 xl:ml-6 rounded-2xl xl:left-0 xl:translate-x-0 z-40 {{ $class }}"
         :class="{'-translate-x-full': !sidebarOpen, 'translate-x-0 ml-6': sidebarOpen}">
         <div class="h-[76px]">
-            <a href="{{ route('company.welcome') }}" class='block px-8 py-6 m-0 text-sm text-white whitespace-nowrap'>
+            <a href="{{ route('company.welcome') }}" class='block px-[45px] py-6 m-0 text-sm text-white whitespace-nowrap'>
                 <x-dashboard-logo class="m-auto text-white" />
             </a>
         </div>
@@ -82,7 +82,7 @@
                     @role('Administrator', 'Employee')
                         @foreach ($groups as $groupName => $items)
                             <li class="w-full mt-2 mb-2">
-                                <h6 class="pl-6 ml-2 text-[9px] font-bold leading-tight uppercase opacity-60">
+                                <h6 class="pl-6 ml-2 text-xs font-bold leading-tight uppercase opacity-60">
                                     {{ $groupName }}
                                 </h6>
                             </li>
@@ -156,7 +156,7 @@
                 @endauth
                 @guest
                     <li class="w-full mt-2 mb-2">
-                        <h6 class="pl-6 ml-2 text-[9px] font-bold leading-tight uppercase opacity-60">
+                        <h6 class="pl-6 ml-2 text-xs font-bold leading-tight uppercase opacity-60">
                             Company
                         </h6>
                     </li>
@@ -173,7 +173,7 @@
                     </li>
                 @endguest
                 <li class="w-full mt-4 mb-2">
-                    <h6 class="pl-6 ml-2 text-[9px] font-bold leading-tight uppercase dark:text-white opacity-60">
+                    <h6 class="pl-6 ml-2 text-xs font-bold leading-tight uppercase dark:text-white opacity-60">
                         {{ __('Account pages') }}
                     </h6>
                 </li>

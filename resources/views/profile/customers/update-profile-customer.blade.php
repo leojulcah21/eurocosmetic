@@ -28,14 +28,16 @@
                         $isVerified = auth()->user()->hasVerifiedEmail();
                     @endphp
                     <div class="absolute top-0 -right-1.5">
-                        @if ($isVerified)
-                            <x-badge class='px-6 py-1' color='green' variant='soft' icon="circle-dashed-check">
-                                Verificado
-                            </x-badge>
-                        @else
-                            <x-badge class='px-6 py-1' color='red' variant='soft' icon="circle-dashed-x">
-                                No verificado
-                            </x-badge>
+                        @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && !$this->user->hasVerifiedEmail())
+                            @if ($isVerified)
+                                <x-badge class='px-6 py-1' color='green' variant='soft' icon="circle-dashed-check">
+                                    Verificado
+                                </x-badge>
+                            @else
+                                <x-badge class='px-6 py-1' color='red' variant='soft' icon="circle-dashed-x">
+                                    No verificado
+                                </x-badge>
+                            @endif
                         @endif
                     </div>
                     <x-label for="email" value="{{ __('Email') }}" />

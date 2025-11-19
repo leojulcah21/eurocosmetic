@@ -113,7 +113,7 @@ class FortifyServiceProvider extends ServiceProvider
         $this->app->bind(AuthenticatedSessionController::class, CustomAuthenticatedSessionController::class);
         $this->app->singleton(LogoutResponseContract::class, CustomLogoutResponse::class);
         $this->app->singleton(TwoFactorLoginResponseContract::class, CustomTwoFactorResponse::class);
-        $this->app->singleton(VerifyEmailResponseContract::class, CustomEmailVerificationResponse::class);
+        // $this->app->singleton(VerifyEmailResponseContract::class, CustomEmailVerificationResponse::class);
 
     }
 }

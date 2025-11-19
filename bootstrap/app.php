@@ -19,6 +19,12 @@ return Application::configure(basePath: dirname(__DIR__))
             'employee_type' => MiddlewareApp\EmployeeTypeMiddleware::class,
             'guest.is.client' => MiddlewareApp\EnsureGuestIsClient::class,
         ]);
+        $middleware->trustHosts([
+            '127.0.0.1',
+            'localhost',
+            'eurocosmetic.loca.lt',
+            '*.eurocosmetic.loca.lt', // essssto es lo importante
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

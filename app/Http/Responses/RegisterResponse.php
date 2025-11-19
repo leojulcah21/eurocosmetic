@@ -4,6 +4,7 @@ namespace App\Http\Responses;
 
 use Laravel\Fortify\Contracts\RegisterResponse as RegisterResponseContract;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Session;
 
 class RegisterResponse implements RegisterResponseContract
 {
@@ -11,12 +12,18 @@ class RegisterResponse implements RegisterResponseContract
     {
         $user = $request->user()?->fresh('role');
 
-        // Redirección solo para el registro
-        if ($user && $user->role_id && $user->role?->name === 'Customer') {
+        if ($user && $user->role?->name === 'Customer') {
+
             return redirect()->route('customer.setup');
         }
 
         if ($user && ($user->hasRole('Administrator') || $user->hasRole('Employee'))) {
+
+            // Session::put('redirect_after_verification', route('company.welcome'));
+
+            // dd(session()->get('redirect_after_verification'));
+
+
             return redirect()->route('company.welcome');
         }
 

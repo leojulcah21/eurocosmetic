@@ -35,15 +35,6 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'username' => ['required', 'string', 'max:12', Rule::unique('users')->ignore($user->id)],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
-
-            // Cliente
-            'dni' => ['nullable', 'string', 'max:15'],
-            'phone' => ['nullable', 'string', 'max:20'],
-            'birth_date' => [
-                'required',
-                'date',
-                'before_or_equal:' . Carbon::now()->subYears(18)->format('Y-m-d')
-            ],
         ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {

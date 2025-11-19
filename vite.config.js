@@ -8,4 +8,13 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    base: './',
+    server: {
+        https: true,
+        host: true,
+        hmr: {
+            host: 'aye-slide-der-authorized.trycloudflare.com',
+            protocol: 'wss',
+        },
+    },
 });

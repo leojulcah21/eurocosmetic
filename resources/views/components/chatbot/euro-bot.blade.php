@@ -1,7 +1,7 @@
 @props(['class' => ''])
 <button id='bp-toggle-chat' class="fixed group flex items-center justify-center p-2 hover:py-2 hover:px-4 rounded-full shadow-lg cursor-pointer h-16 w-20 bottom-5 right-5 z-[9999] hover:w-[150px] transition-all duration-300 overflow-hidden border-2 border-white {{ $class }}">
     <div class='flex flex-row items-center justify-center'>
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" zoomAndPan="magnify" viewBox="0 0 375 375" preserveAspectRatio="xMidYMid meet" version="1.0" class="flex-shrink-0 ml-[66px] w-14 h-14 mt-0.5 group-hover:ml-0">>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" zoomAndPan="magnify" viewBox="0 0 375 375" preserveAspectRatio="xMidYMid meet" version="1.0" class="flex-shrink-0 ml-[66px] w-14 h-14 mt-0.5 group-hover:ml-0">
            <defs>
             <clipPath id="5abab77ede">
                 <path d="M 14.011719 156 L 93 156 L 93 258 L 14.011719 258 Z M 14.011719 156 " clip-rule="nonzero"/>
@@ -47,3 +47,4 @@
         <h2 class="ml-2 text-base font-bold transition-all duration-300 transform translate-x-2 opacity-0 text-stone-800 group-hover:opacity-100 group-hover:translate-x-0 whitespace-nowrap"> Eurobot </h2>
     </div>
 </button>
+

@@ -1,5 +1,5 @@
 <!-- LOGIN -->
-<form x-show="!isRegister" class="w-full transition-opacity duration-[1800ms] easy-in-out" method="POST"
+<form x-show="!isRegister" id="loginForm" class="w-full transition-opacity duration-[1800ms] easy-in-out" method="POST"
     action="{{ route('login') }}">
     @csrf
     <input type="hidden" name="context" value="customer">

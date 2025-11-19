@@ -49,14 +49,16 @@
                                     $isVerified = auth()->user()->hasVerifiedEmail();
                                 @endphp
                                 <div class="absolute top-0 -right-1.5">
-                                    @if ($isVerified)
-                                        <x-badge class='px-6 py-1' color='green' variant='soft' icon="circle-dashed-check">
-                                            Verificado
-                                        </x-badge>
-                                    @else
-                                        <x-badge class='px-6 py-1' color='red' variant='soft' icon="circle-dashed-x">
-                                            No verificado
-                                        </x-badge>
+                                    @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && !$this->user->hasVerifiedEmail())
+                                        @if ($isVerified)
+                                            <x-badge class='px-6 py-1' color='green' variant='soft' icon="circle-dashed-check">
+                                                Verificado
+                                            </x-badge>
+                                        @else
+                                            <x-badge class='px-6 py-1' color='red' variant='soft' icon="circle-dashed-x">
+                                                No verificado
+                                            </x-badge>
+                                        @endif
                                     @endif
                                 </div>
                                 <x-label for="email" value="{{ __('Email') }}" />
@@ -125,24 +127,24 @@
             <div class="p-6 pt-0 pb-6 text-center border-stone-500 rounded-t-2xl lg:pt-2 lg:pb-4">
                 <div class="flex justify-between">
                     <button type="button"
-                        class="hidden px-8 py-2.5 text-[10px] font-bold leading-normal text-center text-white uppercase align-middle transition-all ease-in border-0 rounded-lg shadow-md cursor-pointer bg-cyan-500 lg:block tracking-wider hover:shadow-[0_7px_14px_rgba(50_50_93_.1),0_3px_6px_rgba(0_0_0_.08)] hover:-translate-y-px active:opacity-85"
+                        class="hidden px-8 py-2.5 text-xs font-bold leading-normal text-center text-white uppercase align-middle transition-all ease-in border-0 rounded-lg shadow-md cursor-pointer bg-cyan-500 lg:block tracking-wider hover:shadow-[0_7px_14px_rgba(50_50_93_.1),0_3px_6px_rgba(0_0_0_.08)] hover:-translate-y-px active:opacity-85"
                         x-on:click.prevent="$refs.photo.click()">
                         {{ __('Select a new photo') }}
                     </button>
 
                     <button type="button"
-                        class="block px-8 py-2.5 text-[10px] font-bold leading-normal text-center text-white align-middle transition-all ease-in border-0 rounded-lg shadow-md cursor-pointer bg-cyan-500 lg:hidden tracking-wider hover:shadow-[0_7px_14px_rgba(50_50_93_.1),0_3px_6px_rgba(0_0_0_.08)] hover:-translate-y-px active:opacity-85"
+                        class="block px-8 py-2.5 text-xs font-bold leading-normal text-center text-white align-middle transition-all ease-in border-0 rounded-lg shadow-md cursor-pointer bg-cyan-500 lg:hidden tracking-wider hover:shadow-[0_7px_14px_rgba(50_50_93_.1),0_3px_6px_rgba(0_0_0_.08)] hover:-translate-y-px active:opacity-85"
                         x-on:click.prevent="$refs.photo.click()">
                         <x-icon name='camera-plus' class="text-2.8" />
                     </button>
                     @if ($this->user->profile_photo_path)
                         <button type="button"
-                            class="hidden px-8 py-2.5 text-[10px] font-bold leading-normal text-center text-white uppercase align-middle transition-all ease-in border-0 rounded-lg shadow-md cursor-pointer bg-slate-700 lg:block tracking-wider hover:shadow-[0_7px_14px_rgba(50_50_93_.1),0_3px_6px_rgba(0_0_0_.08)] hover:-translate-y-px active:opacity-85"
+                            class="hidden px-8 py-2.5 text-xs font-bold leading-normal text-center text-white uppercase align-middle transition-all ease-in border-0 rounded-lg shadow-md cursor-pointer bg-slate-700 lg:block tracking-wider hover:shadow-[0_7px_14px_rgba(50_50_93_.1),0_3px_6px_rgba(0_0_0_.08)] hover:-translate-y-px active:opacity-85"
                             wire:click="deleteProfilePhoto">
                             {{__('Remove photo') }}
                         </button>
                         <button type="button"
-                            class="block px-8 py-2.5 text-[10px] font-bold leading-normal text-center text-white align-middle transition-all ease-in border-0 rounded-lg shadow-md cursor-pointer bg-slate-700 lg:hidden tracking-wider hover:shadow-[0_7px_14px_rgba(50_50_93_.1),0_3px_6px_rgba(0_0_0_.08)] hover:-translate-y-px active:opacity-85"
+                            class="block px-8 py-2.5 text-xs font-bold leading-normal text-center text-white align-middle transition-all ease-in border-0 rounded-lg shadow-md cursor-pointer bg-slate-700 lg:hidden tracking-wider hover:shadow-[0_7px_14px_rgba(50_50_93_.1),0_3px_6px_rgba(0_0_0_.08)] hover:-translate-y-px active:opacity-85"
                             wire:click="deleteProfilePhoto">
                             <x-icon name='camera-x' class="text-2.8" />
                         </button>

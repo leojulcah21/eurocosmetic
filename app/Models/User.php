@@ -9,15 +9,19 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use App\Notifications\CustomVerifyEmail;
+
 
 /**
  *
  * @property \App\Models\Role $role
  * @property \App\Models\Employee $employee
  * @method bool hasRole(array|string $roles)
+ * @method \Laravel\Sanctum\NewAccessToken createToken(string $name, array $abilities = ['*'])
  */
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
+    // implements MustVerifyEmail
     use HasApiTokens;
 
     /** @use HasFactory<\Database\Factories\UserFactory> */
@@ -103,4 +107,10 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return [self::STATUS_ACTIVE, self::STATUS_INACTIVE];
     }
+
+    // public function sendEmailVerificationNotification()
+    // {
+    //     $this->notify(new CustomVerifyEmail);
+    // }
+
 }
