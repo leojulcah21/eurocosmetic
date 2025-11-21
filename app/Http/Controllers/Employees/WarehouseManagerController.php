@@ -5,23 +5,10 @@ namespace App\Http\Controllers\Employees;
 use App\Http\Controllers\Controller;
 use App\Models\WarehouseManager;
 use Illuminate\Http\Request;
+use App\Helpers\CodeGenerator;
 
 class WarehouseManagerController extends Controller
 {
-    public function nuevoCodigo()
-    {
-        $ultimoCodigo = WarehouseManager::select('code')->orderBy('id', 'desc')->first();
-        if ($ultimoCodigo) {
-            $ultimoNumero = intval(substr($ultimoCodigo->code, 3));
-            $nuevoNumero = $ultimoNumero + 1;
-            $codigo = 'WHM' . str_pad($nuevoNumero, 5, '0', STR_PAD_LEFT);
-        } else {
-            $codigo = 'WHM00001';
-        }
-
-        return $codigo;
-    }
-
     public function index()
     {
         $whsManagers = WarehouseManager::with(['employee.user'])
@@ -34,7 +21,7 @@ class WarehouseManagerController extends Controller
 
     public function create()
     {
-        $newCode = $this->nuevoCodigo();
+        $newCode = CodeGenerator::generate('warehouse_managers', 'WHM');
         return view('company.employees.warehouse_managers.actions.create', compact('newCode'));
     }
 }

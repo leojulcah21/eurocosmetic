@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Employees\Seller;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Carbon\Carbon;
 
 class UpdateRequest extends FormRequest
 {
@@ -11,7 +12,21 @@ class UpdateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return ($this->user()?->hasRole('admin')) ?? false;
+        return ($this->user()?->hasRole('Administrator')) ?? false;
+    }
+
+    protected function prepareForValidation()
+    {
+        if (!empty($this->birth_date)) {
+            try {
+                // Convierte d/m/Y → Y-m-d
+                $this->merge([
+                    'birth_date' => Carbon::createFromFormat('d/m/Y', $this->birth_date)->format('Y-m-d')
+                ]);
+            } catch (\Exception $e) {
+                // Si falla la conversión, no hacemos merge para que la validación lo capture
+            }
+        }
     }
 
     /**

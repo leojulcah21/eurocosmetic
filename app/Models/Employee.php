@@ -13,6 +13,10 @@ class Employee extends Model
     const TYPE_WAREHOUSE_MANAGER = 'warehouse_manager';
     const TYPE_COURIER = 'courier';
 
+    const STATUS_ACTIVE = 'active';
+    const STATUS_INACTIVE = 'inactive';
+    const STATUS_RESIGNED = 'resigned';
+
     protected $fillable = [
         'code',
         'user_id',
@@ -55,5 +59,18 @@ class Employee extends Model
             self::TYPE_WAREHOUSE_MANAGER,
             self::TYPE_COURIER
         ];
+    }
+
+    public static function getValidStatuses() {
+        return [
+            self::STATUS_ACTIVE,
+            self::STATUS_INACTIVE,
+            self::STATUS_RESIGNED
+        ];
+    }
+
+    public function isDeletableEmployee()
+    {
+        return !in_array($this->status, ['active', 'resigned']);
     }
 }

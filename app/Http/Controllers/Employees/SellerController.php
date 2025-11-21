@@ -12,6 +12,8 @@ use App\Http\Requests\Employees\Seller\StoreRequest as StoreSellerRequest;
 use App\Http\Requests\Employees\Seller\UpdateRequest as UpdateSellerRequest;
 use App\Helpers\CodeGenerator;
 
+use Carbon\Carbon;
+use Illuminate\Validation\ValidationException;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -50,7 +52,6 @@ class SellerController extends Controller
                     'email' => $request->email,
                     'password' => Hash::make($request->password),
                     'role_id' => Role::where('name', 'Employee')->first()->id ?? 2,
-                    'status' => 'active',
                 ]);
 
                 // Crear empleado
@@ -58,11 +59,12 @@ class SellerController extends Controller
                     'code' => $codeEmp,
                     'user_id' => $user->id,
                     'dni' => $request->dni,
-                    'email' => $request->email,
+                    'email' => $user->email,
                     'phone' => $request->phone,
                     'birth_date' => $request->birth_date,
                     'employee_type' => 'seller',
                     'years_experience' => $request->years_experience ?? 0,
+                    'status' => $request->status,
                 ]);
 
 
@@ -70,8 +72,7 @@ class SellerController extends Controller
                 Seller::create([
                     'code' => $codeSeller,
                     'employee_id' => $employee->id,
-                    'line' => $request->line,
-                    'notes' => $request->notes,
+                    'line' => $request->line
                 ]);
             });
 
@@ -104,15 +105,15 @@ class SellerController extends Controller
 
                 $employee->update([
                     'dni' => $request->dni,
-                    'email' => $request->email,
+                    'email' => $user->email,
                     'phone' => $request->phone,
                     'birth_date' => $request->birth_date,
+                    'years_experience' => $request->years_experience ?? 0,
+                    'status' => $request->status,
                 ]);
 
                 $seller->update([
-                    'line' => $request->line,
-                    'notes' => $request->notes,
-                    'years_experience' => $request->years_experience ?? 0,
+                    'line' => $request->line
                 ]);
             });
 
@@ -126,14 +127,21 @@ class SellerController extends Controller
 
     public function destroy(Seller $seller)
     {
+        // 1. Validar estado prohibido
+        if (! $seller->employee->isDeletableEmployee()) {
+            return back()->with('error', 'No puedes eliminar un vendedor activo o reasignado.');
+        }
+
         try {
             DB::transaction(function () use ($seller) {
                 $deletedNumber = intval(substr($seller->code, 3));
 
+                // Eliminar en orden correcto
                 $seller->employee->user->delete();
                 $seller->employee->delete();
                 $seller->delete();
 
+                // Reordenar códigos
                 $siguientes = Seller::whereRaw('CAST(SUBSTRING(code, 4) AS UNSIGNED) > ?', [$deletedNumber])
                     ->orderBy('id')
                     ->get();
@@ -149,6 +157,7 @@ class SellerController extends Controller
             return redirect()
                 ->route('company.employees.sellers.index', ['page' => 1])
                 ->with('success', 'Vendedor eliminado correctamente.');
+
         } catch (\Throwable $e) {
             return redirect()
                 ->route('company.employees.sellers.index')

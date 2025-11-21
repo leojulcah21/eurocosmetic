@@ -25,8 +25,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     ->name('company.')
     ->group(function () {
 
-        // Route::get('/dashboard', [CompanyController::class, 'index'])->name('dashboard');
-
         // Importas las rutas internas
         require __DIR__.'/company/admin.php';
         require __DIR__.'/company/employee.php';

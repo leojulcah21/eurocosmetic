@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Employees\Seller;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Carbon\Carbon;
 
 class StoreRequest extends FormRequest
 {
@@ -12,7 +13,21 @@ class StoreRequest extends FormRequest
     public function authorize(): bool
     {
         // Use the FormRequest user() helper (avoids undefined method errors from static analyzers)
-        return ($this->user()?->hasRole('admin')) ?? false;
+        return ($this->user()?->hasRole('Administrator')) ?? false;
+    }
+
+    protected function prepareForValidation()
+    {
+        if (!empty($this->birth_date)) {
+            try {
+                // Convierte d/m/Y → Y-m-d
+                $this->merge([
+                    'birth_date' => Carbon::createFromFormat('d/m/Y', $this->birth_date)->format('Y-m-d')
+                ]);
+            } catch (\Exception $e) {
+                // Si falla la conversión, no hacemos merge para que la validación lo capture
+            }
+        }
     }
 
     /**

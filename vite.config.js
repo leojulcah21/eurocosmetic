@@ -13,7 +13,7 @@ export default defineConfig({
         https: true,
         host: true,
         hmr: {
-            host: 'aye-slide-der-authorized.trycloudflare.com',
+            host: 'variety-review-grams-principles.trycloudflare.com',
             protocol: 'wss',
         },
     },

@@ -29,7 +29,7 @@
                 <span class='text-stone-950'>
                     @role('Administrator', 'Employee')
                         {{ __('You can access your') }}
-                        <a href="{{ route('company.login') }}" target="_blank"
+                        <a href="{{ route('profile.show') }}" target="_blank"
                             class="inline-flex items-center space-x-1 font-medium underline underline-offset-4 text-[#f53003] ml-1">
                             <span> {{ __('Profile Information') }} </span>
                             <svg width="10" height="11" viewBox="0 0 10 11" fill="none"
