@@ -85,18 +85,12 @@
                     </div>
                 </x-dropdown>
 
-                <!-- Wishlist -->
-                <a href="account.html" class="relative hidden p-2 md:block">
-                    <i class="bi bi-heart"></i>
-                    <span
-                        class="absolute top-0 right-0 px-1 text-xs text-white bg-pink-600 rounded-full">0</span>
-                </a>
-
                 <!-- Cart -->
-                <a href="cart.html" class="relative p-2">
+                <a href="{{ route('cart.index') }}" class="relative p-2">
                     <i class="bi bi-cart3"></i>
-                    <span
-                        class="absolute top-0 right-0 px-1 text-xs text-white bg-blue-600 rounded-full">3</span>
+                    <span class="absolute flex items-center justify-center w-5 h-5 text-xs text-white bg-red-600 rounded-full cart-counter -top-2 -right-2">
+                        {{ session('cart_count', 0) }}
+                    </span>
                 </a>
 
                 <!-- Mobile Navigation Toggle -->

@@ -13,7 +13,7 @@ export default defineConfig({
         https: true,
         host: true,
         hmr: {
-            host: 'anymore-suit-maternity-rational.trycloudflare.com',
+            host: 'reynolds-blacks-type-fur.trycloudflare.com',
             protocol: 'wss',
         },
     },

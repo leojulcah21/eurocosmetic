@@ -71,11 +71,11 @@
 
     <x-blog.footer class='text-gray-300 transition-all duration-700 ease-in-out bg-stone-950' />
 
-    <x-chatbot.euro-bot class='bg-red-50' />
+    {{-- <x-chatbot.euro-bot class='bg-red-50' /> --}}
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    @if(Auth::check())
+    {{-- @if(Auth::check())
         <script>console.log("USER OK")</script>
     @else
         <script>console.log("NO LOGUEADO")</script>
@@ -138,9 +138,7 @@
                 console.log("✅ Evento enviado a Botpress");
             });
         });
-    </script>
-
-    {{-- <x-blog.mercado-pago /> --}}
+    </script> --}}
 
     @livewireScripts
 </body>

@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(IconFactory $factory): void
     {
-        if (str_contains(Request::getHost(), 'anymore-suit-maternity-rational.trycloudflare.com')) {
+        if (str_contains(Request::getHost(), 'reynolds-blacks-type-fur.trycloudflare.com')) {
             URL::forceScheme('https');
         }
 
