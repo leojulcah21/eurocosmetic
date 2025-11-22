@@ -1,0 +1,14 @@
+services:
+  - name: eurocosmetic
+    src: .
+    dockerfile: Dockerfile
+    routes:
+      - path: /
+    ports:
+      - port: 9000
+        protocol: http
+    env:
+      APP_ENV: production
+      APP_DEBUG: false
+      LOG_CHANNEL: stderr
+      LOG_LEVEL: info
