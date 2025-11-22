@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Tintes",
+        "description": "Coloraciones profesionales en crema que ofrecen cobertura total, brillo intenso y tonos duraderos."
+    },
+    {
+        "name": "Oxidantes",
+        "description": "Oxidantes en crema estabilizada, disponibles en diferentes volúmenes, diseñados para mezclarse con tintes y decolorantes garantizando resultados uniformes."
+    },
+    {
+        "name": "Decolorantes",
+        "description": "Polvos decolorantes de alto rendimiento que aclaran varios tonos, con fórmulas que protegen la fibra capilar y neutralizan reflejos indeseados."
+    },
+    {
+        "name": "Hi Fill - Botox",
+        "description": "Tratamientos capilares tipo botox que reparan, hidratan y revitalizan el cabello dañado, devolviendo elasticidad y brillo."
+    },
+    {
+        "name": "Reestructurante",
+        "description": "Productos enriquecidos con keratina y nutrientes que fortalecen, reparan y reestructuran el cabello debilitado."
+    },
+    {
+        "name": "Bioargan",
+        "description": "Línea con aceite de argán que nutre profundamente, controla el frizz y aporta suavidad y luminosidad al cabello."
+    },
+    {
+        "name": "Biosilver",
+        "description": "Shampoo y mascarilla matizadores con pigmentos violetas que neutralizan tonos amarillos en cabellos rubios, grises o decolorados."
+    },
+    {
+        "name": "Bioaloe",
+        "description": "Productos con extracto de aloe vera que hidratan, calman el cuero cabelludo y fortalecen la fibra capilar."
+    },
+    {
+        "name": "Biostyling/Nouvelle",
+        "description": "Geles, ceras y sprays de styling que ofrecen fijación, definición y acabado profesional para todo tipo de peinados."
+    },
+    {
+        "name": "Merchandising",
+        "description": "Accesorios profesionales como bowls, brochas, toallas y uniformes diseñados para estilistas y salones de belleza."
+    },
+    {
+        "name": "Linea Bioxil Anticaida",
+        "description": "Tratamientos anticaída que fortalecen la raíz, estimulan el cuero cabelludo y ayudan a reducir la pérdida de cabello."
+    },
+    {
+        "name": "Linea Tricogen Anticaida",
+        "description": "Productos energizantes y revitalizantes que previenen la caída del cabello, aportando densidad y resistencia."
+    }
+]

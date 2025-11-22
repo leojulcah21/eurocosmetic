@@ -24,7 +24,7 @@
         <div class="flex min-h-screen bg-stone-50">
             <!-- Imagen de fondo -->
             <div class="hidden bg-center bg-cover lg:block lg:w-3/4"
-                style="background-image: url('{{ asset('img/bg-auth.jpg') }}');">
+                style="background-image: url('{{ asset('img/backgrounds/auth.jpg') }}');">
             </div>
 
             <!-- Formulario -->

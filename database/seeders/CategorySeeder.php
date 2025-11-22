@@ -12,13 +12,7 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        $categories = [
-            ['name' => 'Shampoo', 'description' => 'Productos para limpieza capilar'],
-            ['name' => 'Acondicionador', 'description' => 'Productos para suavizar el cabello'],
-            ['name' => 'Tratamientos', 'description' => 'Mascarillas y aceites capilares'],
-            ['name' => 'Coloración', 'description' => 'Tinturas y decolorantes'],
-            ['name' => 'Estilizado', 'description' => 'Geles, ceras y sprays para peinado'],
-        ];
+        $categories = json_decode(file_get_contents(database_path('data/categories.json')), true);
 
         foreach ($categories as $index => $category) {
             Category::create([

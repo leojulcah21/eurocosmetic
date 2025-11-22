@@ -1,0 +1,389 @@
+[
+    {
+        "name": "TINTE BIOCOLOR 125ml",
+        "category_id": 1,
+        "short_description": "Coloración profesional en crema.",
+        "description": "Tinte permanente de alta calidad que ofrece cobertura total y brillo intenso, con fórmula protectora para el cabello.",
+        "price": 32.50,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "TINTE BIOCOLOR 125ml - Ammonia free",
+        "category_id": 1,
+        "short_description": "Coloración sin amoníaco.",
+        "description": "Tinte suave libre de amoníaco, ideal para cabellos sensibles, con pigmentos duraderos y acabado natural.",
+        "price": 32.50,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+
+    {
+        "name": "OXIDANTE BIOCOLOR 1000ml 10-20-30-40 vol",
+        "category_id": 2,
+        "short_description": "Oxidante en crema estabilizada.",
+        "description": "Oxidante BIOCOLOR disponible en volúmenes 10, 20, 30 y 40, diseñado para mezclarse con tintes y decolorantes, asegurando resultados uniformes y seguros.",
+        "price": 32.50,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+
+    {
+        "name": "DECOLORANTE BIOCOLOR Blanco 500gr",
+        "category_id": 3,
+        "short_description": "Polvo decolorante blanco.",
+        "description": "Decolorante en polvo de acción rápida que aclara hasta 7 tonos, con fórmula anti-amarillo.",
+        "price": 62.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "DECOLORANTE BIOCOLOR Azul 500gr",
+        "category_id": 3,
+        "short_description": "Polvo decolorante azul.",
+        "description": "Decolorante azul que neutraliza reflejos cálidos durante el proceso, logrando rubios más fríos y uniformes.",
+        "price": 62.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "DECOLORANTE ULTRA BLEACHING 9+ 500gr",
+        "category_id": 3,
+        "short_description": "Ultra bleaching 9+.",
+        "description": "Polvo decolorante de alto rendimiento que aclara hasta 9 niveles, ideal para trabajos técnicos exigentes.",
+        "price": 62.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "DECOLORANTE 10 TONI PLEX 500gr",
+        "category_id": 3,
+        "short_description": "Decolorante con Plex.",
+        "description": "Fórmula avanzada con tecnología Plex que protege la fibra capilar durante la decoloración, logrando hasta 10 tonos de aclarado.",
+        "price": 72.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+
+    {
+        "name": "MASCARA REVITALIZADORA HI FILL BOTOX 500ml",
+        "category_id": 4,
+        "short_description": "Máscara revitalizadora capilar.",
+        "description": "Tratamiento intensivo tipo botox que repara, hidrata y devuelve elasticidad al cabello dañado.",
+        "price": 49.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "AMPOLLA INTENSIVA HI FILL BOTOX 10 x 15ml",
+        "category_id": 4,
+        "short_description": "Ampollas intensivas botox.",
+        "description": "Ampollas concentradas que regeneran la fibra capilar desde el interior, aportando suavidad y resistencia.",
+        "price": 99.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "SHAMPOO MANTENIMIENTO HI FILL BOTOX 250ml",
+        "category_id": 4,
+        "short_description": "Shampoo mantenimiento botox.",
+        "description": "Shampoo de uso frecuente que prolonga los efectos del tratamiento botox, manteniendo el cabello fuerte y brillante.",
+        "price": 29.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+
+    {
+        "name": "AMPOLLA REESTRUCT. CHOCO KERATIN 12 x 15ml",
+        "category_id": 5,
+        "short_description": "Ampollas de keratina con cacao.",
+        "description": "Tratamiento reestructurante con keratina y extracto de cacao que fortalece y nutre profundamente.",
+        "price": 79.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "SHAMPOO REESTRUCT. BIOCOLOR 1000ml",
+        "category_id": 5,
+        "short_description": "Shampoo reestructurante.",
+        "description": "Limpieza suave con fórmula enriquecida que ayuda a reparar cabellos debilitados y quebradizos.",
+        "price": 59.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "MASCHERA REESTRUCT. BIOCOLOR 1000ml",
+        "category_id": 5,
+        "short_description": "Mascarilla reestructurante.",
+        "description": "Mascarilla nutritiva que restaura la fibra capilar, aportando suavidad y resistencia a la rotura.",
+        "price": 69.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+
+    {
+        "name": "BIOARGAN ELIXIR 125ml",
+        "category_id": 6,
+        "short_description": "Elixir de argán.",
+        "description": "Aceite ligero con alto poder nutritivo que aporta brillo, suavidad y control del frizz.",
+        "price": 67.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "BIOARGAN SHAMPOO 280ml",
+        "category_id": 6,
+        "short_description": "Shampoo con argán.",
+        "description": "Shampoo hidratante con aceite de argán que limpia suavemente y deja el cabello sedoso.",
+        "price": 37.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "BIOARGAN MASK 280ml",
+        "category_id": 6,
+        "short_description": "Mascarilla con argán.",
+        "description": "Tratamiento nutritivo con argán que repara y acondiciona, ideal para cabellos secos y dañados.",
+        "price": 37.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+
+    {
+        "name": "BIOSILVER SHAMPOO 280ml",
+        "category_id": 7,
+        "short_description": "Shampoo matizador.",
+        "description": "Shampoo con pigmentos violetas que neutraliza tonos amarillos en cabellos rubios, grises o decolorados.",
+        "price": 37.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "BIOSILVER MASK 280ml",
+        "category_id": 7,
+        "short_description": "Mascarilla matizadora.",
+        "description": "Mascarilla nutritiva con pigmento violeta que intensifica el efecto anti-amarillo y aporta suavidad.",
+        "price": 37.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+
+    {
+        "name": "BIOALOE SHAMPOO 280ml",
+        "category_id": 8,
+        "short_description": "Shampoo con aloe vera.",
+        "description": "Shampoo hidratante con extracto de aloe vera que calma el cuero cabelludo y fortalece el cabello.",
+        "price": 37.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "BIOALOE MASK 280ml",
+        "category_id": 8,
+        "short_description": "Mascarilla con aloe vera.",
+        "description": "Mascarilla nutritiva que aporta hidratación profunda y suavidad gracias al poder del aloe vera.",
+        "price": 37.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "ALOE SHAMPOO 1000ml",
+        "category_id": 8,
+        "short_description": "Shampoo aloe 1000ml.",
+        "description": "Presentación profesional de shampoo con aloe vera, ideal para uso frecuente en salones.",
+        "price": 72.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "ALOE CONDITIONER 1000ml",
+        "category_id": 8,
+        "short_description": "Acondicionador aloe 1000ml.",
+        "description": "Acondicionador hidratante con aloe vera que desenreda y suaviza el cabello sin apelmazar.",
+        "price": 62.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "ALOE AMPOLLA TRIAMINICA 10 x 10ml",
+        "category_id": 8,
+        "short_description": "Ampollas triamínicas aloe.",
+        "description": "Tratamiento intensivo en ampollas con aloe y complejo triamínico que fortalece y revitaliza la fibra capilar",
+        "price": 69.50,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+
+    {
+        "name": "DROP OF LIGHT 100ml",
+        "category_id": 9,
+        "short_description": "Serum iluminador.",
+        "description": "Gotas de luz que aportan sedosidad, luminosidad y reparación instantánea al cabello.",
+        "price": 59.50,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "EXTRA TREND 500ml",
+        "category_id": 9,
+        "short_description": "Laca fuerte en spray",
+        "description": "Spray fijador de larga duración que mantiene el peinado firme sin dejar residuos.",
+        "price": 35.50,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "CURL RELAXER 200ml",
+        "category_id": 9,
+        "short_description": "Crema alisadora Anti-frizz",
+        "description": "Crema de styling que controla el frizz y facilita el alisado, dejando el cabello suave.",
+        "price": 35.50,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "CURL HI FI 250ml",
+        "category_id": 9,
+        "short_description": "Soporte y definición para Rizos",
+        "description": "Producto de styling que aporta soporte y definición a rizos naturales, evitando el encrespamiento.",
+        "price": 35.50,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "EXTREME GEL 500ml",
+        "category_id": 9,
+        "short_description": "Gel ultra fuerte",
+        "description": "Gel ultra fuerte que fija el peinado por horas con acabado brillante.",
+        "price": 29.50,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "POWER GLUE 150ml",
+        "category_id": 9,
+        "short_description": "Gel power glue.",
+        "description": "Gel de fijación extrema tipo “pegamento” para estilos definidos y duraderos.",
+        "price": 29.50,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "MATTE MUD 100ml",
+        "category_id": 9,
+        "short_description": "Cera mate.",
+        "description": "Cera opaca de alta fijación que permite estilos modernos con acabado natural.",
+        "price": 29.50,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "SPIDER WAX 100ml",
+        "category_id": 9,
+        "short_description": "Cera spider wax.",
+        "description": "Cera con textura elástica efecto “telaraña” que facilita la creación de peinados dinámicos.",
+        "price": 29.50,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+
+    {
+        "name": "BOWL PROFESIONAL BIOCOSMETIC",
+        "category_id": 10,
+        "short_description": "Bowl profesional.",
+        "description": "Recipiente resistente para mezclas de tintes y tratamientos capilares.",
+        "price": 6.50,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "BROCHA PROFESIONAL BIOCOSMETIC",
+        "category_id": 10,
+        "short_description": "Brocha profesional.",
+        "description": "Brocha ergonómica para aplicación precisa de tintes y tratamientos.",
+        "price": 7.50,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "TOALLA BIOCOSMETIC BLANCA",
+        "category_id": 10,
+        "short_description": "Toalla blanca Biocosmetic.",
+        "description": "Toalla de algodón suave, ideal para uso en salones de belleza.",
+        "price": 12.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "MANDIL PROFESIONAL BIOCOSMETIC NEGRO",
+        "category_id": 10,
+        "short_description": "Mandil negro profesional.",
+        "description": "Mandil resistente y elegante para estilistas, protege la ropa durante los servicios.",
+        "price": 18.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "POLO BIOCOSMETIC NEGRO CUELLO V",
+        "category_id": 10,
+        "short_description": "Polo negro cuello V.",
+        "description": "Polo de algodón con diseño moderno y logo Biocosmetic, ideal para personal de salón.",
+        "price": 18.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "CHALECO PROFESIONAL BIOCOSMETIC NEGRO",
+        "category_id": 10,
+        "short_description": "Chaleco negro profesional.",
+        "description": "Chaleco ligero y cómodo para estilistas, aporta presentación y practicidad en el trabajo.",
+        "price": 18.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "SHAMPOO BIOXILL ANTICAIDA x 250ml",
+        "category_id": 11,
+        "short_description": "Shampoo fortalecedor anticaída.",
+        "description": "Fórmula enriquecida con activos revitalizantes que ayudan a reducir la caída del cabello, fortaleciendo la raíz y aportando volumen y vitalidad.",
+        "price": 18.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "AMPOLLA BIOXIL ANTICAIDA (Caja 12 x 8ml)",
+        "category_id": 11,
+        "short_description": "Ampollas intensivas anticaída.",
+        "description": "Tratamiento concentrado en ampollas que estimula el cuero cabelludo, favorece el crecimiento y refuerza la fibra capilar desde la raíz",
+        "price": 18.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "SHAMPOO TRICOGEN ANTICAIDA x 250ml",
+        "category_id": 11,
+        "short_description": "Shampoo energizante anticaída.",
+        "description": "Limpieza suave con extractos vegetales que revitalizan el cuero cabelludo, fortalecen el cabello debilitado y ayudan a prevenir la caída.",
+        "price": 18.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "AMPOLLA TRICOGEN ANTICAIDA (Caja 12 x 8ml)",
+        "category_id": 11,
+        "short_description": "Ampollas revitalizantes anticaída.",
+        "description": "Tratamiento intensivo que nutre profundamente la raíz, estimula la microcirculación y mejora la resistencia del cabello contra la caída.",
+        "price": 18.00,
+        "stock": 500,
+        "warehouse_id": 1
+    },
+    {
+        "name": "LOTION TRICOGEN ANTICAIDA (Frasco x 100ml)",
+        "category_id": 11,
+        "short_description": "Loción capilar anticaída.",
+        "description": "Loción de uso diario que refuerza la fibra capilar, estimula el crecimiento y aporta densidad al cabello debilitado.",
+        "price": 18.00,
+        "stock": 500,
+        "warehouse_id": 1
+    }
+]

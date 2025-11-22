@@ -11,15 +11,51 @@ class BotpressService
      */
     public function searchProducts(string $query)
     {
-        $query = trim($query);
+        // 1. Normalizamos el texto
+        $query = strtolower(trim($query));
 
         if ($query === '') {
             return collect();
         }
 
+        // 2. Palabras que no aportan (stopwords)
+        $stopwords = [
+            'el','la','los','las','un','una','unos','unas',
+            'para','por','de','del','al','a',
+            'mi','quiero','deseo','busco','necesito','producto','productos',
+            'algún', 'algun', 'algunos'
+        ];
+
+        // 3. Convertimos la frase completa en tokens
+        $tokens = preg_split('/\s+/', $query);
+
+        // 4. Limpiar tokens → quitar stopwords y palabras muy cortas
+        $tokens = array_filter($tokens, function ($t) use ($stopwords) {
+            return strlen($t) > 2 && !in_array($t, $stopwords);
+        });
+
+        // Si luego de limpiar no queda nada → no hay criterio verdadero
+        if (empty($tokens)) {
+            return collect();
+        }
+
+        // 5. BÚSQUEDA INTELIGENTE
         return Product::query()
-            ->where('name', 'LIKE', "%{$query}%")
-            ->orWhere('code', 'LIKE', "%{$query}%")
+            ->where(function ($q) use ($tokens) {
+                foreach ($tokens as $word) {
+                    $q->orWhere('name', 'LIKE', "%{$word}%");
+                }
+            })
+            ->orWhereHas('category', function ($cat) use ($tokens) {
+                foreach ($tokens as $word) {
+                    $cat->where('name', 'LIKE', "%{$word}%");
+                }
+            })
+            ->orWhere(function ($q) use ($tokens) {
+                foreach ($tokens as $word) {
+                    $q->orWhere('code', 'LIKE', "%{$word}%");
+                }
+            })
             ->limit(5)
             ->get();
     }
@@ -47,7 +83,8 @@ class BotpressService
                     'description' => $p->description,
                     'price' => $p->price,
                     'stock' => $p->stock,
-                    'image' => $p->image_url,
+                    'main_image' => optional($p->mainImage)->image_path,
+
                 ];
             }),
             'message' => 'Productos encontrados.'

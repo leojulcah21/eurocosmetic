@@ -26,6 +26,7 @@ class BotpressController extends Controller
         $query = $request->input('query');
 
         $products = $this->botpress->searchProducts($query);
+        $products->load(['mainImage']);
         $result = $this->botpress->formatProductResponse($products);
 
         return response()->json($result);

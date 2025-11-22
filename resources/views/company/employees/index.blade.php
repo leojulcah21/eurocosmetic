@@ -7,7 +7,7 @@
     <x-app.section class="px-5 py-6" :title="__('Employee Management')"
         :description="__('Here you can create, delete, or edit information for each employee type. Just go to the corresponding page.')">
         <div class="items-center max-w-screen-xl gap-8 px-4 py-8 mx-auto shadow rounded-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6 bg-gray-50">
-            <img class="w-full rounded-lg shadow-lg shadow-stone-100" src="{{ asset('img/seller.jpeg') }}" alt="seller_description" />
+            <img class="w-full rounded-lg shadow-lg shadow-stone-100" src="{{ asset('img/employees/seller.jpeg') }}" alt="seller_description" />
             <div class='mt-4 md:mt-0'>
                 <h2 class="mb-4 text-2xl font-extrabold tracking-tight text-stone-900">
                     Gestión de Vendedores
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="items-center max-w-screen-xl gap-8 px-4 py-8 mx-auto shadow rounded-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6 bg-gray-50">
-            <img class="w-full rounded-lg shadow-lg shadow-stone-100" src="{{ asset('img/courier.webp') }}" alt="seller_description" />
+            <img class="w-full rounded-lg shadow-lg shadow-stone-100" src="{{ asset('img/employees/courier.webp') }}" alt="seller_description" />
             <div class='mt-4 md:mt-0'>
                 <h2 class="mb-4 text-2xl font-extrabold tracking-tight text-stone-900">Gestión de Repartidores</h2>
                 <p class="mb-6 text-base font-light text-stone-700">
@@ -41,7 +41,7 @@
             </div>
         </div>
         <div class="items-center max-w-screen-xl gap-8 px-4 py-8 mx-auto shadow rounded-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6 bg-gray-50">
-            <img class="w-full rounded-lg shadow-lg shadow-stone-100" src="{{ asset('img/warehouse-manager.jpg') }}" alt="warehouse_manager_description" />
+            <img class="w-full rounded-lg shadow-lg shadow-stone-100" src="{{ asset('img/employees/warehouse-manager.jpg') }}" alt="warehouse_manager_description" />
             <div class='mt-4 md:mt-0'>
                 <h2 class="mb-4 text-2xl font-extrabold tracking-tight text-stone-900"> {{ __('Warehouse Manager Management') }} </h2>
                 <p class="mb-6 text-base font-light text-stone-700">

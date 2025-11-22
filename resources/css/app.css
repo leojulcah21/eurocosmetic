@@ -7,3 +7,18 @@
 [x-cloak] {
     display: none;
 }
+
+@layer utilities {
+    .swiper-button-next,
+    .swiper-button-prev {
+        @apply w-8 h-8 py-2 px-1 after:text-sm text-stone-800 bg-stone-200 rounded-full !important;
+    }
+
+    .swiper-pagination-bullet {
+        @apply bg-gray-100;
+    }
+
+    .swiper-pagination-bullet-active {
+        @apply bg-stone-800;
+    }
+}

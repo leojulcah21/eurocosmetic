@@ -21,7 +21,7 @@
                     <img
                         src="{{ $user->profile_photo_path
                             ? $user->profile_photo_url
-                            : asset('img/user.png') }}"
+                            : asset('img/users/user.png') }}"
                         alt="{{ $user->name ?? 'profile image' }}"
                         class="object-cover w-full h-full shadow-2xl rounded-xl"
                     />
@@ -33,11 +33,6 @@
                         <h5 class="text-xl font-semibold tracking-wider text-stone-950">
                             {{ Auth::user()->name }}
                         </h5>
-
-                        @php
-
-                        @endphp
-
                         <x-badge class="px-3 py-0.5 mt-1" :color="$colorByRole" variant="soft">
                             {{ __($role) }}
                         </x-badge>

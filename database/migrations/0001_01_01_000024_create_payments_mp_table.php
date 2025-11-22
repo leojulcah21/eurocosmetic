@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('payments_mp', function (Blueprint $table) {
             $table->id();
             $table->string('code', 20)->unique();
-            $table->foreignId('order_id')->unique()->constrained('orders')->cascadeOnDelete();
+            $table->foreignId('order_id')->constrained('orders')->cascadeOnDelete();
             $table->string('mp_transaction_id', 100)->unique();
             $table->decimal('amount', 12, 2);
             $table->timestamp('payment_date')->useCurrent();

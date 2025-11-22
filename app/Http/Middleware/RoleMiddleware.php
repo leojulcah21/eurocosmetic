@@ -19,7 +19,7 @@ class RoleMiddleware
     public function handle(Request $request, Closure $next, ...$roles): Response
     {
         /** @var User|null $user */
-        $user = $request->user(); // Intelephense sí reconoce este
+        $user = $request->user();
 
         if (!$user || !$user->hasRole($roles)) {
             abort(403, 'No tienes permiso para acceder a esta sección.');

@@ -12,17 +12,13 @@ class WarehouseSeeder extends Seeder
      */
     public function run(): void
     {
-        $warehouses = [
-            ['name' => 'Almacén Central', 'capacity' => 5000],
-            ['name' => 'Almacén Norte', 'capacity' => 3000],
-            ['name' => 'Almacén Sur', 'capacity' => 2500],
-        ];
+        $warehouses = json_decode(file_get_contents(database_path('data/warehouses.json')), true);
 
         foreach ($warehouses as $index => $warehouse) {
             Warehouse::create([
                 'code' => 'AMC' . str_pad($index + 1, 5, '0', STR_PAD_LEFT),
                 'name' => $warehouse['name'],
-                'capacity' => $warehouse['capacity'],
+                'capacity' => rand(5, 1000)
             ]);
         }
     }

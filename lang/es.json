@@ -230,5 +230,12 @@
     "Warehouse Manager Management": "Gestión de Jefes de Almacén",
     "Here you can create, delete, or edit information for each employee type. Just go to the corresponding page.": "Aquí puede crear, eliminar o editar información para cada tipo de empleado. Simplemente vaya a la página correspondiente.",
     "Employee Management": "Administración de Empleados",
-    "Manage": "Administrar"
+    "Manage": "Administrar",
+    "Monday": "Lunes",
+    "Tuesday": "Martes",
+    "Wenesday": "Miércoles",
+    "Thursday": "Jueves",
+    "Friday": "Viernes",
+    "Saturday": "Sábado",
+    "Sunday": "Domingo"
 }

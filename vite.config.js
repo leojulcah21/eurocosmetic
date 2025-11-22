@@ -13,7 +13,7 @@ export default defineConfig({
         https: true,
         host: true,
         hmr: {
-            host: 'variety-review-grams-principles.trycloudflare.com',
+            host: 'anymore-suit-maternity-rational.trycloudflare.com',
             protocol: 'wss',
         },
     },

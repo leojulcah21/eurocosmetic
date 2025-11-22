@@ -67,21 +67,21 @@
                                 <x-input-error for="email" class="mt-2" />
 
                                 @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && !$this->user->hasVerifiedEmail())
-                                <p class="mt-2 text-sm">
-                                    {{ __('Your email address is unverified.') }}
+                                    <p class="mt-2 text-sm">
+                                        {{ __('Your email address is unverified.') }}
 
-                                    <button type="button"
-                                        class="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                                        wire:click.prevent="sendEmailVerification">
-                                        {{ __('Click here to re-send the verification email.') }}
-                                    </button>
-                                </p>
+                                        <button type="button"
+                                            class="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                            wire:click.prevent="sendEmailVerification">
+                                            {{ __('Click here to re-send the verification email.') }}
+                                        </button>
+                                    </p>
 
-                                @if ($this->verificationLinkSent)
-                                <p class="mt-2 text-sm font-medium text-green-600">
-                                    {{ __('A new verification link has been sent to your email address.') }}
-                                </p>
-                                @endif
+                                    @if ($this->verificationLinkSent)
+                                        <p class="mt-2 text-sm font-medium text-green-600">
+                                            {{ __('A new verification link has been sent to your email address.') }}
+                                        </p>
+                                    @endif
                                 @endif
                             </div>
                         </div>
@@ -118,7 +118,7 @@
                             </div>
                             <div x-show="!photoPreview && {{ $this->user->profile_photo_path ? 'false' : 'true' }}">
                                 <img class="object-center h-auto max-w-full border-2 border-white border-solid rounded-full"
-                                    src="{{ asset('img/user.png') }}" alt="profile image">
+                                    src="{{ asset('img/users/user.png') }}" alt="profile image">
                             </div>
                         </div>
                     @endif

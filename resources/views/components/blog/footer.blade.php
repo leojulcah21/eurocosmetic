@@ -20,39 +20,38 @@
                     <div class="mt-6">
                         <h5 class="mb-3 font-semibold text-white">{{ __('Connect With Us') }}</h5>
                         <div class="flex gap-4 text-xl">
-                            <a href="#" class="hover:text-white"><i class="bi bi-facebook"></i></a>
-                            <a href="#" class="hover:text-white"><i class="bi bi-instagram"></i></a>
-                            <a href="#" class="hover:text-white"><i class="bi bi-twitter-x"></i></a>
-                            <a href="#" class="hover:text-white"><i class="bi bi-tiktok"></i></a>
-                            <a href="#" class="hover:text-white"><i class="bi bi-pinterest"></i></a>
-                            <a href="#" class="hover:text-white"><i class="bi bi-youtube"></i></a>
+                            <a href="https://www.facebook.com/Eurocosmetic.Import/" class="hover:text-white" target="_blank"><i class="bi bi-facebook"></i></a>
+                            <a href="https://www.linkedin.com/company/corporaci%C3%B3n-eurocosmetic/?originalSubdomain=pe" class="hover:text-white"><i class="bi bi-linkedin" target="_blank"></i></a>
+                            <a href="#" class="hover:text-white"><i class="bi bi-twitter-x" target="_blank"></i></a>
+                            <a href="#" class="hover:text-white"><i class="bi bi-tiktok" target="_blank"></i></a>
+                            <a href="#" class="hover:text-white"><i class="bi bi-pinterest" target="_blank"></i></a>
+                            <a href="#" class="hover:text-white"><i class="bi bi-youtube" target="_blank"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Shop Links -->
                 <div>
-                    <h4 class="mb-4 text-lg font-semibold text-white">Shop</h4>
+                    <h4 class="mb-4 text-lg font-semibold text-white">Tienda</h4>
                     <ul class="space-y-2 text-sm">
                         <li><a href="#" class="text-stone-300 hover:text-white">New Arrivals</a></li>
                         <li><a href="#" class="hover:text-white">Bestsellers</a></li>
-                        <li><a href="#" class="hover:text-white">Women's Clothing</a></li>
-                        <li><a href="#" class="hover:text-white">Men's Clothing</a></li>
-                        <li><a href="#" class="hover:text-white">Accessories</a></li>
+                        <li><a href="#" class="hover:text-white">Tintes</a></li>
+                        <li><a href="#" class="hover:text-white">Shampoos</a></li>
+                        <li><a href="#" class="hover:text-white">Acondicionadores</a></li>
                         <li><a href="#" class="hover:text-white">Sale</a></li>
                     </ul>
                 </div>
 
                 <!-- Support Links -->
                 <div>
-                    <h4 class="mb-4 text-lg font-semibold text-white">Support</h4>
+                    <h4 class="mb-4 text-lg font-semibold text-white">Soporte</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="hover:text-white">Help Center</a></li>
-                        <li><a href="#" class="hover:text-white">Order Status</a></li>
-                        <li><a href="#" class="hover:text-white">Shipping Info</a></li>
-                        <li><a href="#" class="hover:text-white">Returns & Exchanges</a></li>
+                        <li><a href="#" class="hover:text-white">Estado de Orden</a></li>
+                        <li><a href="#" class="hover:text-white">Información de Envío</a></li>
+                        <li><a href="#" class="hover:text-white">Devoluciones y Cambios</a></li>
                         <li><a href="#" class="hover:text-white">Size Guide</a></li>
-                        <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white">Contáctanos</a></li>
                     </ul>
                 </div>
 
@@ -62,19 +61,15 @@
                     <div class="space-y-3 text-sm">
                         <div class="flex items-start gap-2">
                             <i class="text-lg bi bi-geo-alt text-primary-500"></i>
-                            <span>123 Fashion Street, New York, NY 10001</span>
+                            <span>Jr. Faustino Sánchez Carrión 370, Magdalena del Mar 15076</span>
                         </div>
                         <div class="flex items-center gap-2">
-                            <i class="text-lg bi bi-telephone text-primary-500"></i>
-                            <span>+1 (555) 123-4567</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="text-lg bi bi-envelope text-primary-500"></i>
-                            <span>hello@example.com</span>
+                            <i class="text-lg bi bi-whatsapp text-primary-500"></i>
+                            <span>+51 975 344 791</span>
                         </div>
                         <div class="flex items-start gap-2">
                             <i class="text-lg bi bi-clock text-primary-500"></i>
-                            <span>Monday-Friday: 9am-6pm<br>Saturday: 10am-4pm<br>Sunday: Closed</span>
+                            <span> {{ __('Monday') }} - {{ __('Friday') }}: 9am-6pm<br>{{ __('Saturday') }}: 9:30am-12:30pm<br>{{ __('Sunday') }}: {{ __('Closed') }}</span>
                         </div>
                     </div>
 

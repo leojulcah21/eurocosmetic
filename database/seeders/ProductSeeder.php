@@ -6,6 +6,8 @@ use Illuminate\Database\Seeder;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Warehouse;
+use App\Models\ProductImage;
+use Illuminate\Support\Arr;
 
 class ProductSeeder extends Seeder
 {
@@ -17,28 +19,46 @@ class ProductSeeder extends Seeder
         $categories = Category::all();
         $warehouses = Warehouse::all();
 
-        $products = [
-            ['name' => 'Shampoo Hidratante', 'category' => 'Shampoo', 'description' => 'Shampoo con aloe vera y keratina', 'price' => 25.50, 'stock' => 150],
-            ['name' => 'Acondicionador Suavizante', 'category' => 'Acondicionador', 'description' => 'Ideal para cabello seco', 'price' => 22.00, 'stock' => 120],
-            ['name' => 'Mascarilla Capilar', 'category' => 'Tratamientos', 'description' => 'Reparación intensiva', 'price' => 30.00, 'stock' => 80],
-            ['name' => 'Tinte Chocolate', 'category' => 'Coloración', 'description' => 'Color intenso y duradero', 'price' => 18.75, 'stock' => 200],
-            ['name' => 'Spray Fijador', 'category' => 'Estilizado', 'description' => 'Fijación extra fuerte', 'price' => 15.90, 'stock' => 160],
-        ];
+        $products = json_decode(file_get_contents(database_path('data/products.json')), true);
+
+        $availableImages = collect(glob(public_path('img/products/*.{jpg,png,jpeg}'), GLOB_BRACE))
+            ->map(function ($path) {
+                return 'img/products/' . basename($path);
+            })
+            ->values()
+            ->toArray();
 
         foreach ($products as $index => $product) {
-            $category = $categories->where('name', $product['category'])->first();
-            $warehouse = $warehouses->random();
 
-            Product::create([
+            $category = $categories->where('id', $product['category_id'])->first();
+            $warehouse = $warehouses->where('id', $product['warehouse_id'])->first();
+
+            $createdProduct = Product::create([
                 'code' => 'PRD' . str_pad($index + 1, 5, '0', STR_PAD_LEFT),
                 'category_id' => $category->id,
                 'name' => $product['name'],
+                'short_description' => $product['short_description'],
                 'description' => $product['description'],
                 'price' => $product['price'],
                 'stock' => $product['stock'],
-                'warehouse_id' => $warehouse->id,
-                'image_url' => 'img/default-product.png',
+                'warehouse_id' => $warehouse->id
             ]);
+
+            // -----------------------------------------
+            // INSERTAR IMÁGENES ALEATORIAS (2 a 5)
+            // -----------------------------------------
+            $numImages = rand(2, 5);
+
+            // Escoger aleatoriamente sin repetir
+            $selected = Arr::random($availableImages, $numImages);
+
+            foreach ($selected as $key => $imagePath) {
+                ProductImage::create([
+                    'product_id' => $createdProduct->id,
+                    'image_path' => $imagePath,
+                    'is_main' => $key === 0
+                ]);
+            }
         }
     }
 }

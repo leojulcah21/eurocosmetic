@@ -140,6 +140,8 @@
         });
     </script>
 
+    {{-- <x-blog.mercado-pago /> --}}
+
     @livewireScripts
 </body>
 

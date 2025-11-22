@@ -46,13 +46,27 @@
                     @foreach ($products as $product)
                         <div class="p-6 border border-gray-200 rounded-lg shadow-sm bg-stone-50 dark:border-gray-700 dark:bg-gray-800">
                             <div class="w-full h-56">
-                                <a href="#">
-                                    <img class="h-full mx-auto dark:hidden" src="{{ asset($product->image_url) }}" alt="" />
-                                </a>
+                                <!-- Carrusel -->
+                                <div class="swiper mySwiper-{{ $product->id }} rounded-lg h-full flex items-center justify-center m-auto">
+                                    <div class="swiper-wrapper">
+                                        @foreach ($product->images as $img)
+                                            <div class="flex items-center justify-center p-2 bg-white swiper-slide">
+                                                <img src="{{ asset($img->image_path) }}"
+                                                    class="object-contain w-full h-full mx-auto"
+                                                    alt="{{ $product->name }}">
+                                            </div>
+                                        @endforeach
+                                    </div>
+
+                                    <!-- Botones -->
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+
+                                    <!-- Paginación -->
+                                    <div class="swiper-pagination"></div>
+                                </div>
                             </div>
                             <div class="pt-6">
-
-
                                 <h1 class="text-base font-semibold leading-tight text-stone-950">
                                     {{ $product->name }}
                                 </h1>
@@ -125,7 +139,29 @@
                         </div>
                     @endforeach
                 </div>
+                <div
+                    class="flex flex-col items-start justify-between p-4 space-y-3 md:flex-row md:items-center md:space-y-0">
+                    <span class="text-sm text-gray-500 dark:text-gray-400'">
+                        Mostrando
+                        <span class="font-semibold text-gray-900 dark:text-white">
+                            {{ $products->firstItem() }}
+                        </span>
+                        -
+                        <span class="font-semibold text-gray-900 dark:text-white">
+                            {{ $products->lastItem() }}
+                        </span>
+                        de
+                        <span class="font-semibold text-gray-900 dark:text-white">
+                            {{ $products->total() }}
+                        </span>
+                    </span>
+
+                    <div>
+                        {{ $products->links('vendor.pagination.tailwind') }}
+                    </div>
+                </div>
             </div>
         </x-app.data-section>
     </div>
 </x-app-layout>
+

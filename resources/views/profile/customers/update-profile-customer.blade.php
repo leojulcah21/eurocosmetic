@@ -87,7 +87,7 @@
                         </div>
                         <div x-show="!photoPreview && {{ $this->user->profile_photo_path ? 'false' : 'true' }}">
                             <img class="object-center border-4 border-solid rounded-full w-28 h-28 border-stone-200"
-                                src="{{ asset('img/user.png') }}" alt="profile image">
+                                src="{{ asset('img/users/user.png') }}" alt="profile image">
                         </div>
                     @endif
                 </div>

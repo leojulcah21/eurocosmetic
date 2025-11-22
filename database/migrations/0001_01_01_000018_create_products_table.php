@@ -16,14 +16,14 @@ return new class extends Migration
             $table->string('code', 20)->unique();
             $table->foreignId('category_id')->nullable()->constrained('categories')->nullOnDelete();
             $table->string('name', 150);
+            $table->text('short_description')->nullable();
             $table->text('description')->nullable();
             $table->decimal('price', 10, 2);
             $table->integer('stock')->default(0);
             $table->foreignId('warehouse_id')->constrained('warehouses')->cascadeOnDelete();
-            $table->string('image_url', 255)->nullable();
             $table->timestamps();
         });
-    }
+        }
 
     /**
      * Reverse the migrations.

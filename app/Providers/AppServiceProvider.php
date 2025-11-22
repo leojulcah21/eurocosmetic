@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\URL;
 use App\Models\User;
 use BladeUI\Icons\Factory as IconFactory;
+use MercadoPago\MercadoPagoConfig;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(IconFactory $factory): void
     {
-        if (str_contains(Request::getHost(), 'variety-review-grams-principles.trycloudflare.com')) {
+        if (str_contains(Request::getHost(), 'anymore-suit-maternity-rational.trycloudflare.com')) {
             URL::forceScheme('https');
         }
 
@@ -52,5 +53,7 @@ class AppServiceProvider extends ServiceProvider
             'path' => resource_path('svg'),
             'prefix' => 'icon',
         ]);
+
+        MercadoPagoConfig::setAccessToken(config('services.mercadopago.token'));
     }
 }
