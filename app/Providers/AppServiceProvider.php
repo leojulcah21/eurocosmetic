@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(IconFactory $factory): void
     {
-        if (str_contains(Request::getHost(), 'reynolds-blacks-type-fur.trycloudflare.com')) {
+        if (str_contains(Request::getHost(), 'ottawa-dining-miracle-perspectives.trycloudflare.com')) {
             URL::forceScheme('https');
         }
 
@@ -54,6 +54,6 @@ class AppServiceProvider extends ServiceProvider
             'prefix' => 'icon',
         ]);
 
-        MercadoPagoConfig::setAccessToken(config('services.mercadopago.token'));
+        // MercadoPagoConfig::setAccessToken(config('services.mercadopago.token'));
     }
 }

@@ -12,7 +12,7 @@
                     <div class="relative flex flex-col min-w-0 px-2 pt-3 break-words bg-clip-border">
                         <div class="pt-6 px-6 pb-0 border-b-0 border-solid border-[rgb(0_0_0/0.125)] rounded-t-2xl">
                             <div class="flex items-center justify-between">
-                                <p class="mb-0 -mt-5 text-lg font-bold text-stone-800">{{ __('Create Seller') }}</p>
+                                <p class="mb-0 -mt-5 text-lg font-bold text-stone-800">{{ __('Create Employee') }}</p>
                                 <div class='flex items-center font-bold ms-auto'>
                                     <x-primary-button wire:loading.attr="disabled" wire:target="photoCard"
                                         class='inline-block mr-3'>
@@ -147,7 +147,7 @@
                             </div>
 
                             <p class="font-bold leading-normal uppercase text-[13px] text-stone-700 underline mt-3">
-                                {{ __('Seller Information')}}
+                                {{ __('Employee Information')}}
                             </p>
                             <div class="flex flex-wrap mt-3 -mx-3">
                                 <div class="w-full max-w-full px-3 pt-3.5 shrink-0 md:w-10/12 md:flex-0">

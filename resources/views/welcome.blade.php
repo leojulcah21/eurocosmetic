@@ -99,34 +99,26 @@
 @endif
 
 <script>
-// Botón añadir al carrito
-document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
-    btn.addEventListener('click', function () {
-        const productId = this.dataset.id;
+    // Añadir al carrito
+    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+            const productId = this.dataset.id;
 
-        fetch("{{ route('cart.add') }}", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "X-CSRF-TOKEN": "{{ csrf_token() }}"
-            },
-            body: JSON.stringify({ product_id: productId })
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.success) {
-
-                // Actualizar contador del navbar
-                const counter = document.querySelector('.cart-counter');
-                if (counter) counter.innerText = data.cart_count;
-
-                // Opcional: un mensajito visual
-                console.log("Producto añadido correctamente.");
-            }
-        })
-        .catch(err => {
-            console.error("Error al añadir al carrito:", err);
+            fetch("{{ route('cart.add') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({ product_id: productId })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    const counter = document.querySelector('.cart-counter');
+                    if (counter) counter.innerText = data.cart_count;
+                }
+            });
         });
     });
-});
 </script>

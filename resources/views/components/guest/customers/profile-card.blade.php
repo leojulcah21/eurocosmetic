@@ -16,7 +16,7 @@
                                 <img
                                     src="{{ $user->profile_photo_path
                                         ? $user->profile_photo_url
-                                        : asset('img/user.png') }}"
+                                        : asset('img/users/user.png') }}"
                                     alt="{{ $user->name ?? 'profile image' }}"
                                     class="object-cover object-center w-full h-full rounded-[50%] border-4 border-solid border-white shadow-lg"
                                 />

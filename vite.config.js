@@ -13,7 +13,7 @@ export default defineConfig({
         https: true,
         host: true,
         hmr: {
-            host: 'reynolds-blacks-type-fur.trycloudflare.com',
+            host: 'ottawa-dining-miracle-perspectives.trycloudflare.com',
             protocol: 'wss',
         },
     },

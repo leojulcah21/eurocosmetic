@@ -10,7 +10,6 @@ use MercadoPago\Client\Payment\PaymentClient;
 
 class MercadoPagoController extends Controller
 {
-    // Crear preferencia para Bricks
     public function crearPreferencia(Order $order)
     {
         $client = new PreferenceClient();
@@ -35,9 +34,13 @@ class MercadoPagoController extends Controller
         ]);
     }
 
-    // Procesar pago desde Bricks
     public function procesarPago(Request $request)
     {
+        $order = Order::find($request->order_id);
+        if (!$order) {
+            return response()->json(['error' => 'Orden no encontrada'], 404);
+        }
+
         $client = new PaymentClient();
 
         $payment = $client->create([
@@ -45,25 +48,22 @@ class MercadoPagoController extends Controller
             "token" => $request->token,
             "installments" => $request->installments,
             "payment_method_id" => $request->payment_method_id,
-            "payer" => [
-                "email" => $request->email,
-            ],
+            "payer" => ["email" => $request->email],
         ]);
 
-        // Guardar pago en la base de datos
-        $order = Order::find($request->order_id);
+        // Evitar duplicar pagos
+        $paymentMp = PaymentMp::firstOrCreate(
+            ['order_id' => $order->id, 'mp_transaction_id' => $payment->id],
+            [
+                'code' => 'MP-' . strtoupper(uniqid()),
+                'amount' => $payment->transaction_amount,
+                'payment_status' => $payment->status,
+                'payment_method' => $payment->payment_method_id,
+                'payment_date' => now(),
+            ]
+        );
 
-        $paymentMp = PaymentMp::create([
-            'code' => 'MP-' . strtoupper(uniqid()),
-            'order_id' => $order->id,
-            'mp_transaction_id' => $payment->id,
-            'amount' => $payment->transaction_amount,
-            'payment_status' => $payment->status,
-            'payment_method' => $payment->payment_method_id,
-            'payment_date' => now(),
-        ]);
-
-        // Actualizar estado de la orden según pago
+        // Actualizar estado de orden
         if($payment->status === 'approved'){
             $order->current_status = 'approved';
         } elseif($payment->status === 'pending'){
@@ -73,13 +73,18 @@ class MercadoPagoController extends Controller
         }
         $order->save();
 
+        // Registrar historial de estado
+        $order->statusHistory()->create([
+            'status' => $order->current_status,
+            'employee_id' => null,
+        ]);
+
         return response()->json([
             'status' => $payment->status,
             'payment_id' => $paymentMp->id
         ]);
     }
 
-    // Webhook de Mercado Pago
     public function webhook(Request $request)
     {
         $data = $request->all();
@@ -96,7 +101,6 @@ class MercadoPagoController extends Controller
                     $paymentMp->payment_status = $payment->status;
                     $paymentMp->save();
 
-                    // Actualizar orden
                     $order = $paymentMp->order;
                     if($payment->status === 'approved'){
                         $order->current_status = 'approved';
@@ -106,6 +110,12 @@ class MercadoPagoController extends Controller
                         $order->current_status = 'pending';
                     }
                     $order->save();
+
+                    // Registrar historial
+                    $order->statusHistory()->create([
+                        'status' => $order->current_status,
+                        'employee_id' => null,
+                    ]);
                 }
             }
         }

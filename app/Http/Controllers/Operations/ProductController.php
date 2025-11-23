@@ -25,36 +25,57 @@ class ProductController extends Controller
 
     public function indexCart()
     {
-        return view('blog.orders.cart');
+        $cart = session()->get('cart', []);
+        return view('blog.orders.cart', compact('cart'));
     }
-
 
     public function add(Request $request)
     {
-        try {
-            $product = Product::findOrFail($request->product_id);
+        $productId = $request->input('product_id');
+        $cart = session()->get('cart', []);
 
-            // Si quieres, guardas en sesión:
-            $cart = session()->get('cart', []);
-            $cart[$product->id] = [
+        if(isset($cart[$productId])) {
+            $cart[$productId]['quantity']++;
+        } else {
+            $product = Product::find($productId);
+            $cart[$productId] = [
                 'id' => $product->id,
                 'name' => $product->name,
                 'price' => $product->price,
-                'qty' => ($cart[$product->id]['qty'] ?? 0) + 1
+                'quantity' => 1,
             ];
-            session()->put('cart', $cart);
-
-            return response()->json([
-                'message' => 'Producto añadido!',
-                'cart' => $cart
-            ]);
-
-        } catch (\Exception $e) {
-
-            return response()->json([
-                'error' => $e->getMessage()
-            ], 500);
         }
+
+        session()->put('cart', $cart);
+
+        // Contador total
+        $cartCount = array_sum(array_column($cart, 'quantity'));
+        session()->put('cart_count', $cartCount);
+
+        return response()->json([
+            'success' => true,
+            'cart_count' => $cartCount
+        ]);
     }
 
+    public function removeFromCart(Request $request)
+    {
+        $productId = $request->input('product_id');
+        $cart = session()->get('cart', []);
+
+        if(isset($cart[$productId])) {
+            unset($cart[$productId]);
+        }
+
+        session()->put('cart', $cart);
+
+        // Evitar errores si el carrito queda vacío
+        $cartCount = array_sum(array_column($cart, 'quantity') ?: [0]);
+        session()->put('cart_count', $cartCount);
+
+        return response()->json([
+            'success' => true,
+            'cart_count' => $cartCount
+        ]);
+    }
 }

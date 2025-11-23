@@ -95,7 +95,7 @@
         class="w-full max-w-full px-3 mt-6 shrink-0 md:w-4/12 md:flex-[0_0_auto] md:mt-0" x-cloak>
         <div
             class="relative flex flex-col min-w-0 break-words bg-white border-0 shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
-            <img class="w-full rounded-t-2xl" src="{{ asset('img/bg-profile.jpg') }}" alt="profile cover image">
+            <img class="w-full rounded-t-2xl" src="{{ asset('img/backgrounds/profile.jpg') }}" alt="profile cover image">
             <div class="flex flex-wrap justify-center -mx-3">
                 <div class="w-4/12 max-w-full px-3 flex-0 ">
                     @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())

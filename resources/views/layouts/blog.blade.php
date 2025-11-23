@@ -71,11 +71,11 @@
 
     <x-blog.footer class='text-gray-300 transition-all duration-700 ease-in-out bg-stone-950' />
 
-    {{-- <x-chatbot.euro-bot class='bg-red-50' /> --}}
+    <!-- <x-chatbot.euro-bot class='bg-red-50' />
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    {{-- @if(Auth::check())
+    @if(Auth::check())
         <script>console.log("USER OK")</script>
     @else
         <script>console.log("NO LOGUEADO")</script>
@@ -111,35 +111,7 @@
 
 
     <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js"></script>
-    <script src="https://files.bpcontent.cloud/2025/11/19/15/20251119151831-DBYDITLX.js" defer></script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            console.log("💡 Botpress custom script inicializado");
-
-            window.botpress = window.botpress || {};
-
-            let sent = false;
-
-            window.botpress.on('webchat:ready', () => {
-                console.log("💡 webchat:ready recibido");
-
-                if (sent) return;
-                sent = true;
-
-                window.botpress.sendEvent({
-                    type: "custom",
-                    payload: {
-                        type: "user-login",
-                        data: window.currentUser
-                    }
-                });
-
-                console.log("✅ Evento enviado a Botpress");
-            });
-        });
-    </script> --}}
-
+    <script src="https://files.bpcontent.cloud/2025/11/19/15/20251119151831-DBYDITLX.js" defer></script> -->
     @livewireScripts
 </body>
 
