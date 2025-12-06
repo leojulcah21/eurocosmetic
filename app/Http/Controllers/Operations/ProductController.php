@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Operations;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Customer;
 
 class ProductController extends Controller
 {
@@ -14,13 +18,38 @@ class ProductController extends Controller
         return view('company.inventory.products.index', compact('products'));
     }
 
-    public function indexCustomer()
+    public function indexCustomer(Request $request)
     {
         $products = Product::with(['images' => function ($q) {
             $q->where('is_main', true);
         }])->paginate(20);
 
-        return view('welcome', compact('products'));
+        if ($request->query('payment') === 'success') {
+            // Vaciar carrito
+            session()->forget('cart');
+            session()->put('cart_count', 0);
+
+            session()->flash('swal_success', '¡Compra realizada con éxito!');
+        }
+
+        return view('blog.products.index', compact('products'));
+    }
+
+    public function ordersCustomer()
+    {
+        $customer = Customer::where('user_id', Auth::id())->first();
+
+        if (!$customer) {
+            abort(404, 'Cliente no encontrado');
+        }
+
+
+        $orders = Order::with(['items.product', 'statusHistory', 'customer.user'])
+        ->where('customer_id', $customer->id)
+        ->orderBy('order_date', 'desc')
+        ->get();
+
+        return view('blog.orders.index', compact('orders'));
     }
 
     public function indexCart()
@@ -31,30 +60,37 @@ class ProductController extends Controller
 
     public function add(Request $request)
     {
-        $productId = $request->input('product_id');
+        $id = $request->product_id;
+
         $cart = session()->get('cart', []);
 
-        if(isset($cart[$productId])) {
-            $cart[$productId]['quantity']++;
+        if (isset($cart[$id])) {
+            // Ya existe → aumentar cantidad
+            $cart[$id]['quantity'] += 1;
         } else {
-            $product = Product::find($productId);
-            $cart[$productId] = [
+            // Agregar nuevo
+            $product = Product::find($id);
+
+            $cart[$id] = [
                 'id' => $product->id,
                 'name' => $product->name,
                 'price' => $product->price,
-                'quantity' => 1,
+                'category' => $product->category->name ?? '',
+                'short_description' => $product->short_description,
+                'quantity' => 1
             ];
         }
 
         session()->put('cart', $cart);
 
-        // Contador total
-        $cartCount = array_sum(array_column($cart, 'quantity'));
+        // Actualizar contador (suma total de items)
+        $cartCount = collect($cart)->sum('quantity');
         session()->put('cart_count', $cartCount);
 
         return response()->json([
             'success' => true,
-            'cart_count' => $cartCount
+            'cart_count' => $cartCount,
+            'quantity' => $cart[$id]['quantity']
         ]);
     }
 

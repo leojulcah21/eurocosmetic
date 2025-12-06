@@ -40,7 +40,10 @@
             </a>
             @endif
         </div>
-        <x-button variant="gradient" color="dark" shadow='glow' class='w-full'>
+
+        {{-- <div class="h-captcha" data-sitekey="{{ env('HCAPTCHA_SITE_KEY') }}"></div> --}}
+
+        <x-button variant="gradient" color="dark" shadow='glow' class='w-full mt-4'>
             {{ __('Login') }}
         </x-button>
     </div>

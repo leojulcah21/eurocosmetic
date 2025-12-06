@@ -4,11 +4,11 @@
     <div class="container relative max-w-screen-2xl py-1.5 mx-auto">
         <nav id="navmenu" class="flex flex-wrap gap-4">
             <!-- Ejemplo de menú, puedes expandirlo con megamenús y submenús usando Alpine.js -->
-            <x-nav-x-link href="{{ route('home') }}" :active="request()->routeIs('home')">Home</x-nav-x-link>
-            <x-nav-x-link>About</x-nav-x-link>
-            <x-nav-x-link>Category</x-nav-x-link>
-            <x-nav-x-link>Product Details</x-nav-x-link>
-            <x-nav-x-link>Cart</x-nav-x-link>
+            <x-nav-x-link href="{{ route('home') }}" :active="request()->routeIs('home')">{{ __('Home') }}</x-nav-x-link>
+            <x-nav-x-link>¿Quiénes somos?</x-nav-x-link>
+            <x-nav-x-link>Categorías</x-nav-x-link>
+            <x-nav-x-link href="{{ route('products') }}" :active="request()->routeIs('products')">Productos</x-nav-x-link>
+            {{-- <x-nav-x-link>Cart</x-nav-x-link>
             <x-nav-x-link>Checkout</x-nav-x-link>
             <!-- Dropdown ejemplo -->
             <div x-data="{ open: false }" class="relative">
@@ -39,8 +39,8 @@
                         </a>
                     </li>
                 </ul>
-            </div>
-            <x-nav-x-link>Contact</x-nav-x-link>
+            </div> --}}
+            <x-nav-x-link>Contáctanos</x-nav-x-link>
         </nav>
     </div>
 </div>

@@ -10,6 +10,8 @@
 
     <link rel="icon" type="image/png" href="{{ asset('img/icono.png') }}">
 
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
     @include('layouts.partials.fonts')
     @include('layouts.partials.icons')
 

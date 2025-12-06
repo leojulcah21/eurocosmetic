@@ -21,14 +21,14 @@
             </form>
 
             <!-- Actions -->
-            <div class="flex items-center gap-2 text-2xl">
+            <div class="flex items-center gap-2 text-[28px] leading-[34px]">
                 <!-- Mobile Search Toggle -->
                 <button class="block p-2 xl:hidden" type="button">
                     <i class="bi bi-search"></i>
                 </button>
 
                 <!-- Account Dropdown -->
-                <x-dropdown align="left" width="72">
+                <x-dropdown align="rigth" width="72">
                     <x-slot name="trigger">
                         <div class='relative'>
                             <button class="p-2">
@@ -88,7 +88,7 @@
                 <!-- Cart -->
                 <a href="{{ route('cart.index') }}" class="relative p-2">
                     <i class="bi bi-cart3"></i>
-                    <span class="absolute flex items-center justify-center w-5 h-5 text-xs text-white bg-red-600 rounded-full cart-counter -top-2 -right-2">
+                    <span class="absolute flex items-center justify-center w-5 h-5 text-xs leading-[15px] text-white bg-red-600 rounded-full cart-counter top-0.5 -right-0.5">
                         {{ session('cart_count', 0) }}
                     </span>
                 </a>

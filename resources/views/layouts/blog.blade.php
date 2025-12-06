@@ -65,54 +65,84 @@
             </div>
         </div>
     @endif
-    <div class='text-stone-950 bg-[#fdfdfd] py-[60px] px-0 overflow-clip scroll-mt-[90px]'>
-        {{ $slot }}
-    </div>
+
+    {{ $slot }}
 
     <x-blog.footer class='text-gray-300 transition-all duration-700 ease-in-out bg-stone-950' />
 
-    <!-- <x-chatbot.euro-bot class='bg-red-50' />
-
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    @if(Auth::check())
-        <script>console.log("USER OK")</script>
-    @else
-        <script>console.log("NO LOGUEADO")</script>
-    @endif
+    {{--
+        <x-chatbot.euro-bot class='bg-red-50' />
 
-    @php
-        $currentUser = null;
+        @if(Auth::check())
+            <script>console.log("USER OK")</script>
+        @else
+            <script>console.log("NO LOGUEADO")</script>
+        @endif
 
-        if (Auth::check() && Auth::user()->hasRole('Customer')) {
-            $u = Auth::user();
-            $c = $u->customer;
+        @php
+            $currentUser = null;
 
-            $currentUser = [
-                'name' => $u->name,
-                'username' => $u->username,
-                'email' => $u->email,
-                'status' => $u->status,
-                'role' => $u->role->name,
-                'dni' => $c->dni,
-                'phone' => $c->phone,
-                'has_salon' => $c->has_salon,
-                'property_type' => $c->property_type,
-                'business_name' => $c->business_name,
-                'birth_date' => $c->birth_date,
-                'last_purchase_receipts' => $c->last_purchase_receipts,
-            ];
-        }
-    @endphp
+            if (Auth::check() && Auth::user()->hasRole('Customer')) {
+                $u = Auth::user();
+                $c = $u->customer;
 
-    <script>
-        window.currentUser = @json($currentUser);
-    </script>
+                $currentUser = [
+                    'name' => $u->name,
+                    'username' => $u->username,
+                    'email' => $u->email,
+                    'status' => $u->status,
+                    'role' => $u->role->name,
+                    'dni' => $c->dni,
+                    'phone' => $c->phone,
+                    'has_salon' => $c->has_salon,
+                    'property_type' => $c->property_type,
+                    'business_name' => $c->business_name,
+                    'birth_date' => $c->birth_date,
+                    'last_purchase_receipts' => $c->last_purchase_receipts,
+                ];
+            }
+        @endphp
 
+        <script>
+            window.currentUser = @json($currentUser);
+        </script>
 
-    <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js"></script>
-    <script src="https://files.bpcontent.cloud/2025/11/19/15/20251119151831-DBYDITLX.js" defer></script> -->
+        <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js"></script>
+        <script src="https://files.bpcontent.cloud/2025/11/19/15/20251119151831-DBYDITLX.js" defer></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                console.log("💡 Botpress custom script inicializado");
+
+                window.botpress = window.botpress || {};
+
+                let sent = false;
+
+                window.botpress.on('webchat:ready', () => {
+                    console.log("💡 webchat:ready recibido");
+
+                    if (sent) return;
+                    sent = true;
+
+                    window.botpress.sendEvent({
+                        type: "custom",
+                        payload: {
+                            type: "user-login",
+                            data: window.currentUser
+                        }
+                    });
+
+                    console.log("✅ Evento enviado a Botpress");
+                });
+            });
+        </script>
+    --}}
+
     @livewireScripts
 </body>
 
 </html>
+
+

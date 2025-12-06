@@ -6,7 +6,7 @@
     <x-slot name="header">
         {{ __('Account') }}
     </x-slot>
-    <div class='text-stone-950 bg-[#fdfdfd] pb-[60px] px-0 overflow-clip scroll-mt-[90px]'>
+    <div class='text-stone-950 bg-[#fdfdfd] py-[60px] px-0 overflow-clip scroll-mt-[90px]'>
         <div class='container relative py-2 mx-auto max-w-screen-2xl'>
             <div class='grid grid-cols-12 gap-6'>
                 <div class='col-span-3'>
@@ -44,14 +44,14 @@
                         </div>
                         <nav>
                             <ul class="flex flex-col gap-2">
-                                <li>
-                                    <x-nav-y-link href="#orders">
+                                <li class="nav-item">
+                                    <x-nav-y-link href="{{ route('customer.orders') }}" :active="request()->routeIs('customer.orders')">
                                         <i class="bi bi-box-seam me-3"></i>
-                                        <span>My Orders</span>
+                                        <span>Mis órdenes</span>
                                         <span class="hidden">3</span>
                                     </x-nav-y-link>
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <x-nav-y-link href="#wishlist">
                                         <i class="bi bi-heart me-3"></i>
                                         <span>Wishlist</span>
@@ -69,11 +69,11 @@
                                         <i class="bi bi-star me-3"></i>
                                         <span>My Reviews</span>
                                     </x-nav-y-link>
-                                </li>
+                                </li> --}}
                                 <li>
                                     <x-nav-y-link href="#addresses">
                                         <i class="bi bi-geo-alt me-3"></i>
-                                        <span>Addresses</span>
+                                        <span>Mi salón</span>
                                     </x-nav-y-link>
                                 </li>
                                 <li class="nav-item">

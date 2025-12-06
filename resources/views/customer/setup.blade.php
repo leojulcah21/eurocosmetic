@@ -10,27 +10,27 @@
             {{-- Datos personales --}}
             <div class="grid grid-cols-2 gap-4">
                 <div>
-                    <label for='name' class="block text-sm font-medium text-stone-700">Nombre</label>
+                    <x-label for='name' value="{{ __('Name') }}"/>
                     <x-input id='name' type="text" value="{{ $user->name }}" disabled class="mt-[1px]" />
                     <x-input-error for="name" class="mt-2" />
                 </div>
 
                 <div>
-                    <label for='email' class="block text-sm font-medium text-stone-700">Correo</label>
+                    <x-label for='email' value="{{ __('Email') }}"/>
                     <x-input id='email' type="text" value="{{ $user->email }}" disabled
                          class="mt-[1px]" />
                     <x-input-error for="email" class="mt-2" />
                 </div>
 
                 <div>
-                    <label id='dni' class="block text-sm font-medium text-stone-700">DNI</label>
+                    <x-label for='dni' value="{{ __('DNI') }}"/>
                     <x-input id='dni' type="text" name="dni" value="{{ old('dni') }}" required
                          class="mt-[1px]" />
                     <x-input-error for="dni" class="mt-2" />
                 </div>
 
                 <div>
-                    <label for='phone' class="block text-sm font-medium text-stone-700">Teléfono</label>
+                    <x-label for='phone' value="{{ __('Télefono') }}"/>
                     <x-input id='phone' type="text" name="phone" value="{{ old('phone') }}" required
                          class="mt-[1px]" />
                     <x-input-error for="phone" class="mt-2" />
@@ -42,9 +42,7 @@
                             <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                         </svg>
                     </div>
-                    <x-label for="birth_date">
-                        Fecha de nacimiento
-                    </x-label>
+                    <x-label for='birth_date' value="{{ __('Fecha de Nacimiento') }}"/>
                     <x-badge class='px-6 py-0.5 absolute top-0 -right-1' color='yellow' variant='soft' icon="alert-triangle">
                         {{ __('Debes tener al menos 18 años.') }}
                     </x-badge>
@@ -59,9 +57,9 @@
 
             <div class="grid grid-cols-3 gap-4">
                 <div>
-                    <label for='departamento' class="block text-sm font-medium text-stone-700">Departamento</label>
+                    <x-label for='departamento' value="{{ __('Departamento') }}"/>
                     <select name="departamento_id" id="departamento" required
-                        class="w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                        class="w-full px-4 pr-12 py-2 bg-[#f5f5f5] rounded-md border border-solid border-stone-200 text-sm text-[#333] placeholder-[#888] placeholder:font-normal focus:outline-none focus:ring-0 focus:border-stone-200 shadow-sm">
                         <option value="">Seleccione</option>
                         @foreach ($departamentos as $dep)
                             <option value="{{ $dep->id }}">{{ $dep->name }}</option>
@@ -71,18 +69,18 @@
                 </div>
 
                 <div>
-                    <label for='provincia' class="block text-sm font-medium text-stone-700">Provincia</label>
+                    <x-label for='provincia' value="{{ __('Provincia') }}"/>
                     <select name="provincia_id" id="provincia" required
-                        class="w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                        class="w-full px-4 pr-12 py-2 bg-[#f5f5f5] rounded-md border border-solid border-stone-200 text-sm text-[#333] placeholder-[#888] placeholder:font-normal focus:outline-none focus:ring-0 focus:border-stone-200 shadow-sm">
                         <option value="">Seleccione</option>
                     </select>
                     <x-input-error for="provincia" class="mt-2" />
                 </div>
 
                 <div>
-                    <label for='distrito' class="block text-sm font-medium text-stone-700">Distrito</label>
+                    <x-label for='distrito' value="{{ __('Distrito') }}"/>
                     <select name="district_id" id="distrito" required
-                        class="w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                        class="w-full px-4 pr-12 py-2 bg-[#f5f5f5] rounded-md border border-solid border-stone-200 text-sm text-[#333] placeholder-[#888] placeholder:font-normal focus:outline-none focus:ring-0 focus:border-stone-200 shadow-sm">
                         <option value="">Seleccione</option>
                     </select>
                     <x-input-error for="distrito" class="mt-2" />
@@ -90,13 +88,13 @@
             </div>
 
             <div>
-                <label  for='address_detail' class="block text-sm font-medium text-stone-700">Dirección exacta</label>
+                <x-label for='address_detail' value="{{ __('Dirección Exacta') }}"/>
                 <x-input id='address_detail' type="text" name="address_detail" value="{{ old('address_detail') }}" required class="mt-[1px]" />
                 <x-input-error for="address_detail" class="mt-2" />
             </div>
 
             <div>
-                <label for='reference' class="block text-sm font-medium text-stone-700">Referencia</label>
+                <x-label for='reference' value="{{ __('Referencia') }}"/>
                 <x-input id='reference' type="text" name="reference" value="{{ old('reference') }}" class="mt-[1px]" />
                 <x-input-error for="reference" class="mt-2" />
             </div>
@@ -111,7 +109,7 @@
             <div>
                 <x-label for='property_type' value="{{ __('Tipo de propiedad') }}" />
                 <select id='property_type' name="property_type" required
-                    class="w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                    class="w-full px-4 pr-12 py-2 bg-[#f5f5f5] rounded-md border border-solid border-stone-200 text-sm text-[#333] placeholder-[#888] placeholder:font-normal focus:outline-none focus:ring-0 focus:border-stone-200 shadow-sm">
                     <option value="rented" {{ old('property_type') == 'rented' ? 'selected' : '' }}>Alquilado</option>
                     <option value="owned" {{ old('property_type') == 'owned' ? 'selected' : '' }}>Propio</option>
                 </select>

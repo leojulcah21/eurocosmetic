@@ -57,6 +57,12 @@
                 ],
                 'active' => request()->routeIs('company.inventory.index'),
             ],
+            [
+                'name' => 'Órdenes',
+                'icon' => 'inventory',
+                'url' => route('company.seller.customer.orders.index'),
+                'active' => request()->routeIs('company.seller.customer.orders.index'),
+            ],
         ],
     ];
 @endphp

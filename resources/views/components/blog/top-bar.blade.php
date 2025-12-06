@@ -5,9 +5,11 @@
         <div class="flex items-center text-sm">
             <!-- Teléfono (izquierda, oculto en móvil) -->
             <div class="items-center hidden w-1/3 gap-2 lg:flex">
-                <i class="mr-2 bi bi-telephone-fill"></i>
-                <span>Need help? Call us: </span>
-                <a href="tel:+1234567890" class="text-gray-600 hover:underline">+1 (234) 567-890</a>
+                <i class="mr-2 bi bi-whatsapp"></i>
+                <span>¿Tienes dudas? Escríbenos al: </span>
+                <a href="https://wa.me/51975344791?text=Hola,%20tengo%20una%20consulta." target="_blank" class="text-gray-600 hover:underline">
+                    +51 975 344 791
+                </a>
             </div>
             <!-- Slider anuncios (centro) -->
             <div class="flex justify-center w-1/3">
@@ -38,15 +40,20 @@
                         </button>
                     </x-slot>
                     <x-dropdown-link href="#" class="font-semibold">
-                        <span class='mr-2 font-bold text-green-500 '><i class="bi bi-check2"></i></span>English
+                        <span class='mr-2 font-bold text-green-500 '>
+                            <i class="bi bi-check2"></i>
+                        </span>Español
                     </x-dropdown-link>
-                    <x-dropdown-link href="#">{{ __('Spanish') }}</x-dropdown-link>
+                    <x-dropdown-link href="#">
+                        {{ __('Coming Soon') }}
+                    </x-dropdown-link>
                 </x-dropdown>
                 <!-- Dropdown Moneda -->
                 <x-dropdown align="right" width="40">
                     <x-slot name="trigger">
                         <button class="flex items-center gap-2 px-2 py-1 rounded hover:bg-stone-200">
-                            <i class="bi bi-currency-dollar"></i>PEN
+                            <x-icon name="sol" class="w-3.5 h-3.5" />
+                            PEN
                             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path d="M19 9l-7 7-7-7"></path>
                             </svg>

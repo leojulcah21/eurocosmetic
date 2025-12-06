@@ -13,7 +13,7 @@ export default defineConfig({
         https: true,
         host: true,
         hmr: {
-            host: 'ottawa-dining-miracle-perspectives.trycloudflare.com',
+            host: 'asin-oklahoma-opinions-rainbow.trycloudflare.com',
             protocol: 'wss',
         },
     },

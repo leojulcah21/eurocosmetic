@@ -20,12 +20,24 @@
                     <div class="mt-6">
                         <h5 class="mb-3 font-semibold text-white">{{ __('Connect With Us') }}</h5>
                         <div class="flex gap-4 text-xl">
-                            <a href="https://www.facebook.com/Eurocosmetic.Import/" class="hover:text-white" target="_blank"><i class="bi bi-facebook"></i></a>
-                            <a href="https://www.linkedin.com/company/corporaci%C3%B3n-eurocosmetic/?originalSubdomain=pe" class="hover:text-white"><i class="bi bi-linkedin" target="_blank"></i></a>
-                            <a href="#" class="hover:text-white"><i class="bi bi-twitter-x" target="_blank"></i></a>
-                            <a href="#" class="hover:text-white"><i class="bi bi-tiktok" target="_blank"></i></a>
-                            <a href="#" class="hover:text-white"><i class="bi bi-pinterest" target="_blank"></i></a>
-                            <a href="#" class="hover:text-white"><i class="bi bi-youtube" target="_blank"></i></a>
+                            <a href="https://www.facebook.com/Eurocosmetic.Import/" class="hover:text-white" target="_blank">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/corporaci%C3%B3n-eurocosmetic/?originalSubdomain=pe" class="hover:text-white">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                            {{-- <a href="#" class="hover:text-white">
+                                <i class="bi bi-twitter-x"></i>
+                            </a>
+                            <a href="#" class="hover:text-white">
+                                <i class="bi bi-tiktok"></i>
+                            </a>
+                            <a href="#" class="hover:text-white">
+                                <i class="bi bi-pinterest"></i>
+                            </a> --}}
+                            <a href="https://www.youtube.com/@corporacioneurocosmeticper8201" class="hover:text-white"  target="_blank">
+                                <i class="bi bi-youtube"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -34,12 +46,12 @@
                 <div>
                     <h4 class="mb-4 text-lg font-semibold text-white">Tienda</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="text-stone-300 hover:text-white">New Arrivals</a></li>
-                        <li><a href="#" class="hover:text-white">Bestsellers</a></li>
+                        <li><a href="#" class="text-stone-300 hover:text-white">Recién Llegados</a></li>
+                        <li><a href="#" class="hover:text-white">Más Vendido</a></li>
                         <li><a href="#" class="hover:text-white">Tintes</a></li>
                         <li><a href="#" class="hover:text-white">Shampoos</a></li>
                         <li><a href="#" class="hover:text-white">Acondicionadores</a></li>
-                        <li><a href="#" class="hover:text-white">Sale</a></li>
+                        <li><a href="#" class="hover:text-white">Liquidación</a></li>
                     </ul>
                 </div>
 
@@ -50,14 +62,14 @@
                         <li><a href="#" class="hover:text-white">Estado de Orden</a></li>
                         <li><a href="#" class="hover:text-white">Información de Envío</a></li>
                         <li><a href="#" class="hover:text-white">Devoluciones y Cambios</a></li>
-                        <li><a href="#" class="hover:text-white">Size Guide</a></li>
+                        <li><a href="#" class="hover:text-white">Guía de tipos de cabello</a></li>
                         <li><a href="#" class="hover:text-white">Contáctanos</a></li>
                     </ul>
                 </div>
 
                 <!-- Contact -->
                 <div>
-                    <h4 class="mb-4 text-lg font-semibold text-white">Contact Information</h4>
+                    <h4 class="mb-4 text-lg font-semibold text-white">Información de Contacto</h4>
                     <div class="space-y-3 text-sm">
                         <div class="flex items-start gap-2">
                             <i class="text-lg bi bi-geo-alt text-primary-500"></i>
@@ -65,15 +77,19 @@
                         </div>
                         <div class="flex items-center gap-2">
                             <i class="text-lg bi bi-whatsapp text-primary-500"></i>
-                            <span>+51 975 344 791</span>
+                            <a href="https://wa.me/51975344791" target='_blank' class='hover:underline'>+51 975 344 791</a>
                         </div>
                         <div class="flex items-start gap-2">
                             <i class="text-lg bi bi-clock text-primary-500"></i>
-                            <span> {{ __('Monday') }} - {{ __('Friday') }}: 9am-6pm<br>{{ __('Saturday') }}: 9:30am-12:30pm<br>{{ __('Sunday') }}: {{ __('Closed') }}</span>
+                            <span>
+                                <strong> {{ __('Monday') }} - {{ __('Friday') }}: </strong> 9am-6pm <br>
+                                <strong> {{ __('Saturday') }}: </strong> 9:30am-12:30pm <br>
+                                <strong> {{ __('Sunday') }}: </strong> {{ __('Closed') }}
+                            </span>
                         </div>
                     </div>
 
-                    <div class="flex gap-3 mt-6">
+                    {{-- <div class="flex gap-3 mt-6">
                         <a href="#"
                             class="flex items-center gap-2 px-3 py-2 text-sm rounded-lg bg-stone-900 hover:bg-stone-800">
                             <i class="text-xl bi bi-apple"></i>
@@ -84,7 +100,7 @@
                             <i class="text-xl bi bi-google-play"></i>
                             <span>Google Play</span>
                         </a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -125,8 +141,8 @@
                     <div class="flex gap-3">
                         <i class="bi bi-credit-card"></i>
                         <i class="bi bi-paypal"></i>
-                        <i class="bi bi-apple"></i>
-                        <i class="bi bi-google"></i>
+                        <i class="bi bi-wallet2"></i>
+                        <i class="bi bi-bank"></i>
                         <i class="bi bi-shop"></i>
                         <i class="bi bi-cash"></i>
                     </div>

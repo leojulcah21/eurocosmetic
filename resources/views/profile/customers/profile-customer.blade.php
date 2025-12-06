@@ -21,4 +21,4 @@
             @livewire('profile.delete-user-form')
         </div>
     </div>
-</x-guest>
+</x-guest.customers.profile-card>

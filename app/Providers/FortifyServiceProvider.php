@@ -27,6 +27,7 @@ use App\Http\Responses\RegisterResponse;
 use App\Http\Responses\CustomTwoFactorResponse;
 use App\Http\Controllers\Auth\CustomAuthenticatedSessionController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
+use App\Actions\Auth\ValidateHCaptcha;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -80,6 +81,7 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         Fortify::authenticateUsing(function ($request) {
+
             $user = User::where('email', $request->email)->first();
 
             if (! $user) {
@@ -105,8 +107,11 @@ class FortifyServiceProvider extends ServiceProvider
                 return null;
             }
 
+            // app(ValidateHCaptcha::class)();
+
             return $user;
         });
+
 
         $this->app->singleton(LoginResponseContract::class, LoginResponse::class);
         $this->app->singleton(RegisterResponseContract::class, RegisterResponse::class);

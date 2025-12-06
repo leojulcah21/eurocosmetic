@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Operations\OrderController;
 
 // ========================================
 // EMPLEADOS
@@ -13,6 +14,12 @@ Route::middleware(['role:Employee'])->group(function () {
         ->name('seller.')
         ->group(function () {
             Route::get('/dashboard', fn() => 'Panel vendedor')->name('dashboard');
+            Route::prefix('customer/orders')->name('customer.orders.')->group(function () {
+                Route::get('/', [OrderController::class, 'index'])->name('index');
+                Route::get('/show-order-status', [OrderController::class, 'show'])->name('show-order');
+                Route::put('/update', [OrderController::class, 'updateStatus'])->name('update-status');
+                Route::delete('/delete', [OrderController::class, 'index'])->name('delete');
+            });
         });
 
     // Jefe de almacén

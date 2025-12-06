@@ -22,7 +22,6 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input): User
     {
-        // Ensure $input is defined when this method is invoked without parameters
         if (empty($input) || !is_array($input)) {
             $input = request()->all();
         }

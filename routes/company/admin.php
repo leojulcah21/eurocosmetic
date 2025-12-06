@@ -8,6 +8,7 @@ use App\Http\Controllers\Employees\WarehouseManagerController;
 use App\Http\Controllers\Operations\CategoryController;
 use App\Http\Controllers\Operations\WarehouseController;
 use App\Http\Controllers\Operations\ProductController;
+use App\Http\Controllers\Operations\OrderController;
 
 // ========================================
 // ADMIN

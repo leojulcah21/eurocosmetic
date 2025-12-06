@@ -19,7 +19,7 @@ class CustomAuthenticatedSessionController extends AuthenticatedSessionControlle
         $user = Auth::user();
 
         if ($user) {
-            $roleName = $user->role ? $user->role->name : 'Client';
+            $roleName = $user->role ? $user->role->name : 'Customer';
             Log::info("🚪 Guardando rol antes de logout: {$roleName}");
 
             // Guardamos en la sesión, no en el request

@@ -22,8 +22,15 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->trustHosts([
             '127.0.0.1',
             'localhost',
-            'eurocosmetic.loca.lt',
-            '*.eurocosmetic.loca.lt', // essssto es lo importante
+            'asin-oklahoma-opinions-rainbow.trycloudflare.com',
+            '*.asin-oklahoma-opinions-rainbow.trycloudflare.com'
+        ]);
+        $middleware->validateCsrfTokens(except: [
+            'mp-debug',
+            'mp-test',
+            'mp/create',
+            'mp/process',
+            'mp/webhook',
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

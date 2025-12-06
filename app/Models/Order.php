@@ -23,7 +23,7 @@ class Order extends Model
         'customer_id',
         'address_id',
         'order_date',
-        'status',
+        'current_status',
         'total_amount',
         'seller_id',
         'warehouse_manager_id',
@@ -69,6 +69,11 @@ class Order extends Model
     public function paymentMp()
     {
         return $this->hasOne(PaymentMp::class);
+    }
+
+    public function statusHistory()
+    {
+        return $this->hasMany(OrderStatusHistory::class, 'order_id');
     }
 
     // Validation
